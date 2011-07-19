@@ -1,0 +1,26 @@
+\name{export.broad.res}
+\alias{export.broad.res}
+\title{Export a res file for GenePattern.}
+\usage{export.broad.res(data, calls, description, file, missing="", unlog2=TRUE)
+}
+\description{Export a res file for GenePattern.}
+\details{This requires a matrix of data (such as from RMA) and a matrix of calls,
+usually MAS5 calls
+of P/M/A. If you use Affymetrix ST arrays, you can generate DABG calls,
+then use \code{\link[pwbc]{dabg2calls}}}
+\value{creates a res file}
+\author{Mark Cowley, 2009-06-26}
+\seealso{\url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#res}}
+\arguments{\item{data}{matrix of expression levels. If this is log base 2, then it
+will be unlog2ged. If you use any other log base, then unlog2 it yourself}
+\item{calls}{matrix of calls: P/M/A}
+\item{description}{a description for each ProbeSet. If NULL, then rownames
+of data will be used. if it doesn't have names, we assume it is the same
+length and in samre order as nrow(data) if it does have names, then only
+the relevant values will be extracted using the rownames(data) as the
+key.}
+\item{file}{the filename}
+\item{missing}{the value to write if there's any NA values}
+\item{unlog2}{logical: unlog the log-base-2 \code{data}?}
+}
+

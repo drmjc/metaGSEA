@@ -1,0 +1,182 @@
+#!/usr/bin/perl -w
+
+###############################################################################
+# 
+# Convert tab delimited file(s) into a Microsoft Excel (xls) file.
+# This code originally from John McNamara.
+# 	http://search.cpan.org/~jmcnamara/Spreadsheet-WriteExcel/lib/Spreadsheet/WriteExcel.pm
+# 	http://www.koders.com/perl/fid4BF8757D5F59279297DF6A41988B1A5BF4D46047.aspx?s=excel#L5
+# 	http://www.koders.com/perl/fid4BF8757D5F59279297DF6A41988B1A5BF4D46047.aspx?s=excel#L5
+#
+# Usage:
+#	1. tab2xls txtfile1.txt [txtfile2.txt [...]] outfile.xls	creates outfile.xls
+#	2. tab2xls txtfile1.txt										creates txtfile1.xls
+#	3. tab2xls txtfile1.xls										replaces txtfile1.xls
+#	4. for txtfile in *txt; do tab2xls $txtfile; done
+#
+# Usage 1: takes at least one tab delimited txt files, and creates outfile.xls.
+#	if there are > 1 txt files, then each file will become a worksheet within outfile.xls
+# Usage 2: takes just one tab delimited txt file, and creates a file with an xls extension
+# Usage 3: takes just one tab delimited txt file which has the xls file extension(*) and
+#	replaces it with a genuine xls file. (*) you can trick excel into opening tab delimited
+#	files if they end in xls.
+# Usage 4: convert multiple txt files into individual xls files - ie not 1 xls with multiple worksheets
+# 
+# INSTALLATION:
+# 1. install the perl module:
+# su
+# perl -MCPAN -e shell
+# > install Spreadsheet::WriteExcel
+# > Ctrl-D
+# 2. put this file somewhere on your path
+# If it's your 1st time installing perl modules this way you will have to follow the prompts
+# to change various settings, incl the nearest mirror(s). If there's any errors to do with missing
+# packages, then to be safe, I install every package that gets mentioned until there are no
+# more errors. THEN install Spreadsheet::WriteExcel
+#
+# Mark Cowley, 2009-01-20
+#
+# original description from John McNemara at bottom of this src code
+#
+###############################################################################
+
+
+use strict;
+use Spreadsheet::WriteExcel;
+use File::Temp qw/ tempfile mktemp /;
+use File::Copy;
+use File::Basename;
+
+# print "N arguments: $#ARGV.\n";
+if ($#ARGV == -1) {
+	die("Usage: tab2xls tabfile1.txt [tabfile2.txt [...]] newfile.xls\n");
+};
+
+# the last argument should be the xls file name.
+my $out = "";
+my @txtfiles = ();
+
+# If there was only one argument:
+#	if the arguments ends in xls, then perform an inline replacement.
+#	else it will usually end in txt, then create a file ending in xls.
+#
+my $inline = 0;
+if ( $#ARGV == 0 ) { # ie only 1 argument
+	@txtfiles = @ARGV;
+	my $extension = lc(substr($txtfiles[0], -3));
+	print "Input file extension: $extension\n";
+	if( "$extension" eq "xls" ) {
+		# $out = tempfile( "tmpfile.tab2xlsXXXX", UNLINK => 1 );
+		$out = mktemp( "tmpfile.tab2xlsXXXX" );
+		$inline = 1;
+		print "Inline edit: replacing $txtfiles[0], using $out as tmp.\n";
+	}
+	else {
+		$out = $txtfiles[0];
+		$out =~ s/$extension/xls/;
+		print "Converting $txtfiles[0] to $out.\n";
+	}
+}
+else { # else the last arg is the outfile, and first file(s) are the txtfiles.
+	@txtfiles = @ARGV;
+	$out = pop @txtfiles;
+	# my $out = $ARGV[$#ARGV];
+	# my @txtfiles = @ARGV;
+	# pop(@txtfiles); # pop off the last value which should be the outfilename.
+	print "Combining ", scalar(@txtfiles), " files into $out.\n";
+}
+
+
+
+#
+# Create a new Excel workbook
+#
+my $workbook  = Spreadsheet::WriteExcel->new($out);
+
+#
+# define the default cell format
+#
+my $format = $workbook->add_format();
+$format->set_align('center');
+$format->set_font('Verdana');
+#
+# define the default header row format
+#
+my $hdrFmt = $workbook->add_format();
+$hdrFmt->set_align('center');
+$hdrFmt->set_font('Verdana');
+$hdrFmt->set_bold();
+$hdrFmt->set_italic();
+$hdrFmt->set_bottom(3); # dashed lower border
+
+
+#
+# for every txtfile supplied on the command line, make a new worksheet within the workbook
+#
+foreach my $txtfile (@txtfiles) {
+	# Open the tab delimited file
+	open (TABFILE, $txtfile) or die "$txtfile: $!";
+
+	my($sheetName, $tmpdir, $tmpsuffix) = fileparse($txtfile, qr/\.[^.]*/);
+	$sheetName = substr($sheetName, 0, 30);
+	print("Creating worksheet called $sheetName\n");
+	my $worksheet = $workbook->add_worksheet($sheetName);
+	$worksheet->set_column(0,20,15);
+	# $worksheet->set_paper(9); # A4
+	# $worksheet->set_zoom(120);
+	$worksheet->set_header('&C&A'); # centered sheet name
+	$worksheet->set_footer('&C&F'); # centered file name
+	$worksheet->repeat_rows(0); # if you print N pages, it will repeat the first row at the top of every page
+	
+	# Row and column are zero indexed
+	my $row = 0;
+	while (<TABFILE>) {
+		chomp;
+		s/\r//; # this is required to trim the last character in the line
+		# Split on single tab
+		my @Fld = split('\t', $_);
+		# $worksheet->write_row($row, 0, @Fld);
+		my $col = 0;
+		foreach my $token (@Fld) {
+			if( $row == 0 ) {
+				$worksheet->write($row, $col, $token, $hdrFmt);
+			}
+			else {
+				$worksheet->write($row, $col, $token, $format);
+			}
+			$col++;
+		}
+		$row++;
+	}
+	close(TABFILE);
+}
+
+$workbook->close();
+
+if( $inline == 1 ) {
+	move( $out, $txtfiles[0] );
+}
+
+
+
+
+###############################################################################
+# Original description of this code by John McNemara
+#
+# Example of how to use the WriteExcel module
+#
+# The following converts a tab separated file into an Excel file
+#
+# Usage: tab2xls.pl tabfile.txt newfile.xls
+#
+#
+# NOTE: This is only a simple conversion utility for illustrative purposes.
+# For converting a CSV or Tab separated or any other type of delimited
+# text file to Excel I recommend the more rigorous csv2xls program that is
+# part of H.Merijn Brand's Text::CSV_XS module distro.
+#
+# See the examples/csv2xls link here:
+#	 http://search.cpan.org/~hmbrand/Text-CSV_XS/MANIFEST
+#
+# reverse('�'), March 2001, John McNamara, jmcnamara@cpan.org
+###############################################################################

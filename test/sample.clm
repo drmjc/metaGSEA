@@ -1,0 +1,6 @@
+cat a.CEL	sample_cat_a	tumor
+con a.CEL	sample_con_a	tumor
+jar a.CEL	sample_jar_a	tumor
+cat b.CEL	sample_cat_b	normal
+con b.CEL	sample_con_b	normal
+jar b.CEL	sample_jar_b	normal

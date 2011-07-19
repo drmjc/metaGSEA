@@ -1,0 +1,34 @@
+\name{plot.CAT.GSEA.random}
+\alias{plot.CAT.GSEA.random}
+\title{Compare multiple GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
+\usage{plot.CAT.GSEA.random(..., labels=LETTERS, B=100, sizes, sizes.random=sizes, random.col="grey", ylim=c(0, 1), proportion=TRUE, pch=1, legend.pos="bottomright")
+}
+\description{Compare multiple GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
+\details{This function generates a normal X vs Y CAT plot, but then randomises Y, B times to get a permuted distribution
+of overlaps.
+
+Controlling the granularity of the CAT plot with sizes and sizes.random\cr
+\dQuote{sizes} controls the granularity of the CAT plot. 
+If sizes=\code{NULL}, then sizes = 1,2,3,4,\dots,N, where N is the
+total number of genesets. This gives a very detailed CAT plot, but if this is too slow, 
+try setting \code{sizes=seq(0,N,5)}.
+Same goes for sizes.random, but since there are B randomisations, this setting has more of an impact
+upon the speed of this code. typically with just ~1400 genesets, it's fast enough to calculate on all
+values from 1 to N, however: \code{sizes=seq(0,N,5)}, or  \code{sizes=seq(0,N,10)} will be much quicker.}
+\seealso{\code{\link{plot.CAT.vs.random}}, \code{\link{plot.CAT.GSEA}}}
+\author{Mark Cowley}
+\arguments{\item{\dots}{at least 2 GSEA objects}
+\item{labels}{the name of of each GSEA run. must be same length as \dots, or
+gsea.list.}
+\item{B}{the number of permutations. default=100}
+\item{sizes}{Controls the granularity of the CAT plot. see details}
+\item{sizes.random}{Controls the granulatity of the randomised CAT plot. Since this gets done B times,
+this setting can really impact the speed of this function. See details.}
+\item{random.col}{the fill colour for the random background}
+\item{ylim}{see \code{\link{par}}}
+\item{proportion}{if \code{TRUE}, x-axis is proportion of all genesets, if \code{FALSE}
+(default), the number of genesets is plotted.}
+\item{pch}{the print character. see \code{\link{par}}}
+\item{legend.pos}{the legend position. see \code{\link{legend}}}
+}
+

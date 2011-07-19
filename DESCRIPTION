@@ -1,0 +1,31 @@
+Package: metaGSEA
+Type: Package
+Title: Meta-analysis of GSEA analyses, including intra- and inter-experiment comparisons
+Version: 1.0
+Date: 2011-07-19
+Author: Mark Cowley
+Maintainer: Mark Cowley <m.cowley@garvan.org.au>
+Description: A collection of R and bash code to simplify the down-stream analysis of GSEA results. Efficient methods for importing and storing
+    GSEA outputs, comparing genesets within a single GSEA run, and comparing genesets between different GSEA runs. Useful visualisation is the
+    key strength of this package, utilising GSEA bar plots, correspondence at the top (CAT) plots, and hierarchical clustering plots of geneset
+    similarities. Also the ability to clean up GSEA output on unix-alike systems, by improving the GSEA pre-ranked output, and the gene tables
+    in each GSEA report by including the gene symbol, description and hyperlinks to Entrez Gene.
+License: GPL2
+LazyLoad: yes
+Depends: R (>= 2.8.0), pwbc, stats, XML, roxygen
+Suggests: qvalue, GenePattern, limma, gplots, gtools, MADAM
+Collate: 'chip2description.R' 'collapse.gct.R' 'collapse.gct2genesets.R' 'convert.apt2gct.R' 'convert.gct2submap.R' 'convert.gsea.res2gct.R'
+    'dist.gsea.R' 'export.broad.cls.R' 'export.broad.res.R' 'export.gsea.cdt.R' 'export.gsea.chip.R' 'export.gsea.edb.R' 'export.gsea.gct.R'
+    'export.gsea.gct.topTable.R' 'export.gsea.gmt.R' 'export.gsea.leadingedge.analysis.R' 'export.gsea.odf.lmFit.R' 'export.gsea.odf.R'
+    'export.gsea.R' 'export.gsea.rnk.R' 'export.gsea.rnk.RankProd.R' 'export.gsea.rnk.topTable.R' 'export.gsea.rpt.R' 'fisherMethod.GSEAlist.R'
+    'genepattern.HeatMapImage.R' 'gsea.combine.R' 'gsea.compare.runs.filter.R' 'gsea.compare.runs.R' 'gsea.compare.runs.sort.R'
+    'gsea.convert.clm2cls.R' 'gsea.filter.R' 'gsea.fix.output.R' 'gsea.gct.probes2genes.R' 'gsea.gct.select.feature.columns.R'
+    'gsea.gct.select.features.rows.R' 'gsea.genesets2gct.R' 'gsea.hardwire.rpt.paths.R' 'gsea.length.R' 'gsea.merge.dirs.R' 'gsea.merge.R'
+    'gsea.merge.tt.R' 'gsea.rename.genesets.R' 'gsea.reorder.gmt.by.rnk.R' 'gsea.split.R' 'gsea.summarise.R' 'gsea.which.gmt.R'
+    'GSEAhyperGTest.R' 'gsealist.find.genesets.R' 'gsealist2adjmat.R' 'gsealist2genesetlist.R' 'import.gsea.chip.R' 'import.gsea.clm.R'
+    'import.gsea.cls.R' 'import.gsea.compare.runs.R' 'import.gsea.edb.R' 'import.gsea.gct.R' 'import.gsea.gmt.R' 'import.gsea.leadingedge.R'
+    'import.gsea.R' 'import.gsea.res.R' 'import.gsea.rnk.R' 'import.gsea.rpt.R' 'import.gsea.topTable.R' 'is.gsea.dir.R' 'is.gsea.R'
+    'is.gsea.res.R' 'is.int.R' 'jacquard.R' 'list2df.R' 'metaGSEA-internal.R' 'metaGSEA-package.R' 'plclust_in_colour.R' 'plclust.gsea.R'
+    'plot.CAT.GSEA.R' 'plot.gsea.leadingedge.adjmat.R' 'plot.gsea.leadingedge.barplot.R' 'plot.gsea.leadingedge.HCL.auto.R'
+    'plot.gsea.leadingedge.HCL.R' 'plot.gsea.leadingedge.heatmap.R' 'plot.gsea.leadingedge.R' 'plot.gsea.res.R' 'plot.gsea.venn.R'
+    'plot.gseacmp.barplot.R' 'qplot.data.R' 'reorder.gct.R' 'test.broad.ftp.R' 'unique.counts.R'

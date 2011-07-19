@@ -1,0 +1,19 @@
+\name{gsea.merge.tt}
+\alias{gsea.merge.tt}
+\title{Merge N GSEA toptables, retaining a column of interest (eg NOM...}
+\usage{gsea.merge.tt(..., keep="NES", method=c("intersect", "union")[1])
+}
+\description{Merge N GSEA toptables, retaining a column of interest (eg NOM.p.val, or
+FDR...)}
+\author{Mark Cowley}
+\arguments{\item{\dots}{a single gsea.list object, a list of gsea toptables, or
+individually named GSEA toptables.}
+\item{keep}{which column to keep: \dQuote{NAME}, \dQuote{SIZE}, \dQuote{RANK}, \dQuote{DIRECTION},
+\dQuote{ENRICHED.PHENOTYPE}, \dQuote{ES}, \dQuote{NES}, \dQuote{NOM.p.val}, \dQuote{FDR.q.val}, \dQuote{FWER.p.val},
+\dQuote{RANK.AT.MAX}, \dQuote{LEADING.EDGE}, \dQuote{LEADING.EDGE.SIZE}}
+\item{method}{which genesets to keep if there are differences across runs
+\dQuote{intersect} - just the genesets found in all GSEA runs; \dQuote{union} - all the
+genesets found in any GSEA run. \code{NA}'s will be used for those genesets that
+were not observed.}
+}
+

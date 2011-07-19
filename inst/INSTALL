@@ -1,0 +1,5 @@
+metaGSEA has been developed on MAC OSX 10.6 (snow-leopard), but has also been tested on solaris and linux.
+If you intend to import the edb files within the GSEA results, then the XML library is required, which has the libxml2 dependency.
+In all cases to date, a simple R CMD INSTALL metaGSEA_X.X.tar.gz should suffice.
+
+Mark Cowley, 2011-07-19
