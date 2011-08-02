@@ -1,7 +1,8 @@
 \name{reorder.gct.file}
 \alias{reorder.gct.file}
 \title{Reorder the rows of a GCT file.}
-\usage{reorder.gct.file(gct.file, gct.file.out, method=c("var", "mean", "median", "sum"), reverse=FALSE)
+\usage{reorder.gct.file(gct.file, gct.file.out, method=c("var", "mean", "median", "sum"),
+    reverse=FALSE)
 }
 \description{Reorder the rows of a GCT file.}
 \details{Details: see reorder.gct}

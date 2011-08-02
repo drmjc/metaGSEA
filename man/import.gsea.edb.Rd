@@ -16,6 +16,16 @@ is proportional to the number of permutations.
 The edb file is quite simple XML, utilising one node per geneset, and lots
 of attributes but not sub-terms for each geneset. We use the \code{XML} package,
 originally from Duncan Temple Lang.}
+\note{Here's some code I found useful in deciphering the XML document: 
+\code{ 
+edb.file <- "T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710/edb/results.edb"
+doc <- xmlTreeParse(edb.file)
+r <- xmlRoot(doc) xmlAttrs(r) xmlSize(r) xmlSize(r[[1]])
+str(xmlAttrs(r[[1]])) xmlAttrs(r[[1]])[3]
+# modify the attributes... 
+a <- xmlAttrs(r[[1]]) a[3] <- p(a[3], "_MJC")
+n <- xmlNode("DTG", attrs=a) r[[1]] <- n 
+}}
 \value{The edb file in the form of an XMLDocument. See \code{\link[XML]{xmlTreeParse}},
 This object appears to be immutable.}
 \author{Mark Cowley, 2009-10-12}

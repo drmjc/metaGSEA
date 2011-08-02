@@ -9,6 +9,7 @@ this function creates a plot
 which represents the similarity/dis-similarity between genesets with
 colours. The colour is based on the
 \code{Jacquard}. see \code{\link{dist.gsea}}}
+\note{Recommend saving to file using pdf(..., width=12, height=12)}
 \value{nothing. generates a plot.}
 \author{Mark Cowley, 2009-10-29}
 \arguments{\item{x}{a GSEA object}

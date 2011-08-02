@@ -1,7 +1,8 @@
 \name{plot.gsea.leadingedge.HCL.1clusterPerPage}
 \alias{plot.gsea.leadingedge.HCL.1clusterPerPage}
 \title{Take a GSEA object, do an HCL between the leading edge genes, cut the HCL,...}
-\usage{plot.gsea.leadingedge.HCL.1clusterPerPage(x, main="Leading edge similarities", xlab="", hclust.method="complete", h=0.99, ...)
+\usage{plot.gsea.leadingedge.HCL.1clusterPerPage(x, main="Leading edge similarities", xlab="", hclust.method="complete",
+    h=0.99, ...)
 }
 \description{Take a GSEA object, do an HCL between the leading edge genes, cut the HCL, 
 then plot 1 HCL per page of a PDF.}

@@ -10,7 +10,7 @@
 #' @param file  the path to a valid cls file.
 #' @param as.factor logical: return a character, or factor?
 #' @param enforce.zero.start logical: check that the lowest class is 0. See details.
-#' @value if cls file is continuous, either a character vector, or factor, one element per sample,
+#' @return if cls file is continuous, either a character vector, or factor, one element per sample,
 #' of if continuous, a numeric is returned.
 #' @author Mark Cowley, 2009-11-26
 #' @seealso \code{\link{import.gsea.gct}} \code{\link{import.gsea.clm}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#cls}

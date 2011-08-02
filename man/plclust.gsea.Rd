@@ -1,7 +1,9 @@
 \name{plclust.gsea}
 \alias{plclust.gsea}
 \title{Plot an hclust object, that has been made from GSEA genesets.}
-\usage{plclust.gsea(hc, main="Leading edge similarities", xlab="", sub, yaxis=c("similarity", "distance"), lab.col="black", hang=0.03, cex, cex.main=1, ...)
+\usage{plclust.gsea(hc, main="Leading edge similarities", xlab="", sub,
+    yaxis=c("similarity", "distance"), lab.col="black", hang=0.03, cex,
+    cex.main=1, ...)
 }
 \description{Plot an hclust object, that has been made from GSEA genesets.}
 \value{none. creates a plot}

@@ -1,7 +1,8 @@
 \name{plot.gsea.leadingedge.HCL.simple}
 \alias{plot.gsea.leadingedge.HCL.simple}
 \title{Take a GSEA object and calculate an HCL between the leading edge genes.}
-\usage{plot.gsea.leadingedge.HCL.simple(x, main="Leading edge similarities", xlab="", hclust.method="complete", ...)
+\usage{plot.gsea.leadingedge.HCL.simple(x, main="Leading edge similarities", xlab="", hclust.method="complete",
+    ...)
 }
 \description{Take a GSEA object and calculate an HCL between the leading edge genes.
 Don't worry about the fancy geneset renaming that plot.gsea.leadingedge.HCL

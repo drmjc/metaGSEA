@@ -6,7 +6,7 @@
 #' @author Mark Cowley, 2009-12-07
 #' @seealso \code{\link{import.gsea.gct}} \code{\link{import.gsea.cls}} 
 #' \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#clm}
-#' @value a \code{data.frame} with 3 columns: \sQuote{CEL}, \sQuote{Sample}, \sQuote{Class}
+#' @return a \code{data.frame} with 3 columns: \sQuote{CEL}, \sQuote{Sample}, \sQuote{Class}
 #' @export
 import.gsea.clm <- function(f) {
 	suppressWarnings(

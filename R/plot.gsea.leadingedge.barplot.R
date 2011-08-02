@@ -68,7 +68,7 @@ plot.gsea.leadingedge.barplot <- function(x, min.count=0,
 
 
 #' Function to automatically plot barplot's of filtered GSEA data.
-#' @notes Usually, I filter by up or down, by top 50, and by FDR<0.25. This generates 4 plots
+#' @note Usually, I filter by up or down, by top 50, and by FDR<0.25. This generates 4 plots
 #' @param x a GSEA list
 #' @param file the path to an output PDF file. if \code{NULL}, then plots are printed to current device.
 #' @param N if not \code{NULL}, then choose the top N most significant genesets

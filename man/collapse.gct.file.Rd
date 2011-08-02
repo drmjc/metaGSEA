@@ -1,7 +1,8 @@
 \name{collapse.gct.file}
 \alias{collapse.gct.file}
 \title{Collapse a GCT file...}
-\usage{collapse.gct.file(gct.file, chip.file, gct.outfile, rnk.file, method=c("var", "mean", "median"), reverse=FALSE, filter=FALSE)
+\usage{collapse.gct.file(gct.file, chip.file, gct.outfile, rnk.file, method=c("var", "mean",
+    "median"), reverse=FALSE, filter=FALSE)
 }
 \description{Collapse a GCT file}
 \details{It's common for microarrays to have multiple probes per gene. They tend to

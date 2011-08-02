@@ -4,7 +4,7 @@
 #' recommend you look at the documentation for odf files (see below), and to see it
 #' in action, see \code{\link{export.gsea.odf.lmFit}}.
 #' 
-#' @notes header lines.\cr
+#' @note header lines.\cr
 #' the header lines should not contain "ODF 1.0", "HeaderLines=X", though the code 
 #' ignore them.
 #' The only required field that you should consider providing is the

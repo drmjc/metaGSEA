@@ -1,9 +1,13 @@
 \name{genepattern.HeatMapImage}
 \alias{genepattern.HeatMapImage}
 \title{From a GCT file, create a HeatMap Image, using the jar from Broad's GenePattern.}
-\usage{genepattern.HeatMapImage(in.file, out.file, method=c("local", "server"), gp.connection, format="png", row.size=16, column.size=16, show.grid="yes", grid.color="0:0:0",
-    show.row.descriptions="yes", show.row.names="yes", rows.to.highlight="", row.highlight.color="255:0:0", color.scheme="row normalized",
-    color.palette="", use.color.gradient="no", memory="-Xmx512m", verbose=FALSE, overwrite=FALSE)
+\usage{genepattern.HeatMapImage(in.file, out.file, method=c("local", "server"), gp.connection,
+    format="png", row.size=16, column.size=16, show.grid="yes",
+    grid.color="0:0:0", show.row.descriptions="yes",
+    show.row.names="yes", rows.to.highlight="",
+    row.highlight.color="255:0:0", color.scheme="row normalized",
+    color.palette="", use.color.gradient="no", memory="-Xmx512m",
+    verbose=FALSE, overwrite=FALSE)
 }
 \description{From a GCT file, create a HeatMap Image, using the jar from Broad's GenePattern.
 The Broad's HeatMapViewer tool generates nice looking, customisable heatmaps,

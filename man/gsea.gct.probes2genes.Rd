@@ -1,7 +1,8 @@
 \name{gsea.gct.probes2genes}
 \alias{gsea.gct.probes2genes}
 \title{Take a table of expression data (at the probe-level), and convert it to a...}
-\usage{gsea.gct.probes2genes(data, stats, chip, mode=c("Best_probe", "Max_probe", "Median_of_probes"))
+\usage{gsea.gct.probes2genes(data, stats, chip, mode=c("Best_probe", "Max_probe",
+    "Median_of_probes"))
 }
 \description{Take a table of expression data (at the probe-level), and convert it to a
 table of expression data at the unique gene-symbol-level. This chooses the

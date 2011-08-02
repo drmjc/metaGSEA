@@ -1,7 +1,9 @@
 \name{convert.gct2submap}
 \alias{convert.gct2submap}
 \title{Prepare data for use in SubMap.}
-\usage{convert.gct2submap(gct.file, cls.file, chip.file, gct.out, cls.out, collapse.mode=c("max.avg", "mean", "median", "max.cv"), cv.thresh, topN.thresh)
+\usage{convert.gct2submap(gct.file, cls.file, chip.file, gct.out, cls.out,
+    collapse.mode=c("max.avg", "mean", "median", "max.cv"), cv.thresh,
+    topN.thresh)
 }
 \description{Prepare data for use in SubMap.}
 \details{Converts a gct file and cls file so that:

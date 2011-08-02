@@ -13,7 +13,7 @@
 #' of attributes but not sub-terms for each geneset. We use the \code{XML} package,
 #' originally from Duncan Temple Lang.
 #' 
-#' @notes
+#' @note
 #' Here's some code I found useful in deciphering the XML document: 
 #' \code{ 
 #' edb.file <- "T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710/edb/results.edb"

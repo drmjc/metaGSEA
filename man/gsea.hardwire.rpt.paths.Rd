@@ -1,7 +1,8 @@
 \name{gsea.hardwire.rpt.paths}
 \alias{gsea.hardwire.rpt.paths}
 \title{Rewire the file locations referenced within a GSEA rpt file.}
-\usage{gsea.hardwire.rpt.paths(dir, chip.dir="/pwbc/data/GSEA/chips", gmx.dir="/pwbc/data/GSEA/gmt/v2.5")
+\usage{gsea.hardwire.rpt.paths(dir, chip.dir="/pwbc/data/GSEA/chips",
+    gmx.dir="/pwbc/data/GSEA/gmt/v2.5")
 }
 \description{Rewire the file locations referenced within a GSEA rpt file.}
 \details{Why? If you run a GSEA on a GenePattern server, you can end up with files

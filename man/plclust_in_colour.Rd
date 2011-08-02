@@ -1,7 +1,8 @@
 \name{plclust_in_colour}
 \alias{plclust_in_colour}
 \title{modifiction of plclust for plotting hclust objects *in colour*!...}
-\usage{plclust_in_colour(hclust, lab=hclust$labels, lab.col=rep(1, length(hclust$labels)), hang=0.1, ...)
+\usage{plclust_in_colour(hclust, lab=hclust$labels, lab.col=rep(1, length(hclust$labels)),
+    hang=0.1, ...)
 }
 \description{modifiction of plclust for plotting hclust objects *in colour*!}
 \value{none. Generates A display of hierarchical cluster with coloured leaf labels.}

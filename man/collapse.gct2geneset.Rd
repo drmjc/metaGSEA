@@ -1,7 +1,8 @@
 \name{collapse.gct2geneset}
 \alias{collapse.gct2geneset}
 \title{Collapse a GCT file from 1 row per gene to 1 row per geneset.}
-\usage{collapse.gct2geneset(gct.file, gmt.file, method=c("mean", "median", "min", "max", "sum"), min.size=1, max.size=1e+05, gct.out)
+\usage{collapse.gct2geneset(gct.file, gmt.file, method=c("mean", "median", "min", "max", "sum"),
+    min.size=1, max.size=1e+05, gct.out)
 }
 \description{Collapse a GCT file from 1 row per gene to 1 row per geneset.}
 \details{This function collapses gene data to geneset data.

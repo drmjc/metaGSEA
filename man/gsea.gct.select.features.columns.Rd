@@ -1,7 +1,8 @@
 \name{gsea.gct.select.features.columns}
 \alias{gsea.gct.select.features.columns}
 \title{Restrict the number of columns in a gct & cls file.}
-\usage{gsea.gct.select.features.columns(gct.file, cls.file, gct.out, cls.out, columns, classes, cls.start.value=0)
+\usage{gsea.gct.select.features.columns(gct.file, cls.file, gct.out, cls.out, columns, classes,
+    cls.start.value=0)
 }
 \description{Restrict the number of columns in a gct & cls file.}
 \details{You can do this either by indexing the columns ([1:n]), or by specifying the

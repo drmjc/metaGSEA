@@ -1,7 +1,8 @@
 \name{gsea.fix.output}
 \alias{gsea.fix.output}
 \title{Fix the output from a GSEA run.}
-\usage{gsea.fix.output(dir, genes.gct, fix.index=TRUE, fix.posneg=TRUE, fix.reports=TRUE, debug=FALSE, overwrite.heatmap.images=FALSE, verbose=FALSE)
+\usage{gsea.fix.output(dir, genes.gct, fix.index=TRUE, fix.posneg=TRUE, fix.reports=TRUE,
+    debug=FALSE, overwrite.heatmap.images=FALSE, verbose=FALSE)
 }
 \description{Fix the output from a GSEA run.
 GSEA and GseaPreRanked both produce rich HTML reports with hyperlinks to 

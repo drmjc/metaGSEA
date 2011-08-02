@@ -1,7 +1,8 @@
 \name{export.gsea.rnk.topTable}
 \alias{export.gsea.rnk.topTable}
 \title{Export a limma topTable to a GSEA pre-ranked list.}
-\usage{export.gsea.rnk.topTable(tt, file, values=c("t", "logFC", "P.Value"), probe2gene, convert2symbol=FALSE, verbose=TRUE)
+\usage{export.gsea.rnk.topTable(tt, file, values=c("t", "logFC", "P.Value"), probe2gene,
+    convert2symbol=FALSE, verbose=TRUE)
 }
 \description{Export a limma topTable to a GSEA pre-ranked list.
 The 'rnk' file contains a column of ID's, and a column of sorted values, and

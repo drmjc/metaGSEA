@@ -1,7 +1,9 @@
 \name{plot.CAT.GSEA.random}
 \alias{plot.CAT.GSEA.random}
 \title{Compare multiple GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
-\usage{plot.CAT.GSEA.random(..., labels=LETTERS, B=100, sizes, sizes.random=sizes, random.col="grey", ylim=c(0, 1), proportion=TRUE, pch=1, legend.pos="bottomright")
+\usage{plot.CAT.GSEA.random(..., labels=LETTERS, B=100, sizes, sizes.random=sizes,
+    random.col="grey", ylim=c(0, 1), proportion=TRUE, pch=1,
+    legend.pos="bottomright")
 }
 \description{Compare multiple GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
 \details{This function generates a normal X vs Y CAT plot, but then randomises Y, B times to get a permuted distribution

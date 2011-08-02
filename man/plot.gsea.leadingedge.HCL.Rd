@@ -1,8 +1,11 @@
 \name{plot.gsea.leadingedge.HCL}
 \alias{plot.gsea.leadingedge.HCL}
 \title{GSEA Leading Edge HCL plot.}
-\usage{plot.gsea.leadingedge.HCL(x, N, NES, FDR, P, FWER, direction=c("either", "up", "down"), main="Leading edge similarities", xlab="", yaxis=c("similarity", "distance"),
-    max.distance=1, rename.genesets=FALSE, label.clusters=FALSE, cluster.threshold=0.99, hclust.method="complete", ...)
+\usage{plot.gsea.leadingedge.HCL(x, N, NES, FDR, P, FWER, direction=c("either", "up", "down"),
+    main="Leading edge similarities", xlab="", yaxis=c("similarity",
+    "distance"), max.distance=1, rename.genesets=FALSE,
+    label.clusters=FALSE, cluster.threshold=0.99,
+    hclust.method="complete", ...)
 }
 \description{GSEA Leading Edge HCL plot.}
 \details{This function compares genesets in terms of the overlap of the leading edge

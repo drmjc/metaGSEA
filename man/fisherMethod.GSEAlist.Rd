@@ -1,7 +1,8 @@
 \name{fisherMethod.GSEAlist}
 \alias{fisherMethod.GSEAlist}
 \title{Apply Fisher's method to a GSEA list...}
-\usage{fisherMethod.GSEAlist(gsea.list, values=c("NOM.p.val", "FDR.q.val"), direction=c("either", "same"))
+\usage{fisherMethod.GSEAlist(gsea.list, values=c("NOM.p.val", "FDR.q.val"), direction=c("either",
+    "same"))
 }
 \description{Apply Fisher's method to a GSEA list}
 \details{Fisher's method is a form of meta-analysis, where a single p-value is

@@ -1,7 +1,9 @@
 \name{plot.CAT.GSEA}
 \alias{plot.CAT.GSEA}
 \title{Function to generate CAT plots for >= 2 GSEA comparisons...}
-\usage{plot.CAT.GSEA(..., gsea.list, labels=LETTERS, legend.pos="bottomright", proportion=FALSE, FDRthresh=1.01, main="", method=c("1-vs-all", "all-pairs"))
+\usage{plot.CAT.GSEA(..., gsea.list, labels=LETTERS, legend.pos="bottomright",
+    proportion=FALSE, FDRthresh=1.01, main="", method=c("1-vs-all",
+    "all-pairs"))
 }
 \description{Function to generate CAT plots for >= 2 GSEA comparisons}
 \details{This function expects all GSEA runs to be generated vs the \emph{same} gmt file,

@@ -1,7 +1,8 @@
 \name{export.gsea.odf.lmFit}
 \alias{export.gsea.odf.lmFit}
 \title{Export a limma lmFit to a GSEA ODF file.}
-\usage{export.gsea.odf.lmFit(fit1, fit2, coef=1, file, gct.file, cls.file, description, collapse=FALSE, probe2gene)
+\usage{export.gsea.odf.lmFit(fit1, fit2, coef=1, file, gct.file, cls.file, description,
+    collapse=FALSE, probe2gene)
 }
 \description{Export a limma lmFit to a GSEA ODF file.
 From two linear model files (see details), the coefficient of interest, export an

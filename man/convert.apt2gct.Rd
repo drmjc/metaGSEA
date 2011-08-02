@@ -1,11 +1,15 @@
 \name{convert.apt2gct}
 \alias{convert.apt2gct}
 \title{script to convert RMA & DABG objects into gct & res files, for all...}
-\usage{convert.apt2gct(rma.apt.file="./normalised/rma.summary.txt", dabg.apt.file="./normalised/dabg.summary.txt", clm.file,
+\usage{convert.apt2gct(rma.apt.file="./normalised/rma.summary.txt",
+    dabg.apt.file="./normalised/dabg.summary.txt", clm.file,
     chip.file=c("/pwbc/private/data/GSEA/chips/HuGene_1_0_st_v1.na30.hg19.chip",
-    "/pwbc/private/data/GSEA/chips/MoGene_1_0_st_v1.na30.1.mm9.chip", "/pwbc/private/data/GSEA/chips/RaGene_1_0_st_v1.na30.1.rn4.chip")[1],
-    out.dir=ifelse(file.exists(clm.file), dirname(clm.file), ""), create.gct=TRUE, create.res=TRUE, create.cls=TRUE, keep.controls=FALSE,
-    all.genes=TRUE, expressed.genes=TRUE, detection.threshold=1e-05)
+    "/pwbc/private/data/GSEA/chips/MoGene_1_0_st_v1.na30.1.mm9.chip",
+    "/pwbc/private/data/GSEA/chips/RaGene_1_0_st_v1.na30.1.rn4.chip")[1],
+    out.dir=ifelse(file.exists(clm.file), dirname(clm.file), ""),
+    create.gct=TRUE, create.res=TRUE, create.cls=TRUE,
+    keep.controls=FALSE, all.genes=TRUE, expressed.genes=TRUE,
+    detection.threshold=1e-05)
 }
 \description{script to convert RMA & DABG objects into gct & res files, for all
 non-control probes, and those expressed probes with Pcount>0}

@@ -7,6 +7,12 @@
 \details{ODF files are tab delimited documents with fairly extensive header lines. Strongly
 recommend you look at the documentation for odf files (see below), and to see it
 in action, see \code{\link{export.gsea.odf.lmFit}}.}
+\note{header lines.\cr
+the header lines should not contain "ODF 1.0", "HeaderLines=X", though the code 
+ignore them.
+The only required field that you should consider providing is the
+\dQuote{Model=DataSet}.
+The \dQuote{DataLines=XYZ} header line is determined automatically.}
 \value{none. writes a file}
 \author{Mark Cowley, 2009-11-30}
 \seealso{\code{\link{export.gsea.odf.lmFit}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#odf}}

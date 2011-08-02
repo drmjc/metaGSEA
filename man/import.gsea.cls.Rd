@@ -10,6 +10,8 @@ both can be handled by this code.
 The cls file spec says for catgegorical cls files, values should start from 0. 
 However some tools (eg SubMap) require them to start from 1. \code{enforce.zero.start} 
 allows control over these situations.}
+\value{if cls file is continuous, either a character vector, or factor, one element per sample,
+of if continuous, a numeric is returned.}
 \author{Mark Cowley, 2009-11-26}
 \seealso{\code{\link{import.gsea.gct}} \code{\link{import.gsea.clm}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#cls}}
 \arguments{\item{file}{the path to a valid cls file.}

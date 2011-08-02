@@ -1,7 +1,8 @@
 \name{print.gsea.venn}
 \alias{print.gsea.venn}
 \title{Print a Venn diagram of overlaps between genesets from >= 2 GSEA runs...}
-\usage{print.gsea.venn(..., gsea.list, names, N, NES, FDR, P, FWER, direction=c("either", "up", "down"))
+\usage{print.gsea.venn(..., gsea.list, names, N, NES, FDR, P, FWER, direction=c("either",
+    "up", "down"))
 }
 \description{Print a Venn diagram of overlaps between genesets from >= 2 GSEA runs}
 \value{none. prints a venn diagram}

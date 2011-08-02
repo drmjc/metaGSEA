@@ -1,7 +1,8 @@
 \name{gsea.compare.runs.filter}
 \alias{gsea.compare.runs.filter}
 \title{Function to filter a set of GSEA run comparisons, and/or to re-order the...}
-\usage{gsea.compare.runs.filter(x, fdr, mode=c("any", "all")[1], sort.by=c("none", "avgabs", "range", "deltaAB", 1))
+\usage{gsea.compare.runs.filter(x, fdr, mode=c("any", "all")[1], sort.by=c("none", "avgabs", "range",
+    "deltaAB", 1))
 }
 \description{Function to filter a set of GSEA run comparisons, and/or to re-order the
 rows.}

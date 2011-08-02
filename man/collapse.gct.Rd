@@ -1,7 +1,8 @@
 \name{collapse.gct}
 \alias{collapse.gct}
 \title{Collapse a GCT object...}
-\usage{collapse.gct(gct, chip, rnk, method=c("var", "mean", "median"), reverse=FALSE, filter=FALSE)
+\usage{collapse.gct(gct, chip, rnk, method=c("var", "mean", "median"), reverse=FALSE,
+    filter=FALSE)
 }
 \description{Collapse a GCT object}
 \details{It's common for microarrays to have multiple probes per gene. They tend to

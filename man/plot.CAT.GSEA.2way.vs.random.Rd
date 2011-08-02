@@ -1,7 +1,8 @@
 \name{plot.CAT.GSEA.2way.vs.random}
 \alias{plot.CAT.GSEA.2way.vs.random}
 \title{Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
-\usage{plot.CAT.GSEA.2way.vs.random(x, y, B=100, sizes, sizes.random=sizes, random.col="lightgrey", col=1, proportion=FALSE, add=FALSE, plot.column=1, pch=1, main="")
+\usage{plot.CAT.GSEA.2way.vs.random(x, y, B=100, sizes, sizes.random=sizes, random.col="lightgrey", col=1,
+    proportion=FALSE, add=FALSE, plot.column=1, pch=1, main="")
 }
 \description{Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
 \details{You should probably use \code{\link{plot.CAT.GSEA.random}} instead}

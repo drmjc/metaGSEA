@@ -1,7 +1,8 @@
 \name{plot.gsea.venn}
 \alias{plot.gsea.venn}
 \title{Compare the significant genesets from 2 or 3 GSEA runs using Venn diagrams...}
-\usage{plot.gsea.venn(..., gsea.list, names, main="", N, NES, FDR, P, FWER, direction=c("either", "up", "down"))
+\usage{plot.gsea.venn(..., gsea.list, names, main="", N, NES, FDR, P, FWER,
+    direction=c("either", "up", "down"))
 }
 \description{Compare the significant genesets from 2 or 3 GSEA runs using Venn diagrams}
 \value{a 2D or 3D venn diagram}

@@ -1,9 +1,11 @@
 \name{plot.gsea.leadingedge.barplot.auto}
 \alias{plot.gsea.leadingedge.barplot.auto}
 \title{Function to automatically plot barplot's of filtered GSEA data.}
-\usage{plot.gsea.leadingedge.barplot.auto(x, file, N=c(50), FDR=c(0.25), P, FWER, min.count=2, horiz=FALSE, col="blue", cex.names=0.6, ...)
+\usage{plot.gsea.leadingedge.barplot.auto(x, file, N=c(50), FDR=c(0.25), P, FWER, min.count=2, horiz=FALSE,
+    col="blue", cex.names=0.6, ...)
 }
 \description{Function to automatically plot barplot's of filtered GSEA data.}
+\note{Usually, I filter by up or down, by top 50, and by FDR<0.25. This generates 4 plots}
 \author{Mark Cowley, 2010-10-14}
 \arguments{\item{x}{a GSEA list}
 \item{file}{the path to an output PDF file. if \code{NULL}, then plots are printed to current device.}
