@@ -9,7 +9,7 @@
 #' @seealso \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#gct}, \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#clm}
 #' @return a \code{data.frame} of usually gene expression data. columns 1&2 are annotation, 3+ are data.
 #' @author Mark Cowley, 2009-07-27
-# 2010-07-20: changed default for check.names to FALSE
+#' @export
 import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 	header <- readLines(f,2)[2]
 	header <- strsplit(header,"\t")[[1]]
@@ -43,3 +43,4 @@ import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 	if( ncol(res)-2 != NCOL ) warning(sprintf("GCT header specified %d samples; found %d.\n", NCOL, ncol(res)-2))
 	res
 }
+# 2010-07-20: changed default for check.names to FALSE
