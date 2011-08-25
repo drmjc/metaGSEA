@@ -4,7 +4,8 @@
 #' toptable, the leading edge genes, the rnk file used, and the report which
 #' summarises the analysis settings used, and optionally, the edb file.
 #' 
-#' A flexible function which takes a directory of GSEA results, and imports
+#' A flexible function which takes a directory of GSEA results, or a GSEA zip
+#' file, and imports
 #' the `top table', the leading edge genes, the pre-ranked file (if one was
 #' used) and the report file which describes the parameters used when the GSEA
 #' was run.
@@ -23,10 +24,13 @@
 #' tool. Otherwise it is quite large, so best avoided unless you really need
 #' it!
 #' 
-#' @param dir The path to a directory containing GSEA results. There should be
-#'   an index.html file in this directory. You may specify a single directory,
-#'   a vector of multiple GSEA directories, or the parent folder which
-#'   contains multiple GSEA directories.
+#' @param x The path to the GSEA results to import.
+#' (1) a GSEA zip file;
+#' (2) a vector of multiple GSEA zip files;
+#' (3) a single directory containing GSEA results. There should be
+#'   an index.html file in this directory;
+#' (4) a vector of multiple GSEA directories like in (3)
+#' (5) a directory which contains >=1 GSEA directories within it.
 #' @param edb Import the edb file? TRUE or FALSE. See Details.
 #' @return A GSEA \code{list}, with the following elements:
 #'   \item{tt}{the combined (pos & neg) GSEA top table}
@@ -46,16 +50,15 @@
 #' # import.gsea(c("./c1_all.Gsea.1252052322484", "./c2_all.Gsea.1252055214188", "./c3_all.Gsea.1252086970993"))
 #' # import.gsea("/path/to/dir/containing/lots/of/GSEA/dirs")
 #' @export
-import.gsea <- function(dir, edb=FALSE) {
-	if( length(dir) > 1 ) {
-		# then there was a vector of GSEA dirs
-		dirs <- dir
-		stopifnot( all(is.gsea.dir(dirs)) )
-		cat(sprintf("Importing %d GSEA sub-directories.\n", length(dirs)))
+import.gsea <- function(x, edb=FALSE) {
+	if( length(x) > 1 ) {
+		all( is.gsea.dir(x) ) || all(is.gsea.zip(x) ) || stop("x must be a vector of GSEA directories, or files")
+
+		cat(sprintf("Importing %d GSEA sub-directories or zip files.\n", length(x)))
 		res <- list()
-		for(i in 1:length(dirs)) {
-			dir <- dirs[i]
-			res[[i]] <- import.gsea(dir, edb=edb)
+		for(i in 1:length(x)) {
+			xx <- x[i]
+			res[[i]] <- import.gsea(xx, edb=edb)
 			names(res)[i] <- gsea.which.gmt(dir)
 			cat(".")
 		}
@@ -67,34 +70,42 @@ import.gsea <- function(dir, edb=FALSE) {
 		cat("\n")
 		res
 	}
-	else if( is.gsea.dir(dir) ) {
+	else if ( is.gsea.zip(x) ) {
+		# tempdir() returns the same directory every time it's called, whereas
+		# tempfile() creates a new tmpfilepath every time - which unzip then creates
+		dir <- tempfile(pattern="gsea")
+		unzip(x, exdir=dir)
+		is.gsea.dir(dir) || stop("GSEA zip does not contain GSEA result data")
+		import.gsea(dir, edb=edb)
+	}
+	else if( is.gsea.dir(x) ) {
 		# then there was a single GSEA dir
 		res <- list()
-		res$tt <- import.gsea.topTable(dir)
-		res$leading.edge <- import.gsea.leadingedge(dir)
-		res$rnk <- import.gsea.rnk(dir)
-		res$rpt <- import.gsea.rpt(dir)
+		res$tt <- import.gsea.topTable(x)
+		res$leading.edge <- import.gsea.leadingedge(x)
+		res$rnk <- import.gsea.rnk(x)
+		res$rpt <- import.gsea.rpt(x)
 
 		if( edb ) {
-			res$edb <- import.gsea.edb(dir)
+			res$edb <- import.gsea.edb(x)
 			res$gmt <- import.gsea.gmt(res$rpt$gmt)
 		}
 		res
 	}
-	else if( is.dir(dir) && any(is.gsea.dir(dir(dir, full=TRUE))) ){
+	else if( is.dir(x) && any(is.gsea.dir(dir(x, full=TRUE))) ){
 		# then there must be a dir containing multiple GSEA dirs.
-		dirs <- dir(dir, full=TRUE)
+		dirs <- dir(x, full=TRUE)
 		dirs <- dirs[is.gsea.dir(dirs)]
 		if( length(dirs) == 0 ) {
 			stop("No GSEA dirs found.\n")
 		}
 		else {
-			cat(sprintf("Found %d GSEA sub-directories in '%s'.\n", length(dirs), dir))
+			cat(sprintf("Found %d GSEA sub-directories in '%s'.\n", length(dirs), x))
 		}
 		res <- import.gsea(dirs, edb=edb)
 		res
 	}
 	else {
-		stop("Unsupported dir argument.\n")
+		stop("Unsupported x argument.\n")
 	}
 }
