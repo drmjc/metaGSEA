@@ -1,14 +1,15 @@
 \name{import.gsea}
 \alias{import.gsea}
 \title{Import the results from a GSEA or GseaPreRanked analysis.}
-\usage{import.gsea(dir, edb=FALSE)
+\usage{import.gsea(x, edb=FALSE)
 }
 \description{Import the results from a GSEA or GseaPreRanked analysis.}
 \details{Import the output from a single GSEA PreRanked run, including: the
 toptable, the leading edge genes, the rnk file used, and the report which
 summarises the analysis settings used, and optionally, the edb file.
 
-A flexible function which takes a directory of GSEA results, and imports
+A flexible function which takes a directory of GSEA results, or a GSEA zip
+file, and imports
 the `top table', the leading edge genes, the pre-ranked file (if one was
 used) and the report file which describes the parameters used when the GSEA
 was run.
@@ -38,10 +39,13 @@ it!}
 \code{\link{import.gsea.rnk}} \code{\link{import.gsea.edb}}}
 \keyword{IO}
 \keyword{file}
-\arguments{\item{dir}{The path to a directory containing GSEA results. There should be
-an index.html file in this directory. You may specify a single directory,
-a vector of multiple GSEA directories, or the parent folder which
-contains multiple GSEA directories.}
+\arguments{\item{x}{The path to the GSEA results to import.
+(1) a GSEA zip file;
+(2) a vector of multiple GSEA zip files;
+(3) a single directory containing GSEA results. There should be
+an index.html file in this directory;
+(4) a vector of multiple GSEA directories like in (3)
+(5) a directory which contains >=1 GSEA directories within it.}
 \item{edb}{Import the edb file? TRUE or FALSE. See Details.}
 }
 \examples{# not run

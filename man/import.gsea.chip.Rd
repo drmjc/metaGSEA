@@ -1,7 +1,7 @@
 \name{import.gsea.chip}
 \alias{import.gsea.chip}
 \title{Import a GSEA chip file.}
-\usage{import.gsea.chip(x, na.strings=c("---", "NA", ""), capitalise.symbol=TRUE)
+\usage{import.gsea.chip(x, na.strings=c("---", "NA", ""), capitalise.symbol=TRUE, verbose=TRUE)
 }
 \description{Import a GSEA chip file.
 This can look inside a gsea output dir, find the path to the chip file that
@@ -20,5 +20,7 @@ we recommend that you set \code{capitalise.symbol=TRUE}.}
 \arguments{\item{x}{the path or url to a chip file, or the path to a gsea directory}
 \item{na.strings}{a character vector of values which should be mapped to NA. see details}
 \item{capitalise.symbol}{logical: capitalise all gene symbols upon import? see details}
+\item{verbose}{logical: if TRUE, then write out verbose messages, including download.file
+verbose output.}
 }
 

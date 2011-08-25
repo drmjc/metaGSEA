@@ -25,4 +25,8 @@ description. Default is NULL to ignore.}
 \item{missing}{the string to use for missing data (in the expression data).}
 \item{\dots}{Currently unused.}
 }
+\examples{\dontrun{
+my.gct <- import.gsea.gct("./my.gct", "./my.cls")
+export.gsea.gct(data=my.gct, file="my2.gct")
+}}
 
