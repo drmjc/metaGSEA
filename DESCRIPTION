@@ -2,8 +2,8 @@ Package: metaGSEA
 Type: Package
 Title: Meta-analysis of GSEA analyses, including intra- and
     inter-experiment comparisons
-Version: 1.0.1
-Date: 2011-08-03
+Version: 1.0.2
+Date: 2011-08-24
 Author: Mark Cowley
 Maintainer: Mark Cowley <m.cowley@garvan.org.au>
 Description: A collection of R and bash code to simplify the
@@ -47,10 +47,10 @@ Collate: 'chip2description.R' 'collapse.gct.R'
     'import.gsea.gct.R' 'import.gsea.gmt.R' 'import.gsea.leadingedge.R'
     'import.gsea.R' 'import.gsea.res.R' 'import.gsea.rnk.R'
     'import.gsea.rpt.R' 'import.gsea.topTable.R' 'is.gsea.dir.R'
-    'is.gsea.R' 'is.gsea.res.R' 'is.int.R' 'jacquard.R' 'list2df.R'
-    'metaGSEA-internal.R' 'metaGSEA-package.R' 'plclust_in_colour.R'
-    'plclust.gsea.R' 'plot.CAT.GSEA.R' 'plot.gsea.leadingedge.adjmat.R'
-    'plot.gsea.leadingedge.barplot.R'
+    'is.gsea.R' 'is.gsea.res.R' 'is.gsea.zip.R' 'is.int.R' 'jacquard.R'
+    'list2df.R' 'metaGSEA-internal.R' 'metaGSEA-package.R'
+    'plclust_in_colour.R' 'plclust.gsea.R' 'plot.CAT.GSEA.R'
+    'plot.gsea.leadingedge.adjmat.R' 'plot.gsea.leadingedge.barplot.R'
     'plot.gsea.leadingedge.HCL.auto.R' 'plot.gsea.leadingedge.HCL.R'
     'plot.gsea.leadingedge.heatmap.R' 'plot.gsea.leadingedge.R'
     'plot.gsea.res.R' 'plot.gsea.venn.R' 'plot.gseacmp.barplot.R'
