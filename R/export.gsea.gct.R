@@ -21,6 +21,11 @@
 #' @param missing the string to use for missing data (in the expression data).
 #' @param \dots	Currently unused.
 #' @author Mark Cowley, 2008-08-07
+#' @examples
+#' \dontrun{
+#' my.gct <- import.gsea.gct("./my.gct", "./my.cls")
+#' export.gsea.gct(data=my.gct, file="my2.gct")
+#' }
 #' @export
 export.gsea.gct <- function(data, description=NULL, file=NULL, chip=NULL, round=4, version="#1.2", missing="", ...) {
 	if( is.null(description) && is.null(chip) ) {
