@@ -35,15 +35,8 @@
 export.broad.cls <- function(labels, file, continuous=FALSE, start.value=0) {
 
 	if( !continuous ) {
-		if( start.value < 0 )
-			stop("start.value must be >= 0.\n")
-		# if( is.factor(labels) )
-		# 	labels <- as.character(labels)
-		# line1 <- paste(length(labels), length(unique(labels)), "1")
-		# line2 <- paste(c("#",unique(labels)), collapse=" ")
-		# line3 <- paste(labels, collapse=" ")
-		# writeLines(c(line1,line2,line3), file)
-		
+		start.value >= 0 || stop("start.value must be >= 0.\n")
+
 		if( is.factor(labels) && !all(unique(labels) == levels(labels)) ) {
 			warning("You supplied a factor but the values must correspond with the order of the levels. reordering.\n")
 			#
@@ -61,7 +54,7 @@ export.broad.cls <- function(labels, file, continuous=FALSE, start.value=0) {
 			labels <- factor(labels, levels=unique(labels))
 		levels(labels) <- gsub(" ", ".", levels(labels))
 		
-		line1 <- paste(length(labels), length(levels(labels)), "1")
+		line1 <- sprintf("%d %d 1", length(labels), length(levels(labels)))
 		line2 <- paste(c("#",levels(labels)), collapse=" ")
 		line3 <- as.numeric(labels) - 1 + start.value
 		line3 <- paste(line3, collapse=" ")
@@ -72,17 +65,24 @@ export.broad.cls <- function(labels, file, continuous=FALSE, start.value=0) {
 			labels <- matrix(labels,nrow=1)
 			rownames(labels) <- "Phenotype"
 		}
-		else if( is.list(labels) && !is.data.frame(labels) ) {
+		else if( is.list(labels) && !is.data.frame(labels) && all(sapply(labels, length)==length(labels[[1]])) ) {
 			# elements of list become rows of table.
-			labels <- t(list2df(labels))
+			# V1:
+			# labels <- t(list2df(labels))
+
+			# elements of list become rows of table.
+			tmp <- t(as.data.frame(labels))
+			rownames(tmp) <- if(!is.null(names(labels))) names(labels) else paste("Phenotype", 1:nrow(labels), sep="")
+			labels <- tmp
 		}
-		else if( is.matrix.like(labels) ) {
+		else if( is.matrix(labels) || is.data.frame(labels) ) {
 			if( is.null(rownames(labels)) )
 				rownames(labels) <- paste("Phenotype", 1:nrow(labels), sep="")
 		}
 		else {
 			stop("Unknown format of labels.\n")
 		}
+		
 		OUT <- file(file, "w")
 		writeLines("#numeric", OUT)
 		for(i in 1:nrow(labels)) {
