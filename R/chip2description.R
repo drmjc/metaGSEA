@@ -17,7 +17,7 @@ chip2description <- function(chip.file=NULL, chip=NULL, sep=": ", probes=NULL, g
 	else if( !is.null(chip.file) && is.data.frame(chip.file) ) {
 		stop("You passed chip object where a chip filename was expected.\n")
 	}
-	description <- rowPaste(chip[,2:3], sep=sep)
+	description <- apply(chip[,2:3], 1, paste, collapse=sep)
 	names(description) <- as.character(chip[,1])
 	description[is.na(chip[,2]) & is.na(chip[,3])] <- ""
 	description[!is.na(chip[,2]) & is.na(chip[,3])] <- chip[!is.na(chip[,2]) & is.na(chip[,3]), 2]
