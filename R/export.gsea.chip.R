@@ -35,7 +35,7 @@ export.gsea.chip <- function(x, f, resort.rows=TRUE, collapse.rows=TRUE, na.stri
 	OUT <- file(f, "w")
 	hdr <- c("Probe Set ID", "Gene Symbol", "Gene Title", "Aliases")[1:ncol(x)]
 	write(paste(hdr, collapse="\t"), OUT)
-	write.delim(x, OUT, col.names=FALSE, row.names=FALSE)
+	write.table(x, OUT, col.names=FALSE, row.names=FALSE, sep="\t", quote=FALSE, na=na.strings)
 
 	close(OUT)
 }
