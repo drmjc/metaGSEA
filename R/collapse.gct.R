@@ -13,7 +13,7 @@
 #' probes for each gene. If 5 probes for a gene
 #' have these t-stats: 1.2, 0.9, 0.1, -0.1, -10; then IMO, the one that scored
 #' -10 is the best probe, since it had a really
-#' strong t-stat score. thus method="maxabs" combined with a rnk.file
+#' strong t-stat score. thus \code{method="maxabs"} combined with a rnk.file
 #' 
 #' @param gct.file the path to a gct file
 #' @param chip.file the path to a chip file
@@ -37,7 +37,8 @@
 collapse.gct.file <- function(gct.file, chip.file, gct.outfile, rnk.file=NULL, method=c("var", "mean", "median"), reverse=FALSE, filter=FALSE) {
 	gct <- import.gsea.gct(gct.file)
 	chip <- import.gsea.chip(chip.file)
-	rnk <- ifelse(is.null(rnk.file), NULL, import.gsea.rnk(rnk.file))
+	rnk <- NULL
+	if( !is.null(rnk.file) ) rnk <- import.gsea.rnk(rnk.file)
 	res <- collapse.gct(gct, chip, rnk, method=method, reverse=reverse, filter=filter)
 	export.gsea.gct(res, file=gct.outfile)
 }
