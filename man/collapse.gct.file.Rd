@@ -18,7 +18,7 @@ either direction. Why? On the Affy 133+2 array, there can be lots of poor
 probes for each gene. If 5 probes for a gene
 have these t-stats: 1.2, 0.9, 0.1, -0.1, -10; then IMO, the one that scored
 -10 is the best probe, since it had a really
-strong t-stat score. thus method="maxabs" combined with a rnk.file}
+strong t-stat score. thus \code{method="maxabs"} combined with a rnk.file}
 \value{A gct file is created with 1 row per gene symbol & now the \sQuote{probe ids}
 in column 1 are actually gene symbols.}
 \author{Mark Cowley, 2011-02-27}
