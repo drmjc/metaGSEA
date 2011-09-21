@@ -10,11 +10,16 @@
 #' @return a \code{data.frame} of usually gene expression data. columns 1&2 are annotation, 3+ are data.
 #' @author Mark Cowley, 2009-07-27
 #' @export
+#' @examples
+#' \dontrun{
+#' f <- "ftp://ftp.broadinstitute.org/pub/genepattern/datasets/all_aml/all_aml_test.gct"
+#' import.gsea.gct(f)
+#' }
 import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 	header <- readLines(f,2)[2]
 	header <- strsplit(header,"\t")[[1]]
 	NROW <- as.numeric(header[1]); NCOL <- as.numeric(header[2])
-	res <- read.delim(f, skip=2, check.names=check.names, stringsAsFactors=FALSE)
+	res <- read.delim(f, skip=2, check.names=check.names, stringsAsFactors=FALSE, quote="")
 	colnames(res)[1:2] <- c("Name", "Description")
 	if( max(table(res$Name)) > 1 ) {
 		stop("Names in column 1 of your gct file must be unique.\n")
@@ -44,3 +49,4 @@ import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 	res
 }
 # 2010-07-20: changed default for check.names to FALSE
+# 2011-09-09: turned quote="" in the read.delim to allow comments with " in them (as per the ftp://ftp.broadinstitute.org/pub/genepattern/datasets/all_aml/all_aml_test.gct file)
