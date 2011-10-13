@@ -13,4 +13,8 @@ If a clm.file is also provided, then the columns of the gct are optionally subse
 \item{clm.file}{[optional] path to a clm.file}
 \item{check.names}{logical: R likes to make sure that the column names are 'syntactically valid', If you don't care, then choose FALSE. default is FALSE.}
 }
+\examples{\dontrun{
+f <- "ftp://ftp.broadinstitute.org/pub/genepattern/datasets/all_aml/all_aml_test.gct"
+import.gsea.gct(f)
+}}
 

@@ -7,10 +7,10 @@
 \value{<none>, makes a file}
 \author{Mark Cowley, 2008-09-08}
 \arguments{\item{values}{a numeric vector}
-\item{names}{the names associated with each value. If NULL, then the
-names(values) are used}
-\item{file}{the output file name}
-\item{resort}{re-sort the values such that they are decreasing. see order(,
+\item{names}{the names associated with each value. If \code{NULL}, then the
+\code{names(values)} are used}
+\item{file}{the output file name. No hyphens, or a warning will be issued.}
+\item{resort}{logical: re-sort the values such that they are decreasing? see order(,
 decreasing=TRUE)}
 \item{sigfigs}{the number of decimal places, defaults to 4.}
 }
