@@ -28,10 +28,14 @@ plot.gsea.leadingedge.heatmap <- function(x, main="Geneset similarity", gridcolo
 
 	# pdf(file.pdf, 12, 12)
 	heatmap.2(tmp, Rowv=FALSE, Colv=FALSE, dendrogram="none", scale="none", col=colour.step("white", "green", steps=21), trace="none", margins=c(25, 25), density.info="histogram", keysize=0.9, 
-	rowsep=1:ncol(tmp), colsep=1:nrow(tmp), sepwidth=c(0.005,0.005), sepcolor=gridcolour,
+	rowsep=1:nrow(tmp), colsep=1:ncol(tmp), sepwidth=c(0.005,0.005), sepcolor=gridcolour,
 	main=main)
 	# dev.off()
 }
+# CHANGELOG
+# 2011-10-10
+# - fixed a silent bug where rowsep and colsep were based on ncol and nrow, respectively.
+#  It was silent, since, as implemented, tmp is always square.
 
 #' Generate a heatmap of genesets from a GSEA run, across a number of standard thresholds
 #' The default settings will generate 4 heatmaps, of the up/down, top 50, and FDR<0.25 genesets.
