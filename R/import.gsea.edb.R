@@ -18,8 +18,9 @@
 #' \code{ 
 #' edb.file <- "T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710/edb/results.edb"
 #' doc <- xmlTreeParse(edb.file)
-#' r <- xmlRoot(doc) xmlAttrs(r) xmlSize(r) xmlSize(r[[1]])
-#' str(xmlAttrs(r[[1]])) xmlAttrs(r[[1]])[3]
+#' r <- xmlRoot(doc); xmlAttrs(r); xmlSize(r); xmlSize(r[[1]])
+#' str(xmlAttrs(r[[1]]))
+#' xmlAttrs(r[[1]])[3]
 #' # modify the attributes... 
 #' a <- xmlAttrs(r[[1]]) a[3] <- p(a[3], "_MJC")
 #' n <- xmlNode("DTG", attrs=a) r[[1]] <- n 
