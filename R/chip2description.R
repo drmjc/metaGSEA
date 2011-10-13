@@ -11,7 +11,7 @@
 #' @author Mark Cowley
 #' @export
 chip2description <- function(chip.file=NULL, chip=NULL, sep=": ", probes=NULL, genoloc=NULL) {
-	if( !is.null(chip.file) && length(chip.file) == 1 && file.exists(chip.file) ) {
+	if( !is.null(chip.file) && length(chip.file) == 1 && (file.exists(chip.file) || is.url(chip.file)) ) {
 		chip <- import.gsea.chip(chip.file)
 	}
 	else if( !is.null(chip.file) && is.data.frame(chip.file) ) {
@@ -57,6 +57,5 @@ chip2description <- function(chip.file=NULL, chip=NULL, sep=": ", probes=NULL, g
 		description <- trim(description) # trim the " " which will be added to end if no genoloc provided.
 	}
 
-	names(description) <- chip[,1]
-	description
+	return( description )
 }
