@@ -16,21 +16,21 @@
 #' @param x the path or url to a chip file, or the path to a gsea directory
 #' @param na.strings a character vector of values which should be mapped to NA. see details
 #' @param capitalise.symbol logical: capitalise all gene symbols upon import? see details
-#' @param verbose logical: if TRUE, then write out verbose messages, including download.file
+#' @param verbose logical: if TRUE, then write out verbose messages, including \code{download.file}
 #'    verbose output.
 #' @author Mark Cowley, 2009-08-07
 #' @export
-import.gsea.chip <- function(x, na.strings=c("---", "NA", ""), capitalise.symbol=TRUE, verbose=TRUE ) {
+import.gsea.chip <- function(x, na.strings=c("---", "NA", ""), capitalise.symbol=TRUE, verbose=FALSE ) {
 	if( is.gsea.dir(x) ) {
 		rpt <- import.gsea.rpt(x)
-		import.gsea.chip( rpt$chip, na.strings=na.strings, capitalise.symbol=capitalise.symbol )
+		import.gsea.chip( rpt$chip, na.strings=na.strings, capitalise.symbol=capitalise.symbol, verbose=verbose )
 	}
 	else if( is.url(x) ) {
 		f <- tempfile()
 		if( verbose ) cat("Downloading .chip file.\n")
 		success <- download.file(x, f, quiet=!verbose)
 		success == 0 || stop(sprintf("Could not download chip file at: '%d'", x))
-		import.gsea.chip(f, na.strings=na.strings, capitalise.symbol=capitalise.symbol)
+		import.gsea.chip(f, na.strings=na.strings, capitalise.symbol=capitalise.symbol, verbose=verbose)
 	}
 	else if( file.exists(x) ) {
 		chip <- read.delim(x, stringsAsFactors=FALSE)
@@ -62,3 +62,5 @@ import.gsea.chip <- function(x, na.strings=c("---", "NA", ""), capitalise.symbol
 # CHANGELOG
 # 2009-08-07: v1
 # 2011-02-22: if chip[,1] is.numeric, then make it character (this is the case for Affy Gene & Exon ST)
+# 2011-10-08: pass the verbose flag thru the 2 recursive import.gsea.chip calls.
+# - changed the default for verbose to FALSE
