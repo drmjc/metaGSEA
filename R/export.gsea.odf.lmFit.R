@@ -64,7 +64,7 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 	tt$"FDR(BH)"[idx] <-  as.double(p.adjust(tt$"Feature P"[idx], "BH", n=nrow(tt)))
 	tt$Bonferroni[idx] <- as.double(p.adjust(tt$"Feature P"[idx], "bonferroni", n=nrow(tt)))
 
-	q <- qvalue(tt$"Feature P"[idx], lambda=seq(0,0.95,0.05))
+	q <- qvalue2(tt$"Feature P"[idx], lambda=seq(0,0.95,0.05)) # defined in pwbc, as a safer alternative to qvalue
 	qdata <- .qplot.data(q, rng = c(0, 0.1), smooth.df = 3, smooth.log.pi0 = FALSE)
 		
 	tt$"Q Value"[idx] <-  as.double(q$qvalues)
@@ -226,7 +226,7 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 # semi-confirmed here: http://permalink.gmane.org/gmane.science.biology.informatics.conductor/31688
 # 2011-02-22: added the ability to collapse probes 2 genes via collapse & probe2gene arguments.
 # 2011-07-06: dropped the empty Gene.Symbol column.
-
+# 2011-10-25: now uses qvalue2, which prevents the errors due to pi_0 estimation fail
 
 
 # export.gsea.odf.topTable <- function(tt, fit, coef,
