@@ -14,7 +14,7 @@
 #' of if continuous, a numeric is returned.
 #' @author Mark Cowley, 2009-11-26
 #' @seealso \code{\link{import.gsea.gct}} \code{\link{import.gsea.clm}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#cls}
-#' 
+#' @export
 import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 	raw <- readLines(file, warn=FALSE)
 	raw <- trim(raw)
@@ -81,4 +81,3 @@ import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 }
 # CHANGELOG
 # 2010-07-06: update that allows minimum value to be 1 (for using Submap)
-#
