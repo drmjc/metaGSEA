@@ -38,7 +38,7 @@ setMethod(
 	"jacquard",
 	signature=signature("numeric", "numeric"),
 	function(a, b) {
-		length(intersect(a, b)) / length(union(a, b))
+		jacquard(as.character(a), as.character(b))
 	}
 )
 
@@ -48,7 +48,7 @@ setMethod(
 	"jacquard",
 	signature=signature("GeneSet", "GeneSet"),
 	function(a, b) {
-		length(intersect(geneIds(a), geneIds(b))) / length(union(geneIds(a), geneIds(b)))
+		jacquard(geneIds(a), geneIds(b))
 	}
 )
 
