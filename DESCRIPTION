@@ -17,8 +17,8 @@ Description: A collection of R and bash code to simplify the
     the GSEA pre-ranked output, and the gene tables in each GSEA report
     by including the gene symbol, description and hyperlinks to Entrez
     Gene.
-Version: 1.0.4
-Date: 2011-10-13
+Version: 1.0.5
+Date: 2011-10-21
 Depends: R (>= 2.8.0), pwbc, stats, XML, roxygen
 Suggests: qvalue, GenePattern, limma, gplots, gtools, MADAM
 Collate: 'chip2description.R' 'collapse.gct.R'
@@ -53,5 +53,6 @@ Collate: 'chip2description.R' 'collapse.gct.R'
     'plot.gsea.leadingedge.adjmat.R' 'plot.gsea.leadingedge.barplot.R'
     'plot.gsea.leadingedge.HCL.auto.R' 'plot.gsea.leadingedge.HCL.R'
     'plot.gsea.leadingedge.heatmap.R' 'plot.gsea.leadingedge.R'
-    'plot.gsea.res.R' 'plot.gsea.venn.R' 'plot.gseacmp.barplot.R'
-    'qplot.data.R' 'reorder.gct.R' 'test.broad.ftp.R' 'unique.counts.R'
+    'plot.gsea.res.R' 'plot.gsea.statistic.histograms.R'
+    'plot.gsea.venn.R' 'plot.gseacmp.barplot.R' 'qplot.data.R'
+    'reorder.gct.R' 'test.broad.ftp.R' 'unique.counts.R'
