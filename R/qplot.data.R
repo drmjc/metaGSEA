@@ -1,24 +1,34 @@
-# This code is taken from qvalue::qplot (from R2.9.0) in order to export the required data for my
-# ComparativeMarkerSelection limma module
-#
-# Parameters:
-#	qobj: a q-value object.
-#	rng, smooth.df, smooth.log.pi0: see qplot.
-#
-# Value:
-#	a named list of 4 vectors:
-#	\item{lambda}{the lambda values (usually 0...0.9)}
-#	\item{pi0}{the estimated pi0 for each lambda}
-#	\item{spline}{the cubed spline values for each lambda}
-#	\item{pi0.estimate}{the final pi0 estimate (from the qobj itself). length 1}
-#  for example: List of 4
-#  $ lambda      : num [1:20] 0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 ...
-#  $ pi0         : num [1:20] 1 0.975 0.961 0.942 0.92 ...
-#  $ spline      : num [1:20] 0.987 0.97 0.953 0.936 0.92 ...
-#  $ pi0.estimate: num 0.793
-#
-# Mark Cowley, 2009-11-30
+#' .qplot.data
+#' This code is taken from qvalue::qplot (from R2.9.0) in order to export the required data for my
+#' LimmaGP GenePattern module
+#'
+#' @param qobj a qvalue object.
+#' @param rng see \code{\link[qvalue]{qplot}}
+#' @param smooth.df see \code{\link[qvalue]{qplot}}
+#' @param smooth.log.pi0 see \code{\link[qvalue]{qplot}}
+#' @return 
+#'	a named list of 4 vectors:
+#' \tabular{ll}{
+#'	\code{lambda \tab the lambda values (usually 0...0.9) \cr
+#'	\code{pi0 \tab the estimated pi0 for each lambda \cr
+#'	\code{spline \tab the cubed spline values for each lambda \cr
+#'	\code{pi0.estimate \tab the final pi0 estimate (from the qobj itself). length 1 \cr
+#' }
+#'  for example:\cr
+#' \code{
+#' List of 4\cr
+#'  $ lambda      : num [1:20] 0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 ...\cr
+#'  $ pi0         : num [1:20] 1 0.975 0.961 0.942 0.92 ...\cr
+#'  $ spline      : num [1:20] 0.987 0.97 0.953 0.936 0.92 ...\cr
+#'  $ pi0.estimate: num 0.793\cr
+#' }
+#' @author Mark Cowley, 2009-11-30
+#' @seealso \code{\link[qvalue]{qplot}}
+#' @export
+#' @nord
 .qplot.data <- function (qobj, rng = c(0, 0.1), smooth.df = 3, smooth.log.pi0 = FALSE, ...) {
+	is(qobj, "qvalue") || stop("qobj should be a qvalue object")
+	
 	q2 <- qobj$qval[order(qobj$pval)]
 	if (min(q2) > rng[2]) {
 		rng <- c(min(q2), quantile(q2, 0.1))
