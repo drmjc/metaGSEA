@@ -7,6 +7,8 @@
 \description{Function to automatically plot barplot's of filtered GSEA data.}
 \note{Usually, I filter by up or down, by top 50, and by FDR<0.25. This generates 4 plots}
 \author{Mark Cowley, 2010-10-14}
+\value{none. Generates a number of plots, either to a pdf if \code{file!=NULL}, or 
+\code{\link{dev.cur}}}
 \arguments{\item{x}{a GSEA list}
 \item{file}{the path to an output PDF file. if \code{NULL}, then plots are printed to current device.}
 \item{N}{if not \code{NULL}, then choose the top N most significant genesets}
