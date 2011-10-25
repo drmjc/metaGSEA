@@ -34,33 +34,38 @@ plot.gsea.leadingedge.barplot <- function(x, min.count=0,
 	counts <- table(unlist(x$leading.edge))
 	counts <- sort(counts, decreasing=TRUE)
 	if( min.count > 0 ) {
-		counts <- counts[counts > min.count]
+		counts <- counts[counts >= min.count]
 	}
-
-	opar <- par(no.readonly=TRUE)
-	on.exit(par(opar))
-	if( horiz ) {
-		tmp <- xlab
-		xlab <- ylab
-		ylab <- tmp
-		par(mar=c(5,8,4,2), las=1)
-		counts <- rev(counts)
+	
+	if( length(counts) == 0 ) {
+		plot.blank(main=main, box=TRUE, message="**** too few genes pass filters ****")
 	}
 	else {
-		par(mar=c(8,4,4,2), las=2, mgp=c(3,1,0))
-	}
+		opar <- par(no.readonly=TRUE)
+		on.exit(par(opar))
+		if( horiz ) {
+			tmp <- xlab
+			xlab <- ylab
+			ylab <- tmp
+			par(mar=c(5,8,4,2), las=1)
+			counts <- rev(counts)
+		}
+		else {
+			par(mar=c(8,4,4,2), las=2, mgp=c(3,1,0))
+		}
 
-	barplot(counts, main=main, xlab=xlab, ylab=ylab, border=NA, horiz=horiz, width=1, space=10, col=col, cex.names=cex.names, ...)
+		barplot(counts, main=main, xlab=xlab, ylab=ylab, border=NA, horiz=horiz, width=1, space=10, col=col, cex.names=cex.names, ...)
 
-	if( horiz ) {
-		vgrid(col="lightgrey", lty="dashed")
-	}
-	else {
-		hgrid(col="lightgrey", lty="dashed")
-	}
-	box()
-	if( min.count > 0 ) {
-		mtext(side=3, outer=FALSE, adj=0.99, paste("min count >=", min.count), line=0, font=3, las=1)
+		if( horiz ) {
+			vgrid(col="lightgrey", lty="dashed")
+		}
+		else {
+			hgrid(col="lightgrey", lty="dashed")
+		}
+		box()
+		if( min.count > 0 ) {
+			mtext(side=3, outer=FALSE, adj=0.99, paste("min count >=", min.count), line=0, font=3, las=1)
+		}
 	}
 
 	invisible(counts)
@@ -86,6 +91,9 @@ plot.gsea.leadingedge.barplot <- function(x, min.count=0,
 #' @param \dots arguments passed to \code{\link{plot.gsea.leadingedge.barplot}}
 #' @author Mark Cowley, 2010-10-14
 #' @export
+#' @return none. Generates a number of plots, either to a pdf if \code{file!=NULL}, or 
+#'   \code{\link{dev.cur}}
+#' 
 plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL, 
 	N=c(50), FDR=c(0.25), P=NULL, FWER=NULL, 
 	min.count=2,
@@ -112,7 +120,7 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - topN=", n, sep="")
 				tmp <- gsea.filter(x[[collection]], N=n, direction=direction)
-				if( length(tmp$leading.edge) >0 )
+				if( length(tmp$leading.edge) > 0 )
 					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
@@ -123,8 +131,8 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - FDR<", fdr, sep="")
 				tmp <- gsea.filter(x[[collection]], FDR=fdr, direction=direction)
-				if( length(tmp$leading.edge) >0 )
-				plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 )
+					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -134,8 +142,8 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - P<", p, sep="")
 				tmp <- gsea.filter(x[[collection]], P=p, direction=direction)
-				if( length(tmp$leading.edge) >0 )
-				plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 )
+					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -145,8 +153,8 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - FWER<", fwer, sep="")
 				tmp <- gsea.filter(x[[collection]], FWER=fwer, direction=direction)
-				if( length(tmp$leading.edge) >0 )
-				plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 )
+					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
