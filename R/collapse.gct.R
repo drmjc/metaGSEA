@@ -81,6 +81,9 @@ collapse.gct.file <- function(gct.file, chip.file, gct.outfile, rnk.file=NULL, m
 #' @author Mark Cowley, 2011-02-27
 #' @export
 collapse.gct <- function(gct, chip, rnk=NULL, method=c("var", "mean", "median"), reverse=FALSE, filter=FALSE) {
+	!missing(gct) && all(c("Name", "Description") %in% colnames(gct)) || stop("gct should be a gct file")
+	!missing(chip) || stop("chip must be specified")
+	
 	if( !all(gct[,1] %in% chip[,1]) ) {
 		stop("Some ID's in gct are not in the chip file.")
 	}
