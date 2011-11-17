@@ -169,6 +169,14 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 		#
 		class0 <- "class0"
 		class1 <- "class1"
+		# can we improve on these names?
+		# the GenePattern each vs rest module has a single 1.0 coef, and the rest are all negative and equal
+		x <- fit2$contrasts[, coef]
+		a <- which(x==1)
+		if( length(a)==1 && all(x[-a]<0) && alleq(x[-a]) ) {
+			class0 <- rownames(fit2$contrasts)[a]
+			class1 <- paste("non-", class0, sep="")
+		}
 
 		pos.contrasts <- neg.contrasts <- fit2$contrasts
 		pos.contrasts[pos.contrasts<0] <- 0
@@ -227,7 +235,10 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 # 2011-02-22: added the ability to collapse probes 2 genes via collapse & probe2gene arguments.
 # 2011-07-06: dropped the empty Gene.Symbol column.
 # 2011-10-25: now uses qvalue2, which prevents the errors due to pi_0 estimation fail
-
+# 2011-11-03: try to improve on class0, class1 labels when using each-vs-rest in GenePattern.
+# - for 3 groups, the contrasts look like this: [[c(1,-0.5,-0.5), c(-0.5,1,-0.5), c(-0.5,-0.5,1)]]
+# ... ie always a '1' and the rest are all negative and identical.
+# 
 
 # export.gsea.odf.topTable <- function(tt, fit, coef,
 # 	file,
