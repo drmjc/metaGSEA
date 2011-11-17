@@ -31,7 +31,7 @@
 #'   an index.html file in this directory;
 #' (4) a vector of multiple GSEA directories like in (3)
 #' (5) a directory which contains >=1 GSEA directories within it.
-#' @param edb Import the edb file? TRUE or FALSE. See Details.
+#' @param edb logical: Import the edb file? See Details.
 #' @return A GSEA \code{list}, with the following elements:
 #'   \item{tt}{the combined (pos & neg) GSEA top table}
 #'   \item{leading.edge}{a named list of leading edge genes}
