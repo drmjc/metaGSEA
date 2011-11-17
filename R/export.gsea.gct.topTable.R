@@ -38,5 +38,5 @@ export.gsea.gct.topTable <- function(tt, rma, chip, file, missing="", verbose=TR
 	}
 	rownames(gct) <- make.names(rn)
 
-	export.gsea.gct(gct, chip[,3], file, missing=missing, ...)
+	export.gsea.gct(gct, description=chip[,3], file=file, missing=missing, ...)
 }

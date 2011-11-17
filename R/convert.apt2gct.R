@@ -124,7 +124,7 @@ convert.apt2gct <- function(
 	}
 
 	if( all.genes ) {
-		if( create.gct ) export.gsea.gct(rma, desc, out.gct.all.file)
+		if( create.gct ) export.gsea.gct(rma, description=desc, file=out.gct.all.file)
 		if( create.res ) export.broad.res(rma, calls, description=desc, file=out.res.all.file, unlog=FALSE)
 	}
 
@@ -142,7 +142,7 @@ convert.apt2gct <- function(
 		calls <- calls[ids, ]
 		Pcount <- Pcount[ids]
 		desc <- desc[ids]
-		if( create.gct ) export.gsea.gct(rma, desc, out.gct.expressed.file)
+		if( create.gct ) export.gsea.gct(rma, description=desc, file=out.gct.expressed.file)
 		if( create.res ) export.broad.res(rma, calls, description=desc, file=out.res.expressed.file, unlog=FALSE)
 	}
 

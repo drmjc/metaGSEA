@@ -106,6 +106,6 @@ gsea.genesets2gct <- function(gsea.dir, gct.file, leading.edge=TRUE, which.sets=
 		description <- gct$Description[idx]
 		data <- gct[idx, 3:ncol(gct)]
 		f <- file.path(gct.dir, paste(gset, ".gct", sep=""))
-		export.gsea.gct(data, description, f)
+		export.gsea.gct(data, description=description, file=f)
 	}
 }
