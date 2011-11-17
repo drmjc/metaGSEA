@@ -12,6 +12,7 @@
 #' @rdname jacquard-methods
 #' @docType methods
 #' @examples
+#' require(GSEABase)
 #' jacquard(letters[1:5], letters[3:5])
 #' jacquard(1:5, 3:5)
 setGeneric(
