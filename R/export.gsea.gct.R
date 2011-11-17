@@ -1,23 +1,26 @@
 #' Function to export a GenePattern gct file.
 #' 
-#' \code{data} can be either a \code{matrix} or \code{data.frame} of numbers, 
-#' in which case description and or chip should be provided to annotate the rows; 
-#' or a \code{data.frame} containing a \sQuote{Name} 
+#' \code{data} can be either:\cr
+#' a \code{matrix} or \code{data.frame} of numeric values, 
+#' in which case you can provide an optional \code{description} or \code{chip} 
+#' object to populate the \dQuote{Description} column;
+#' or a \code{data.frame} containing \sQuote{Name} 
 #' and \dQuote{Description} columns (see \code{\link{import.gsea.gct}})
 #' 
-#' @param data a data.frame WITH rownames, and optionally can be from
-#'   import.gsea.gct; ie first 2 columns are Name, Description
+#' @param data a \code{matrix} or \code{data.frame} WITH rownames of all numeric
+#'   values, or a \code{data.frame} from running \code{\link{import.gsea.gct}}; 
+#'  ie first 2 columns are \dQuote{Name}, \dQuote{Description}.
 #' @param description a vector of annotations. IF it has names, then these
 #'   names must match the rownames of data, in which case we make sure they're
 #'   in the same order. If no names, then we assume that they're in the same
-#'   order. If NULL, then you must either provide a chip, or have a
-#'   Description column in the data.
+#'   order. If \code{NULL}, then you must either provide a \code{chip}, or have a
+#'   \dQuote{Description} column in the data.
 #' @param file the output file name
 #' @param chip instead of specifying description, you can specify a GSEA chip
 #'   object, and a description will be made for you. This overrides
-#'   description. Default is NULL to ignore.
-#' @param round the number of digits to round the numbers to - defaults to 3
-#' @param version The first line of the gct file will have this tag.
+#'   \code{description}. Default is \code{NULL} to ignore.
+#' @param round the number of digits to round the numbers to - default=4
+#' @param version The GCT file version, to go in the first line.
 #' @param missing the string to use for missing data (in the expression data).
 #' @param \dots	Currently unused.
 #' @author Mark Cowley, 2008-08-07
@@ -35,11 +38,11 @@ export.gsea.gct <- function(data, description=NULL, file=NULL, chip=NULL, round=
 		}
 		else {
 			# data looks like its a GSEA gct object
-			if( length(data$Name) != length(unique(data$Name)) )
-				stop("Values in data$Name MUST be unique as per the gct file format definition.\n")
+			if( anyDuplicated(data$Name) != 0 )
+				stop("Values in 'data$Name' MUST be unique as per the gct file format definition.\n")
 			rownames(data) <- data$Name
 			description <- data$Description; names(description) <- rownames(data)
-			data <- data[,3:ncol(data)]
+			data <- data[,3:ncol(data), drop=FALSE]
 		}
 		export.gsea.gct(data, description=description, file=file, chip=NULL, round=round, version=version, missing=missing, ...)
 	}
@@ -80,6 +83,13 @@ export.gsea.gct <- function(data, description=NULL, file=NULL, chip=NULL, round=
 		invisible( gct )
 	}
 }
+# CHANGELOG
+# 2011-11-09
+# - Allow single sample GCT files to work
+# - named arguments across my workspace and GenePattern modules
+# - @TODO: move the file argument to #2
+
+
 # 
 # export.broad.gct <- function(data, description, file, round=3, version="#1.2", missing="", ...) {
 # 	export.gsea.gct(data=data, description=description, file=file, round=round, version=version, missing=missing, ...)
