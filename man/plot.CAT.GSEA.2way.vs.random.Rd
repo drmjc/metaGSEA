@@ -1,27 +1,56 @@
 \name{plot.CAT.GSEA.2way.vs.random}
 \alias{plot.CAT.GSEA.2way.vs.random}
 \title{Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
-\usage{plot.CAT.GSEA.2way.vs.random(x, y, B=100, sizes, sizes.random=sizes, random.col="lightgrey", col=1,
-    proportion=FALSE, add=FALSE, plot.column=1, pch=1, main="")
+\usage{
+  plot.CAT.GSEA.2way.vs.random(x, y, B = 100, sizes = NULL,
+  sizes.random = sizes, random.col = "lightgrey", col = 1,
+  proportion = FALSE, add = FALSE, plot.column = 1, pch =
+  1, main = "")
 }
-\description{Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
-\details{You should probably use \code{\link{plot.CAT.GSEA.random}} instead}
-\seealso{\code{\link{plot.CAT.vs.random}}, \code{\link{plot.CAT.GSEA}}}
-\author{Mark Cowley}
-\arguments{\item{x}{a GSEA object}
-\item{y}{a GSEA object}
-\item{B}{the number of permutations. default=100}
-\item{sizes}{Controls the granularity of the CAT plot. see details}
-\item{sizes.random}{Controls the granulatity of the randomised CAT plot. Since this gets done \code{B} times,
-this setting can really impact the speed of this function. See details.}
-\item{random.col}{the fill colour for the random background}
-\item{col}{the pch colour}
-\item{proportion}{if \code{TRUE}, x-axis is proportion of all genesets, if \code{FALSE}
-(default), the number of genesets is plotted.}
-\item{add}{logical: add to the current plot (\code{TRUE}), or create a new plot (\code{FALSE}).}
-\item{plot.column}{if \code{add=TRUE}, which column of plots does the current plot fit 
-into? see mfg setting in \code{\link{par}}}
-\item{pch}{the print character. see \code{\link{par}}}
-\item{main}{the plot title}
+\arguments{
+  \item{x}{a GSEA object}
+
+  \item{y}{a GSEA object}
+
+  \item{B}{the number of permutations. default=100}
+
+  \item{sizes}{Controls the granularity of the CAT plot.
+  see details}
+
+  \item{sizes.random}{Controls the granulatity of the
+  randomised CAT plot. Since this gets done \code{B} times,
+  this setting can really impact the speed of this
+  function. See details.}
+
+  \item{random.col}{the fill colour for the random
+  background}
+
+  \item{col}{the pch colour}
+
+  \item{proportion}{if \code{TRUE}, x-axis is proportion of
+  all genesets, if \code{FALSE} (default), the number of
+  genesets is plotted.}
+
+  \item{add}{logical: add to the current plot
+  (\code{TRUE}), or create a new plot (\code{FALSE}).}
+
+  \item{plot.column}{if \code{add=TRUE}, which column of
+  plots does the current plot fit into? see mfg setting in
+  \code{\link{par}}}
+
+  \item{pch}{the print character. see \code{\link{par}}}
+
+  \item{main}{the plot title}
+}
+\description{
+  You should probably use
+  \code{\link{plot.CAT.GSEA.random}} instead
+}
+\author{
+  Mark Cowley
+}
+\seealso{
+  \code{\link{plot.CAT.vs.random}},
+  \code{\link{plot.CAT.GSEA}}
 }
 

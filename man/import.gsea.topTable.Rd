@@ -1,27 +1,45 @@
 \name{import.gsea.topTable}
 \alias{import.gsea.topTable}
-\title{Import the tabular results from a GSEA PreRanked run - ie the GSEA top...}
-\usage{import.gsea.topTable(dir, sort.by=c("NES", "absNES", "FDR", "P", "SIZE"))
-}
-\description{Import the tabular results from a GSEA PreRanked run - ie the GSEA top
+\title{Import the tabular results from a GSEA PreRanked run - ie the GSEA top
 table.}
-\details{Takes the pos and neg results, and merges them into a single table, adding
-a DIRECTION column.
-Then re-sort the rows by NES (default), absolute NES, FDR, P or SIZE
-(largest->smallest)}
-\value{a single data.frame with all genesets from within a collection.
-Unlike the raw GSEA output, this contains a DIRECTION column (up/down)
-and a "LEADING.EDGE.SIZE" column which is the number of genes in the
-leading edge +/- 1 due to rounding errors (this data comes from the
-'tags' field in the LEADING.EDGE column), and a "RANK.IN.REPORT" column
-which shows the rank in the original list}
-\author{Mark Cowley, 2009-04-28}
-\arguments{\item{dir}{the dir that contains the index.html}
-\item{sort.by}{which column to sort by.}
-\item{NES}{decreasing NES score}
-\item{absNES}{decreasing absolute NES score}
-\item{FDR}{increasing FDR, breaking ties by largest absolute NES}
-\item{P}{increasing nomimal P value, breaking ties by largest absolute NES}
-\item{SIZE}{decreasing gene set size}
+\usage{
+  import.gsea.topTable(dir, sort.by = c("NES", "absNES",
+  "FDR", "P", "SIZE"))
+}
+\arguments{
+  \item{dir}{the dir that contains the index.html}
+
+  \item{sort.by}{which column to sort by.}
+
+  \item{NES}{decreasing NES score}
+
+  \item{absNES}{decreasing absolute NES score}
+
+  \item{FDR}{increasing FDR, breaking ties by largest
+  absolute NES}
+
+  \item{P}{increasing nomimal P value, breaking ties by
+  largest absolute NES}
+
+  \item{SIZE}{decreasing gene set size}
+}
+\value{
+  a single data.frame with all genesets from within a
+  collection. Unlike the raw GSEA output, this contains a
+  DIRECTION column (up/down) and a "LEADING.EDGE.SIZE"
+  column which is the number of genes in the leading edge
+  +/- 1 due to rounding errors (this data comes from the
+  'tags' field in the LEADING.EDGE column), and a
+  "RANK.IN.REPORT" column which shows the rank in the
+  original list
+}
+\description{
+  Takes the pos and neg results, and merges them into a
+  single table, adding a DIRECTION column. Then re-sort the
+  rows by NES (default), absolute NES, FDR, P or SIZE
+  (largest->smallest)
+}
+\author{
+  Mark Cowley, 2009-04-28
 }
 

@@ -1,18 +1,31 @@
 \name{import.gsea.res}
 \alias{import.gsea.res}
-\title{Import a GenePattern res file...}
-\usage{import.gsea.res(f, calls=TRUE)
+\title{Import a GenePattern res file}
+\usage{
+  import.gsea.res(f, calls = TRUE)
 }
-\description{Import a GenePattern res file}
-\details{res files contain 2 columns per sample: a Signal, and a Call column, where Call contains
-a detection call - either a P/M/A, or a proabability. These calls can be imported, or
-thrown away via the \code{calls} parameter.}
-\value{a \code{data.frame} of usually gene expression data. columns 1&2 are
-annotation, 3+ are data, in alternating pairs of Signal and Calls... ie
-2n+2 columns in total. If \code{calls=TRUE}, ncol=2+N, if \code{calls=FALSE}, ncol=2+2N}
-\author{Mark Cowley, 2009-07-27}
-\arguments{\item{f}{the path to a res file}
-\item{calls}{logical: if \code{TRUE}, retain the detection calls, if \code{FALSE}, throw away Calls, 
-and rename Signal columns to strip out the trailing \dQuote{.Signal}}
+\arguments{
+  \item{f}{the path to a res file}
+
+  \item{calls}{logical: if \code{TRUE}, retain the
+  detection calls, if \code{FALSE}, throw away Calls, and
+  rename Signal columns to strip out the trailing
+  \dQuote{.Signal}}
+}
+\value{
+  a \code{data.frame} of usually gene expression data.
+  columns 1&2 are annotation, 3+ are data, in alternating
+  pairs of Signal and Calls... ie 2n+2 columns in total. If
+  \code{calls=TRUE}, ncol=2+N, if \code{calls=FALSE},
+  ncol=2+2N
+}
+\description{
+  res files contain 2 columns per sample: a Signal, and a
+  Call column, where Call contains a detection call -
+  either a P/M/A, or a proabability. These calls can be
+  imported, or thrown away via the \code{calls} parameter.
+}
+\author{
+  Mark Cowley, 2009-07-27
 }
 

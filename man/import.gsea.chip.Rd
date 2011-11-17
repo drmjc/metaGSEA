@@ -1,26 +1,42 @@
 \name{import.gsea.chip}
 \alias{import.gsea.chip}
-\title{Import a GSEA chip file.}
-\usage{import.gsea.chip(x, na.strings=c("---", "NA", ""), capitalise.symbol=TRUE, verbose=FALSE)
-}
-\description{Import a GSEA chip file.
+\title{Import a GSEA chip file.
 This can look inside a gsea output dir, find the path to the chip file that
 was used, and try to open it.}
-\details{Missing values in chip files.\cr
-There seems to be little convention re missing values in chip files. It's important
-to map all potential missing values to \code{NA}'s, since lots of code in this package 
-assumes that the symbol is either valid, or \code{NA}. Set \code{na.strings} accordingly.
+\usage{
+  import.gsea.chip(x, na.strings = c("---", "NA", ""),
+  capitalise.symbol = TRUE, verbose = FALSE)
+}
+\arguments{
+  \item{x}{the path or url to a chip file, or the path to a
+  gsea directory}
 
-Gene Symbol capitalisation.\cr
-GSEA likes to capitalise all gene symbols, so in GSEA result files, the symbols will be
-all caps. This can cause logical problems when using the symbol as a key. 
-So, even though some human gene symbols are not supposed to be in caps, eg C1orf34,
-we recommend that you set \code{capitalise.symbol=TRUE}.}
-\author{Mark Cowley, 2009-08-07}
-\arguments{\item{x}{the path or url to a chip file, or the path to a gsea directory}
-\item{na.strings}{a character vector of values which should be mapped to NA. see details}
-\item{capitalise.symbol}{logical: capitalise all gene symbols upon import? see details}
-\item{verbose}{logical: if TRUE, then write out verbose messages, including \code{download.file}
-verbose output.}
+  \item{na.strings}{a character vector of values which
+  should be mapped to NA. see details}
+
+  \item{capitalise.symbol}{logical: capitalise all gene
+  symbols upon import? see details}
+
+  \item{verbose}{logical: if TRUE, then write out verbose
+  messages, including \code{download.file} verbose output.}
+}
+\description{
+  Missing values in chip files.\cr There seems to be little
+  convention re missing values in chip files. It's
+  important to map all potential missing values to
+  \code{NA}'s, since lots of code in this package assumes
+  that the symbol is either valid, or \code{NA}. Set
+  \code{na.strings} accordingly.
+}
+\details{
+  Gene Symbol capitalisation.\cr GSEA likes to capitalise
+  all gene symbols, so in GSEA result files, the symbols
+  will be all caps. This can cause logical problems when
+  using the symbol as a key. So, even though some human
+  gene symbols are not supposed to be in caps, eg C1orf34,
+  we recommend that you set \code{capitalise.symbol=TRUE}.
+}
+\author{
+  Mark Cowley, 2009-08-07
 }
 

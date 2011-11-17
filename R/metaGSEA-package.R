@@ -90,4 +90,4 @@
 #' @references \url{http://www.broadinstitute.org/gsea}
 #' @keywords package
 #'
-roxygen()
+NULL

@@ -1,19 +1,30 @@
 \name{import.gsea.compare.runs}
 \alias{import.gsea.compare.runs}
-\title{Import the output produced by gsea...}
-\usage{import.gsea.compare.runs(xls, gmt=.GSEA.GMT.CATEGORIES)
+\title{Import the output produced by gsea.compare.runs.sh}
+\usage{
+  import.gsea.compare.runs(xls, gmt = .GSEA.GMT.CATEGORIES)
 }
-\description{Import the output produced by gsea.compare.runs.sh}
-\author{Mark Cowley, 2009-03-23}
-\arguments{\item{xls}{an XLS file produced by running import.gsea.compare.runs.sh, or
-import.gsea.compare.runs.1gmt.sh}
-\item{gmt}{either an integer indicating which sheet of the xls to import,
-or the name of the gmt file. use the latter if gsea was run on all 15 of
-the gmt categories listed in .GSEA.GMT.CATEGORIES}
+\arguments{
+  \item{xls}{an XLS file produced by running
+  import.gsea.compare.runs.sh, or
+  import.gsea.compare.runs.1gmt.sh}
+
+  \item{gmt}{either an integer indicating which sheet of
+  the xls to import, or the name of the gmt file. use the
+  latter if gsea was run on all 15 of the gmt categories
+  listed in .GSEA.GMT.CATEGORIES}
 }
-\examples{# not run
+\description{
+  Import the output produced by gsea.compare.runs.sh
+}
+\examples{
+# not run
 # gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls")
 # gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", c("c2_all"))
 # gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", c("c2_all", "c5_bp"))
-# gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", grep("all", .GSEA.GMT.CATEGORIES, value=TRUE))}
+# gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", grep("all", .GSEA.GMT.CATEGORIES, value=TRUE))
+}
+\author{
+  Mark Cowley, 2009-03-23
+}
 
