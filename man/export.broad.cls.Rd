@@ -6,7 +6,7 @@ way of telling GenePattern which experimental group each array belongs to.
 They can be discrete, or continuous.}
 \usage{
   export.broad.cls(labels, file, continuous = FALSE,
-  start.value = 0, check.levels = TRUE)
+    start.value = 0, check.levels = TRUE)
 }
 \arguments{
   \item{labels}{the labels. see description.}

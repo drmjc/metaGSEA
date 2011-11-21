@@ -2,8 +2,9 @@
 \alias{gsea.filter}
 \title{Take a GSEA list, and filter out genesets that fail various criteria.}
 \usage{
-  gsea.filter(x, N = NULL, NES = NULL, FDR = NULL, P =
-  NULL, FWER = NULL, direction = NULL, genesets = NULL)
+  gsea.filter(x, N = NULL, NES = NULL, FDR = NULL,
+    P = NULL, FWER = NULL, direction = NULL,
+    genesets = NULL)
 }
 \arguments{
   \item{x}{a gsea list}

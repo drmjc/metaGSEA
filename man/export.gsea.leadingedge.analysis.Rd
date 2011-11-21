@@ -3,7 +3,7 @@
 \title{Export the plots and tables required for a GSEA leading edge analysis.}
 \usage{
   export.gsea.leadingedge.analysis(x, dir, prefix = NULL,
-  sep = "-")
+    sep = "-")
 }
 \arguments{
   \item{x}{a GSEA object. Usually this will have been
@@ -16,7 +16,7 @@
   files from others that you might make. eg WTvsKO1}
 
   \item{sep}{the seperator to use in constructing the
-  outputfilename. Ignored if \code{prefix=NULL}}
+  outputfilename.  Ignored if \code{prefix=NULL}}
 }
 \value{
   Creates N files:\cr leadingedge.plots.pdf: 4 plots in a

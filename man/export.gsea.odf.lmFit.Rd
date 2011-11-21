@@ -7,8 +7,8 @@ tool. The ODF file that is created is heavily modelled on the ODF file that the
 ComparativeMarkerSelection GenePattern module creates.}
 \usage{
   export.gsea.odf.lmFit(fit1, fit2, coef = 1, file,
-  gct.file, cls.file, description, collapse = FALSE,
-  probe2gene = NULL)
+    gct.file, cls.file, description, collapse = FALSE,
+    probe2gene = NULL)
 }
 \arguments{
   \item{fit1}{a linear model fit, \emph{before} fitting
@@ -23,14 +23,16 @@ ComparativeMarkerSelection GenePattern module creates.}
   \item{file}{the path to the ODF file}
 
   \item{gct.file}{the name of the gct file that the linear
-  models were fitted to. This is written to the ODF header}
+  models were fitted to.  This is written to the ODF
+  header}
 
   \item{cls.file}{the name of the cls file that the linear
-  models were fitted to. This is written to the ODF header}
+  models were fitted to.  This is written to the ODF
+  header}
 
   \item{description}{a character vector, which will end up
-  in the description column. if \code{NULL}, then the probe
-  ID's will be used.}
+  in the description column.  if \code{NULL}, then the
+  probe ID's will be used.}
 
   \item{collapse}{logical: whether to collapse probes to
   genes? if \code{TRUE}, then \code{probe2gene} must be

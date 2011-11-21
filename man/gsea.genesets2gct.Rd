@@ -3,8 +3,8 @@
 \title{Create gct files for all gseaPreranked runs comparing 1 rnk to lots of
 gmt's.}
 \usage{
-  gsea.genesets2gct(gsea.dir, gct.file, leading.edge =
-  TRUE, which.sets = c("best", "all"))
+  gsea.genesets2gct(gsea.dir, gct.file,
+    leading.edge = TRUE, which.sets = c("best", "all"))
 }
 \arguments{
   \item{gsea.dir}{either a single gsea directory, or a

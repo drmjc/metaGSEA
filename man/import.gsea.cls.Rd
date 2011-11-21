@@ -3,7 +3,7 @@
 \title{Import a cls file}
 \usage{
   import.gsea.cls(file, as.factor = TRUE,
-  enforce.zero.start = TRUE)
+    enforce.zero.start = TRUE)
 }
 \arguments{
   \item{file}{the path to a valid cls file.}

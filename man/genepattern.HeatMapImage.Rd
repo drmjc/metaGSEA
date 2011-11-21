@@ -6,15 +6,16 @@ IMHO nicer than anything that \R can give, except maybe \code{\link[gplots]{heat
 If you have a bunch of GCT files that need converting to heatmap images fast,
 then this is the code for you.}
 \usage{
-  genepattern.HeatMapImage(in.file, out.file = NULL, method
-  = c("local", "server"), gp.connection = NULL, format =
-  "png", row.size = 16, column.size = 16, show.grid =
-  "yes", grid.color = "0:0:0", show.row.descriptions =
-  "yes", show.row.names = "yes", rows.to.highlight = "",
-  row.highlight.color = "255:0:0", color.scheme = "row
-  normalized", color.palette = "", use.color.gradient =
-  "no", memory = "-Xmx512m", verbose = FALSE, overwrite =
-  FALSE)
+  genepattern.HeatMapImage(in.file, out.file = NULL,
+    method = c("local", "server"), gp.connection = NULL,
+    format = "png", row.size = 16, column.size = 16,
+    show.grid = "yes", grid.color = "0:0:0",
+    show.row.descriptions = "yes", show.row.names = "yes",
+    rows.to.highlight = "",
+    row.highlight.color = "255:0:0",
+    color.scheme = "row normalized", color.palette = "",
+    use.color.gradient = "no", memory = "-Xmx512m",
+    verbose = FALSE, overwrite = FALSE)
 }
 \arguments{
   \item{in.file}{a single gct/res or odf file.}

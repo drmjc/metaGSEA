@@ -16,7 +16,7 @@ geneset. These genes do not have to be the same length in each geneset.}
   \item{f}{the file name}
 
   \item{description}{a character vector for the description
-  column. it is recycled if its too short. The order must
+  column. it is recycled if its too short.  The order must
   match up with the rows of \code{x}.}
 }
 \value{

@@ -2,8 +2,8 @@
 \alias{plot.CAT.GSEA.2way}
 \title{Plot a CAT plot upon 2 GSEA objects.}
 \usage{
-  plot.CAT.GSEA.2way(x, y, col = 1, proportion = FALSE, add
-  = FALSE, FDRthresh = 1.01, main = "")
+  plot.CAT.GSEA.2way(x, y, col = 1, proportion = FALSE,
+    add = FALSE, FDRthresh = 1.01, main = "")
 }
 \arguments{
   \item{x}{a GSEA object}

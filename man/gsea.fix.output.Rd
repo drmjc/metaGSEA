@@ -7,8 +7,8 @@ of the features of the GSEA reports, and both GSEA and GseaPreRanked output
 can be improved somewhat (IMHO).}
 \usage{
   gsea.fix.output(dir, genes.gct = NULL, fix.index = TRUE,
-  fix.posneg = TRUE, fix.reports = TRUE, debug = FALSE,
-  overwrite.heatmap.images = FALSE, verbose = FALSE)
+    fix.posneg = TRUE, fix.reports = TRUE, debug = FALSE,
+    overwrite.heatmap.images = FALSE, verbose = FALSE)
 }
 \arguments{
   \item{dir}{see details}

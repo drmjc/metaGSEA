@@ -4,9 +4,9 @@
 Don't worry about the fancy geneset renaming that plot.gsea.leadingedge.HCL
 gives you.}
 \usage{
-  plot.gsea.leadingedge.HCL.simple(x, main = "Leading edge
-  similarities", xlab = "", hclust.method = "complete",
-  ...)
+  plot.gsea.leadingedge.HCL.simple(x,
+    main = "Leading edge similarities", xlab = "",
+    hclust.method = "complete", ...)
 }
 \arguments{
   \item{x}{a GSEA object}

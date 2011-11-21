@@ -3,8 +3,8 @@
 \title{Import the tabular results from a GSEA PreRanked run - ie the GSEA top
 table.}
 \usage{
-  import.gsea.topTable(dir, sort.by = c("NES", "absNES",
-  "FDR", "P", "SIZE"))
+  import.gsea.topTable(dir,
+    sort.by = c("NES", "absNES", "FDR", "P", "SIZE"))
 }
 \arguments{
   \item{dir}{the dir that contains the index.html}
@@ -25,7 +25,7 @@ table.}
 }
 \value{
   a single data.frame with all genesets from within a
-  collection. Unlike the raw GSEA output, this contains a
+  collection.  Unlike the raw GSEA output, this contains a
   DIRECTION column (up/down) and a "LEADING.EDGE.SIZE"
   column which is the number of genes in the leading edge
   +/- 1 due to rounding errors (this data comes from the

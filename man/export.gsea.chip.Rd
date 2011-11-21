@@ -4,8 +4,8 @@
 Export a GSEA chip file -- this basically ensures that the correct column
 names are exported.}
 \usage{
-  export.gsea.chip(x, f, resort.rows = TRUE, collapse.rows
-  = TRUE, na.strings = "---")
+  export.gsea.chip(x, f, resort.rows = TRUE,
+    collapse.rows = TRUE, na.strings = "---")
 }
 \arguments{
   \item{x}{a matrix-like object. see details, and

@@ -2,8 +2,9 @@
 \alias{reorder.gct}
 \title{Function to reorder the rows of a GCT file}
 \usage{
-  reorder.gct(gct, method = c("var", "mean", "median",
-  "sum"), reverse = FALSE)
+  reorder.gct(gct,
+    method = c("var", "mean", "median", "sum"),
+    reverse = FALSE)
 }
 \arguments{
   \item{gct}{a gct object}

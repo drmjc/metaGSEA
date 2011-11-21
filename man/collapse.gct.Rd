@@ -2,8 +2,9 @@
 \alias{collapse.gct}
 \title{Collapse a GCT object}
 \usage{
-  collapse.gct(gct, chip, rnk = NULL, method = c("var",
-  "mean", "median"), reverse = FALSE, filter = FALSE)
+  collapse.gct(gct, chip, rnk = NULL,
+    method = c("var", "mean", "median"), reverse = FALSE,
+    filter = FALSE)
 }
 \arguments{
   \item{gct}{a GCT object}
@@ -21,7 +22,7 @@
   score in the rnk file (see details).}
 
   \item{reverse}{[default=FALSE] reverse the ordering
-  selected by method arg. so instead of most variable, it
+  selected by method arg.  so instead of most variable, it
   would be least variable.}
 
   \item{filter}{Filter out (ie exclude) those probes that

@@ -2,8 +2,8 @@
 \alias{export.gsea}
 \title{Export a gsea object to the filesystem.}
 \usage{
-  export.gsea(x, location, as.zip = FALSE, overwrite =
-  FALSE)
+  export.gsea(x, location, as.zip = FALSE,
+    overwrite = FALSE)
 }
 \arguments{
   \item{x}{a GSEA object.}

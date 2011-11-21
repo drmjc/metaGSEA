@@ -3,9 +3,9 @@
 \title{Prepare data for use in SubMap.}
 \usage{
   convert.gct2submap(gct.file, cls.file, chip.file,
-  gct.out, cls.out, collapse.mode = c("max.avg", "mean",
-  "median", "max.cv"), cv.thresh = NULL, topN.thresh =
-  NULL)
+    gct.out, cls.out,
+    collapse.mode = c("max.avg", "mean", "median", "max.cv"),
+    cv.thresh = NULL, topN.thresh = NULL)
 }
 \arguments{
   \item{gct.file}{standard input files to be modified.}

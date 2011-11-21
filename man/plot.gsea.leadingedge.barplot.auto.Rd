@@ -2,9 +2,10 @@
 \alias{plot.gsea.leadingedge.barplot.auto}
 \title{Function to automatically plot barplot's of filtered GSEA data.}
 \usage{
-  plot.gsea.leadingedge.barplot.auto(x, file = NULL, N =
-  c(50), FDR = c(0.25), P = NULL, FWER = NULL, min.count =
-  2, horiz = FALSE, col = "blue", cex.names = 0.6, ...)
+  plot.gsea.leadingedge.barplot.auto(x, file = NULL,
+    N = c(50), FDR = c(0.25), P = NULL, FWER = NULL,
+    min.count = 2, horiz = FALSE, col = "blue",
+    cex.names = 0.6, ...)
 }
 \arguments{
   \item{x}{a GSEA list}

@@ -2,8 +2,8 @@
 \alias{export.gsea.rnk.RankProd}
 \title{Take the results from a RankProd analysis, and produce a rnk file for GSEA.}
 \usage{
-  export.gsea.rnk.RankProd(rp, names = NULL, file, method =
-  c("inv.log", "inverse"))
+  export.gsea.rnk.RankProd(rp, names = NULL, file,
+    method = c("inv.log", "inverse"))
 }
 \arguments{
   \item{rp}{a rankprod result object.}

@@ -2,8 +2,8 @@
 \alias{plot.gsea.leadingedge.heatmap}
 \title{Generate a heatmap of genesets from a GSEA run}
 \usage{
-  plot.gsea.leadingedge.heatmap(x, main = "Geneset
-  similarity", gridcolour = "lightgrey")
+  plot.gsea.leadingedge.heatmap(x,
+    main = "Geneset similarity", gridcolour = "lightgrey")
 }
 \arguments{
   \item{x}{a GSEA object}
@@ -11,7 +11,7 @@
   \item{main}{the plot title}
 
   \item{gridcolour}{the colour of the grid to overlay on
-  top of the image. see sepcolor parameter of
+  top of the image.  see sepcolor parameter of
   \code{\link[gplots]{heatmap.2}}}
 }
 \value{

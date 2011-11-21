@@ -3,8 +3,9 @@
 \title{Function to generate CAT plots for >= 2 GSEA comparisons}
 \usage{
   plot.CAT.GSEA(..., gsea.list = NULL, labels = LETTERS,
-  legend.pos = "bottomright", proportion = FALSE, FDRthresh
-  = 1.01, main = "", method = c("1-vs-all", "all-pairs"))
+    legend.pos = "bottomright", proportion = FALSE,
+    FDRthresh = 1.01, main = "",
+    method = c("1-vs-all", "all-pairs"))
 }
 \arguments{
   \item{\dots}{at least 2 GSEA objects, or:}

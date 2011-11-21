@@ -7,8 +7,8 @@ equivalent to the contents of a rnk file (todo: allow a rnk file to be
 specified) There's 2 ways of chooseing the best probe - Mark's way
 (Best_probe), or the default GSEA way which is called "Max_probe".}
 \usage{
-  gsea.gct.probes2genes(data, stats, chip, mode =
-  c("Best_probe", "Max_probe", "Median_of_probes"))
+  gsea.gct.probes2genes(data, stats, chip,
+    mode = c("Best_probe", "Max_probe", "Median_of_probes"))
 }
 \arguments{
   \item{data}{a data.frame of expression data}

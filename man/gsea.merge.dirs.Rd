@@ -3,7 +3,7 @@
 \title{Merge 2 gsea runs, by referencing only the GSEA directories.}
 \usage{
   gsea.merge.dirs(gsea.dir1, gsea.dir2, prefix, suffix,
-  outdir)
+    outdir)
 }
 \arguments{
   \item{gsea.dir1}{paths to two GSEA directories (the ones

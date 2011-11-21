@@ -4,8 +4,8 @@
 From a GSEA object, plot a histogram of the nominal p values,
 FDR q values, or FWER p values.}
 \usage{
-  plot.gsea.statistic.histograms(x, main = "", which =
-  c("p", "q", "FWER"))
+  plot.gsea.statistic.histograms(x, main = "",
+    which = c("p", "q", "FWER"))
 }
 \arguments{
   \item{x}{a gsea object}

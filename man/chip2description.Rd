@@ -2,8 +2,8 @@
 \alias{chip2description}
 \title{Convert a GSEA chip file or object into a vector of descriptions.}
 \usage{
-  chip2description(chip.file = NULL, chip = NULL, sep = ":
-  ", probes = NULL, genoloc = NULL)
+  chip2description(chip.file = NULL, chip = NULL,
+    sep = ": ", probes = NULL, genoloc = NULL)
 }
 \arguments{
   \item{chip.file}{the path to a chip file; or:}

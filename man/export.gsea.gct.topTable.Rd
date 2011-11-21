@@ -4,8 +4,8 @@
 This is a companion function to \code{\link{export.gsea.rnk.topTable}} which makes a gct
 file which can then be used for annotating GSEA output with heatmaps.}
 \usage{
-  export.gsea.gct.topTable(tt, rma, chip, file, missing =
-  "", verbose = TRUE, ...)
+  export.gsea.gct.topTable(tt, rma, chip, file,
+    missing = "", verbose = TRUE, ...)
 }
 \arguments{
   \item{tt}{a GSEA top-table at the probe-level}

@@ -3,7 +3,7 @@
 \title{Export a table of data to a GenePattern odf file}
 \usage{
   export.gsea.odf(data, file, header.lines = NULL,
-  colclasses = NULL)
+    colclasses = NULL)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} or

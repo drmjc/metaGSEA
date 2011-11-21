@@ -5,7 +5,7 @@ This can look inside a gsea output dir, find the path to the chip file that
 was used, and try to open it.}
 \usage{
   import.gsea.chip(x, na.strings = c("---", "NA", ""),
-  capitalise.symbol = TRUE, verbose = FALSE)
+    capitalise.symbol = TRUE, verbose = FALSE)
 }
 \arguments{
   \item{x}{the path or url to a chip file, or the path to a

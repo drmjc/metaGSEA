@@ -2,9 +2,9 @@
 \alias{print.gsea.venn}
 \title{Print a Venn diagram of overlaps between genesets from >= 2 GSEA runs}
 \usage{
-  print.gsea.venn(..., gsea.list = NULL, names = NULL, N =
-  NULL, NES = NULL, FDR = NULL, P = NULL, FWER = NULL,
-  direction = c("either", "up", "down"))
+  print.gsea.venn(..., gsea.list = NULL, names = NULL,
+    N = NULL, NES = NULL, FDR = NULL, P = NULL,
+    FWER = NULL, direction = c("either", "up", "down"))
 }
 \arguments{
   \item{\dots}{>=2 GSEA results; or}

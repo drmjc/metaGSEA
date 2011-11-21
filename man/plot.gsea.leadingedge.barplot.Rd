@@ -3,10 +3,10 @@
 \title{GSEA Leading Edge analysis: Barplot of number of genesets each gene occured
 in.}
 \usage{
-  plot.gsea.leadingedge.barplot(x, min.count = 0, xlab =
-  "", ylab = "Number Of Gene Sets", main = "Leading Edge
-  Barplot", horiz = FALSE, col = "blue", cex.names = 0.6,
-  ...)
+  plot.gsea.leadingedge.barplot(x, min.count = 0,
+    xlab = "", ylab = "Number Of Gene Sets",
+    main = "Leading Edge Barplot", horiz = FALSE,
+    col = "blue", cex.names = 0.6, ...)
 }
 \arguments{
   \item{x}{a GSEA object. Usually this has been subset to a

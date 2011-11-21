@@ -2,8 +2,8 @@
 \alias{gsea.compare.runs.sort}
 \title{Function to sort the rows of a GSEA comparison object}
 \usage{
-  gsea.compare.runs.sort(x, sort.by = c("none", "avgabs",
-  "range", "deltaAB", 1))
+  gsea.compare.runs.sort(x,
+    sort.by = c("none", "avgabs", "range", "deltaAB", 1))
 }
 \arguments{
   \item{x}{a data.frame from

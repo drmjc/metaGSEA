@@ -4,9 +4,9 @@
 This is a convenience wrapper around \code{\link{plclust.gsea}}}
 \usage{
   plot.hclust.gsea(hc, main = "Leading edge similarities",
-  xlab = "", sub = NULL, yaxis = c("similarity",
-  "distance"), lab.col = "black", hang = 0.03, cex = NULL,
-  cex.main = 1, ...)
+    xlab = "", sub = NULL,
+    yaxis = c("similarity", "distance"), lab.col = "black",
+    hang = 0.03, cex = NULL, cex.main = 1, ...)
 }
 \arguments{
   \item{hc}{an object of class \code{hclust}}

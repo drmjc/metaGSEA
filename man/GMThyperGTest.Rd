@@ -14,7 +14,8 @@ of gene id's of interest, and a collection of gene sets, stored within a gmt fil
   \code{\link{import.gsea.gmt}}}
 
   \item{adjust.method}{the multiple hypothesis correction
-  value. see \code{\link{p.adjust}}. default=\dQuote{none}}
+  value. see \code{\link{p.adjust}}.
+  default=\dQuote{none}}
 }
 \value{
   a \code{data.frame} containing these columns:

@@ -3,7 +3,7 @@
 \title{Export a res file for GenePattern.}
 \usage{
   export.broad.res(data, calls, description = NULL, file,
-  missing = "", unlog2 = TRUE)
+    missing = "", unlog2 = TRUE)
 }
 \arguments{
   \item{data}{matrix of expression levels. If this is log

@@ -3,7 +3,7 @@
 \title{fix an individual GSEA GeneSet html report.}
 \usage{
   gsea.fix.output.geneset.report(htmlfile,
-  symbol2description, addHeatMap = TRUE, debug = FALSE)
+    symbol2description, addHeatMap = TRUE, debug = FALSE)
 }
 \arguments{
   \item{htmlfile}{the path to the gsea report file}

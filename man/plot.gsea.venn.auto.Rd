@@ -6,8 +6,8 @@ By default, this will plot 4 venn diagrams: top 50 up, top 50 down, FDR<0.25 up,
 FDR<0.25 down}
 \usage{
   plot.gsea.venn.auto(..., gsea.list = NULL, names = NULL,
-  file = NULL, main = "", N = c(50), FDR = c(0.25), P =
-  NULL, FWER = NULL)
+    file = NULL, main = "", N = c(50), FDR = c(0.25),
+    P = NULL, FWER = NULL)
 }
 \arguments{
   \item{\dots}{>=2 GSEA results; or}

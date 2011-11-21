@@ -14,8 +14,8 @@
 }
 \value{
   a GSEA object with larger tt, and larger leading.edge
-  objects. Currently, the rnk and edb objects are set to NA
-  -- WARNING: this may make routines that work on GSEA
+  objects.  Currently, the rnk and edb objects are set to
+  NA -- WARNING: this may make routines that work on GSEA
   objects fail. We recommend treating results from
   gsea.combine as immutable objects.
 }

@@ -3,9 +3,9 @@
 \title{Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
 \usage{
   plot.CAT.GSEA.2way.vs.random(x, y, B = 100, sizes = NULL,
-  sizes.random = sizes, random.col = "lightgrey", col = 1,
-  proportion = FALSE, add = FALSE, plot.column = 1, pch =
-  1, main = "")
+    sizes.random = sizes, random.col = "lightgrey",
+    col = 1, proportion = FALSE, add = FALSE,
+    plot.column = 1, pch = 1, main = "")
 }
 \arguments{
   \item{x}{a GSEA object}

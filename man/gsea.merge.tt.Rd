@@ -3,8 +3,8 @@
 \title{Merge N GSEA toptables, retaining a column of interest (eg NOM.p.val, or
 FDR...)}
 \usage{
-  gsea.merge.tt(..., keep = "NES", method = c("intersect",
-  "union")[1])
+  gsea.merge.tt(..., keep = "NES",
+    method = c("intersect", "union")[1])
 }
 \arguments{
   \item{\dots}{a single gsea.list object, a list of gsea

@@ -3,9 +3,9 @@
 \title{Function to filter a set of GSEA run comparisons, and/or to re-order the
 rows.}
 \usage{
-  gsea.compare.runs.filter(x, fdr = NULL, mode = c("any",
-  "all")[1], sort.by = c("none", "avgabs", "range",
-  "deltaAB", 1))
+  gsea.compare.runs.filter(x, fdr = NULL,
+    mode = c("any", "all")[1],
+    sort.by = c("none", "avgabs", "range", "deltaAB", 1))
 }
 \arguments{
   \item{x}{a data.frame from

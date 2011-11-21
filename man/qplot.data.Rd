@@ -5,7 +5,7 @@ This code is taken from qvalue::qplot (from R2.9.0) in order to export the requi
 LimmaGP GenePattern module}
 \usage{
   .qplot.data(qobj, rng = c(0, 0.1), smooth.df = 3,
-  smooth.log.pi0 = FALSE, ...)
+    smooth.log.pi0 = FALSE, ...)
 }
 \arguments{
   \item{qobj}{a qvalue object.}

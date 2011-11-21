@@ -3,7 +3,7 @@
 \title{fix the "Detailed enrichment results in html format" 2 pages.}
 \usage{
   gsea.fix.output.detailed.enrichment.results.html(pos.html,
-  neg.html, debug = FALSE)
+    neg.html, debug = FALSE)
 }
 \arguments{
   \item{pos.html}{the path to the positive enrichemnt html

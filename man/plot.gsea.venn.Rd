@@ -2,9 +2,9 @@
 \alias{plot.gsea.venn}
 \title{Compare the significant genesets from 2 or 3 GSEA runs using Venn diagrams}
 \usage{
-  plot.gsea.venn(..., gsea.list = NULL, names = NULL, main
-  = "", N = NULL, NES = NULL, FDR = NULL, P = NULL, FWER =
-  NULL, direction = c("either", "up", "down"))
+  plot.gsea.venn(..., gsea.list = NULL, names = NULL,
+    main = "", N = NULL, NES = NULL, FDR = NULL, P = NULL,
+    FWER = NULL, direction = c("either", "up", "down"))
 }
 \arguments{
   \item{\dots}{either 2 or 3 GSEA objects by name, or as

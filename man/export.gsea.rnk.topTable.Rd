@@ -4,9 +4,9 @@
 The 'rnk' file contains a column of ID's, and a column of sorted values, and
 is typically used as input to GSEA in pre-ranked mode.}
 \usage{
-  export.gsea.rnk.topTable(tt, file, values = c("t",
-  "logFC", "P.Value"), probe2gene = NULL, convert2symbol =
-  FALSE, verbose = TRUE)
+  export.gsea.rnk.topTable(tt, file,
+    values = c("t", "logFC", "P.Value"), probe2gene = NULL,
+    convert2symbol = FALSE, verbose = TRUE)
 }
 \arguments{
   \item{tt}{a limma \code{\link[limma]{topTable}}}

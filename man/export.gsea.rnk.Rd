@@ -2,8 +2,8 @@
 \alias{export.gsea.rnk}
 \title{Export a vector of values as a GSEA pre-ranked list.}
 \usage{
-  export.gsea.rnk(values, names = NULL, file = NULL, resort
-  = TRUE, sigfigs = 4)
+  export.gsea.rnk(values, names = NULL, file = NULL,
+    resort = TRUE, sigfigs = 4)
 }
 \arguments{
   \item{values}{a numeric vector}

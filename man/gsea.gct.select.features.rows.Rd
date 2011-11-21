@@ -6,8 +6,8 @@ however GCT files also have a gene symbol column.
 Restrict the rows of the GCT file, using either a vector or file of probe ID's or gene symbols,
 using exact word matches}
 \usage{
-  gsea.gct.select.features.rows(gct.file, gct.out, rows =
-  NULL, rows.file = NULL)
+  gsea.gct.select.features.rows(gct.file, gct.out,
+    rows = NULL, rows.file = NULL)
 }
 \arguments{
   \item{gct.file}{the path to a gct file}

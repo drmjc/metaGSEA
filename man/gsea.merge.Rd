@@ -3,7 +3,7 @@
 \title{Merge two GSEA objects.}
 \usage{
   gsea.merge(gsea1, gsea2, prefix = NULL, suffix = NULL,
-  warn = TRUE)
+    warn = TRUE)
 }
 \arguments{
   \item{gsea1}{GSEA object to be merged.}

@@ -2,8 +2,8 @@
 \alias{ucounts}
 \title{How many times does each term in x appear?}
 \usage{
-  ucounts(x, return.unique = TRUE, issorted = FALSE, sort =
-  TRUE)
+  ucounts(x, return.unique = TRUE, issorted = FALSE,
+    sort = TRUE)
 }
 \arguments{
   \item{x}{a character vector}
@@ -15,12 +15,13 @@
 
   if FALSE, then return the numeric counts of each element
   in x. Useful if you then want to work out which elements
-  have count > 1 and quickly view those elements. NB, the
+  have count > 1 and quickly view those elements.  NB, the
   order remains the same as x.}
 
   \item{issorted}{logical: to improve the speed of this
-  code, the algorithm first sorts the data. If it's already
-  sorted, then save time by setting \code{issorted=FALSE}.}
+  code, the algorithm first sorts the data.  If it's
+  already sorted, then save time by setting
+  \code{issorted=FALSE}.}
 
   \item{sort}{logical: whether to sort the result vector
   from highest counts to lowest?}

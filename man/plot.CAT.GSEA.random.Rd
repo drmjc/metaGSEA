@@ -3,9 +3,9 @@
 \title{Compare multiple GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
 \usage{
   plot.CAT.GSEA.random(..., labels = LETTERS, B = 100,
-  sizes = NULL, sizes.random = sizes, random.col = "grey",
-  ylim = c(0, 1), proportion = TRUE, pch = 1, legend.pos =
-  "bottomright")
+    sizes = NULL, sizes.random = sizes,
+    random.col = "grey", ylim = c(0, 1), proportion = TRUE,
+    pch = 1, legend.pos = "bottomright")
 }
 \arguments{
   \item{\dots}{at least 2 GSEA objects}

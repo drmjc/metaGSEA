@@ -6,7 +6,7 @@ results, over a range of different best N, FDR, P, FWER thresholds, and for
 up/down genesets.}
 \usage{
   plot.gsea.leadingedge.HCL.auto(x, file = NULL, N = c(50),
-  FDR = c(0.25), P = NULL, FWER = NULL, max.distance = 1)
+    FDR = c(0.25), P = NULL, FWER = NULL, max.distance = 1)
 }
 \arguments{
   \item{x}{either a gsea list, or a list of gsea lists. see

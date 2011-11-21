@@ -4,9 +4,10 @@
 the NES scores for each geneset}
 \usage{
   plot.gseacmp.barplot(x, fdr.thresh = 0.05, do.par = TRUE,
-  sub = "", max.label.length = 13, col = "lightblue", las =
-  2, nrow = 3, ncol = 4, legend.pos = "none", label.bars =
-  c("stars", "FDR", "none"), label.fun = pvalue.stars)
+    sub = "", max.label.length = 13, col = "lightblue",
+    las = 2, nrow = 3, ncol = 4, legend.pos = "none",
+    label.bars = c("stars", "FDR", "none"),
+    label.fun = pvalue.stars)
 }
 \arguments{
   \item{x}{a gseacmp object (see gsea.compare.runs.1gmt)}

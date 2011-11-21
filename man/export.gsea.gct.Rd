@@ -3,8 +3,8 @@
 \title{Function to export a GenePattern gct file.}
 \usage{
   export.gsea.gct(data, description = NULL, file = NULL,
-  chip = NULL, round = 4, version = "#1.2", missing = "",
-  ...)
+    chip = NULL, round = 4, version = "#1.2", missing = "",
+    ...)
 }
 \arguments{
   \item{data}{a \code{matrix} or \code{data.frame} WITH

@@ -2,8 +2,9 @@
 \alias{gsea.rename.genesets}
 \title{Rename the genesets from within a GSEA object.}
 \usage{
-  gsea.rename.genesets(x, prefix = NULL, suffix = NULL, fdr
-  = FALSE, rank = FALSE, direction = FALSE, maxlen = 60)
+  gsea.rename.genesets(x, prefix = NULL, suffix = NULL,
+    fdr = FALSE, rank = FALSE, direction = FALSE,
+    maxlen = 60)
 }
 \arguments{
   \item{x}{a GSEA list, optionally with an edb. see

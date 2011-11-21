@@ -2,9 +2,9 @@
 \alias{gsea.hardwire.rpt.paths}
 \title{Rewire the file locations referenced within a GSEA rpt file.}
 \usage{
-  gsea.hardwire.rpt.paths(dir, chip.dir =
-  "/pwbc/data/GSEA/chips", gmx.dir =
-  "/pwbc/data/GSEA/gmt/v2.5")
+  gsea.hardwire.rpt.paths(dir,
+    chip.dir = "/pwbc/data/GSEA/chips",
+    gmx.dir = "/pwbc/data/GSEA/gmt/v2.5")
 }
 \arguments{
   \item{dir}{a GSA directory. The rpt file within this dir

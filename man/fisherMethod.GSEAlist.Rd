@@ -2,8 +2,9 @@
 \alias{fisherMethod.GSEAlist}
 \title{Apply Fisher's method to a GSEA list}
 \usage{
-  fisherMethod.GSEAlist(gsea.list, values = c("NOM.p.val",
-  "FDR.q.val"), direction = c("either", "same"))
+  fisherMethod.GSEAlist(gsea.list,
+    values = c("NOM.p.val", "FDR.q.val"),
+    direction = c("either", "same"))
 }
 \arguments{
   \item{gsea.list}{a list of GSEA objects}

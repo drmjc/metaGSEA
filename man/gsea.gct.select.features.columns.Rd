@@ -3,8 +3,8 @@
 \title{Restrict the number of columns in a gct & cls file.}
 \usage{
   gsea.gct.select.features.columns(gct.file, cls.file,
-  gct.out, cls.out, columns = NULL, classes = NULL,
-  cls.start.value = 0)
+    gct.out, cls.out, columns = NULL, classes = NULL,
+    cls.start.value = 0)
 }
 \arguments{
   \item{gct.file}{the path to a GCT file}

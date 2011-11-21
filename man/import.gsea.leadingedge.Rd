@@ -1,7 +1,7 @@
 \name{import.gsea.leadingedge}
 \alias{import.gsea.leadingedge}
 \title{Import the leading edge subset of genes from each category.
-Must provide the path to the top-level directory that contains the \dQuote{index.html}}
+ Must provide the path to the top-level directory that contains the \dQuote{index.html}}
 \usage{
   import.gsea.leadingedge(dir, plot = FALSE)
 }
@@ -21,7 +21,7 @@ Must provide the path to the top-level directory that contains the \dQuote{index
 }
 \description{
   Import the leading edge subset of genes from each
-  category. Must provide the path to the top-level
+  category.  Must provide the path to the top-level
   directory that contains the \dQuote{index.html}
 }
 \author{

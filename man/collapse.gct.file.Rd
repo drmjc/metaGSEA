@@ -3,8 +3,8 @@
 \title{Collapse a GCT file}
 \usage{
   collapse.gct.file(gct.file, chip.file, gct.outfile,
-  rnk.file = NULL, method = c("var", "mean", "median"),
-  reverse = FALSE, filter = FALSE)
+    rnk.file = NULL, method = c("var", "mean", "median"),
+    reverse = FALSE, filter = FALSE)
 }
 \arguments{
   \item{gct.file}{the path to a gct file}
@@ -24,7 +24,7 @@
   score in the rnk file (see details).}
 
   \item{reverse}{[default=FALSE] reverse the ordering
-  selected by method arg. so instead of most variable, it
+  selected by method arg.  so instead of most variable, it
   would be least variable.}
 
   \item{filter}{Filter out (ie exclude) those probes that

@@ -2,13 +2,14 @@
 \alias{plot.gsea.leadingedge.HCL}
 \title{GSEA Leading Edge HCL plot.}
 \usage{
-  plot.gsea.leadingedge.HCL(x, N = NULL, NES = NULL, FDR =
-  NULL, P = NULL, FWER = NULL, direction = c("either",
-  "up", "down"), main = "Leading edge similarities", xlab =
-  "", yaxis = c("similarity", "distance"), max.distance =
-  1, rename.genesets = FALSE, label.clusters = FALSE,
-  cluster.threshold = 0.99, hclust.method = "complete",
-  ...)
+  plot.gsea.leadingedge.HCL(x, N = NULL, NES = NULL,
+    FDR = NULL, P = NULL, FWER = NULL,
+    direction = c("either", "up", "down"),
+    main = "Leading edge similarities", xlab = "",
+    yaxis = c("similarity", "distance"), max.distance = 1,
+    rename.genesets = FALSE, label.clusters = FALSE,
+    cluster.threshold = 0.99, hclust.method = "complete",
+    ...)
 }
 \arguments{
   \item{x}{a GSEA object. see \code{\link{import.gsea}}}
@@ -37,7 +38,7 @@
   \item{xlab}{additional arguments passed to plot.}
 
   \item{yaxis}{either \dQuote{similarity} or
-  \dQuote{distance}. Two closely related genesets have eg
+  \dQuote{distance}.  Two closely related genesets have eg
   90% similarity, and a distance of 0.1.}
 
   \item{max.distance}{(experimental) attempt to filter out
@@ -52,7 +53,8 @@
   the clusters. see cluster.threshold.}
 
   \item{cluster.threshold}{the distance threshold if
-  label.clusters=TRUE. 0.99 is a good default in practice.}
+  label.clusters=TRUE.  0.99 is a good default in
+  practice.}
 
   \item{\dots}{additional arguments passed to plot.}
 

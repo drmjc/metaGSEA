@@ -2,9 +2,9 @@
 \alias{collapse.gct2geneset}
 \title{Collapse a GCT file from 1 row per gene to 1 row per geneset.}
 \usage{
-  collapse.gct2geneset(gct.file, gmt.file, method =
-  c("mean", "median", "min", "max", "sum"), min.size = 1,
-  max.size = 1e+05, gct.out = NULL)
+  collapse.gct2geneset(gct.file, gmt.file,
+    method = c("mean", "median", "min", "max", "sum"),
+    min.size = 1, max.size = 1e+05, gct.out = NULL)
 }
 \arguments{
   \item{gct.file}{the path to a gct file}
