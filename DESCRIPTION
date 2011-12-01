@@ -124,3 +124,4 @@ Collate:
     'reorder.gct.R'
     'test.broad.ftp.R'
     'unique.counts.R'
+    'import.genepattern.odf.R'
