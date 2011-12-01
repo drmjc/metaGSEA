@@ -80,8 +80,9 @@ collapse.gct.file <- function(gct.file, chip.file, gct.outfile, rnk.file=NULL, m
 #'   column 1 are actually gene symbols.
 #' @author Mark Cowley, 2011-02-27
 #' @export
-collapse.gct <- function(gct, chip, rnk=NULL, method=c("var", "mean", "median"), reverse=FALSE, filter=FALSE) {
-	!missing(gct) && all(c("Name", "Description") %in% colnames(gct)) || stop("gct should be a gct file")
+collapse.gct <- function(gct, chip, rnk=NULL, method=c("var", "mean", "median", "max"), reverse=FALSE, filter=FALSE) {
+	method <- match.arg(method)
+	!missing(gct) && all(c("Name", "Description") %in% colnames(gct)) || stop("gct should be a gct object")
 	!missing(chip) || stop("chip must be specified")
 	
 	if( !all(gct[,1] %in% chip[,1]) ) {
