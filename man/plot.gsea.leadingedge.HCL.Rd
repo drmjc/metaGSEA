@@ -39,7 +39,7 @@
 
   \item{yaxis}{either \dQuote{similarity} or
   \dQuote{distance}.  Two closely related genesets have eg
-  90% similarity, and a distance of 0.1.}
+  90\% similarity, and a distance of 0.1.}
 
   \item{max.distance}{(experimental) attempt to filter out
   genesets that are dissimilar to all other genesets. This
@@ -81,7 +81,7 @@
 \note{
   max.distance\cr The intuitive outcome of setting
   \code{max.distance} (eg 0.1) is that no genesets with a
-  distance of >0.1 (ie a similarity of <90%) should remain
+  distance of >0.1 (ie a similarity of <90\%) should remain
   in the HCL. This is not quite the case. We filter out
   genesets that have distance to all other genesets > 0.9
   in the 'distance' object (see

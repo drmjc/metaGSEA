@@ -15,7 +15,7 @@ gene sets.}
 }
 \value{
   a decimal value in [0,1] where 0 represents no overlap,
-  and 1.0 indicating 100% overlap - ie a=b
+  and 1.0 indicating 100\% overlap - ie a=b
 }
 \description{
   Motivated by the leading edge analysis of Broad's GSEA.
