@@ -1,0 +1,30 @@
+\name{import.genepattern.odf}
+\alias{import.genepattern.odf}
+\title{import.genepattern.odf}
+\usage{
+  import.genepattern.odf(f)
+}
+\arguments{
+  \item{f}{the path to a single ODF file}
+}
+\value{
+  a \code{data.frame} representation of the ODF file.
+}
+\description{
+  Import a GenePattern ODF file. This has been tested using
+  ODF created by LimmaGP, which in turn was modelled on
+  that from ComparativeMarkerSelection. Note that all the
+  header info is stripped out & lost upon import, except
+  for the column names.
+}
+\examples{
+\dontrun{
+f <- "yellow_exp_LeanConvsObCon.odf"
+a <- import.genepattern.odf(f)
+head(a)
+}
+}
+\author{
+  Mark Cowley, 2011-11-22
+}
+
