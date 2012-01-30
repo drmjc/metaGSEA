@@ -16,6 +16,8 @@ import.gsea.clm <- function(f) {
 		stop("clm files should have just three columns. watch out for extra tabs.\n")
 	if( any(is.na(clm)) )
 		stop("There should be no missing fields in a clm file.\n")
+	if( length(grep(" +$", clm[,1])) > 0 )
+		warning("Some of the sample names in column 1 of the CLM file have a trailing space. It's safest if you trim these trailing spaces.\n")
 
 	colnames(clm) <- c("CEL", "Sample", "Class")
 	if( length(unique(clm$Sample)) != length(clm$Sample) ) {
@@ -29,3 +31,5 @@ import.gsea.clm <- function(f) {
 
 	return( clm )
 }
+# 2012-01-24
+# - added check for trailing spaces in clm[,1]
