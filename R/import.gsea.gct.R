@@ -37,7 +37,9 @@ import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 		clm <- import.gsea.clm(clm.file)
 		# clm$CEL <- make.names(clm$CEL) # MJC edited out 2010-07-20
 		if( !all(clm$CEL %in% colnames(res)) ) {
-			warning("Not all files mentioned in column 1 of the CLM could be found in the gct. skipping.\n")
+			isMissing <- setdiff(clm$CEL, colnames(res))
+			msg <- sprintf("These samples mentioned in column 1 of the CLM could be found in the gct file:\n%s\n Leaving samples named as per original GCT file. Ensure there are no trailing spaces in the CLM file.\n", paste(shQuote(isMissing), collapse="\n"))
+			warning(msg)
 		}
 		else {
 			res <- res[,c(colnames(res)[1:2], clm$CEL)]
@@ -50,3 +52,5 @@ import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 }
 # 2010-07-20: changed default for check.names to FALSE
 # 2011-09-09: turned quote="" in the read.delim to allow comments with " in them (as per the ftp://ftp.broadinstitute.org/pub/genepattern/datasets/all_aml/all_aml_test.gct file)
+# 2012-01-24:
+# - helpful message printed if samples in CLM not found in GCT.
