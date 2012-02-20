@@ -5,7 +5,7 @@
   plot.gsea.leadingedge.barplot.auto(x, file = NULL,
     N = c(50), FDR = c(0.25), P = NULL, FWER = NULL,
     min.count = 2, horiz = FALSE, col = "blue",
-    cex.names = 0.6, ...)
+    cex.names = 0.6, write.delim = FALSE, ...)
 }
 \arguments{
   \item{x}{a GSEA list}
@@ -37,6 +37,12 @@
 
   \item{\dots}{arguments passed to
   \code{\link{plot.gsea.leadingedge.barplot}}}
+
+  \item{write.delim}{logical: if \code{TRUE}, then write
+  the data plotted as a tab delimited txt file, named
+  \code{file + ".txt"}. Default is \code{FALSE}. If
+  \code{file=NULL}, then write.delim will be set to
+  \code{FALSE}.}
 }
 \value{
   none. Generates a number of plots, either to a pdf if
