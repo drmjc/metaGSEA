@@ -3,8 +3,8 @@
 \title{Collapse a GCT object}
 \usage{
   collapse.gct(gct, chip, rnk = NULL,
-    method = c("var", "mean", "median"), reverse = FALSE,
-    filter = FALSE)
+    method = c("var", "mean", "median", "max"),
+    reverse = FALSE, filter = FALSE)
 }
 \arguments{
   \item{gct}{a GCT object}
