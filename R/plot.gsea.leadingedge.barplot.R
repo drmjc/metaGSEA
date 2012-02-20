@@ -73,6 +73,7 @@ plot.gsea.leadingedge.barplot <- function(x, min.count=0,
 
 
 #' Function to automatically plot barplot's of filtered GSEA data.
+#' 
 #' @note Usually, I filter by up or down, by top 50, and by FDR<0.25. This generates 4 plots
 #' @param x a GSEA list
 #' @param file the path to an output PDF file. if \code{NULL}, then plots are printed to current device.
@@ -89,6 +90,9 @@ plot.gsea.leadingedge.barplot <- function(x, min.count=0,
 #' @param col the colour of the bars
 #' @param cex.names the character expansion factor of the gene names. see \code{\link{plot}}
 #' @param \dots arguments passed to \code{\link{plot.gsea.leadingedge.barplot}}
+#' @param write.delim logical: if \code{TRUE}, then write the data plotted as a tab
+#' delimited txt file, named \code{file + ".txt"}. Default is \code{FALSE}. If 
+#' \code{file=NULL}, then write.delim will be set to \code{FALSE}.
 #' @author Mark Cowley, 2010-10-14
 #' @export
 #' @return none. Generates a number of plots, either to a pdf if \code{file!=NULL}, or 
@@ -97,7 +101,7 @@ plot.gsea.leadingedge.barplot <- function(x, min.count=0,
 plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL, 
 	N=c(50), FDR=c(0.25), P=NULL, FWER=NULL, 
 	min.count=2,
-	horiz=FALSE, col="blue", cex.names=0.6, ...) {
+	horiz=FALSE, col="blue", cex.names=0.6, write.delim=FALSE, ...) {
 
 	if( "leading.edge" %in% names(x) )
 		x <- list(gsea.collection=x)
@@ -105,6 +109,9 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 	if( !is.null(file) ) {
 		pdf.A4(file)
 		on.exit(dev.off())
+	}
+	else {
+		write.delim <- FALSE
 	}
 
 	collections <- names(x)
@@ -120,8 +127,14 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - topN=", n, sep="")
 				tmp <- gsea.filter(x[[collection]], N=n, direction=direction)
-				if( length(tmp$leading.edge) > 0 )
-					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 ) {
+					tmp.counts <- plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+					if( write.delim ) {
+						f <- paste(file, " - ", tmp.main, ".txt", sep="")
+						tmp.counts <- data.frame(GeneSymbol=names(tmp.counts), Frequency=tmp.counts)
+						write.delim(tmp.counts, f)
+					}
+				}
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -131,8 +144,14 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - FDR<", fdr, sep="")
 				tmp <- gsea.filter(x[[collection]], FDR=fdr, direction=direction)
-				if( length(tmp$leading.edge) > 0 )
-					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 ) {
+					tmp.counts <- plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+					if( write.delim ) {
+						f <- paste(file, " - ", tmp.main, ".txt", sep="")
+						tmp.counts <- data.frame(GeneSymbol=names(tmp.counts), Frequency=tmp.counts)
+						write.delim(tmp.counts, f)
+					}
+				}
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -142,8 +161,14 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - P<", p, sep="")
 				tmp <- gsea.filter(x[[collection]], P=p, direction=direction)
-				if( length(tmp$leading.edge) > 0 )
-					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 ) {
+					tmp.counts <- plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+					if( write.delim ) {
+						f <- paste(file, " - ", tmp.main, ".txt", sep="")
+						tmp.counts <- data.frame(GeneSymbol=names(tmp.counts), Frequency=tmp.counts)
+						write.delim(tmp.counts, f)
+					}
+				}
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -153,8 +178,14 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 			for(direction in c("up", "down")) {
 				tmp.main <- paste(main, " - ", direction, " - FWER<", fwer, sep="")
 				tmp <- gsea.filter(x[[collection]], FWER=fwer, direction=direction)
-				if( length(tmp$leading.edge) > 0 )
-					plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+				if( length(tmp$leading.edge) > 0 ) {
+					tmp.counts <- plot.gsea.leadingedge.barplot(tmp, main=tmp.main, min.count=min.count, horiz=horiz, col=col, cex.names=cex.names, ...)
+					if( write.delim ) {
+						f <- paste(file, " - ", tmp.main, ".txt", sep="")
+						tmp.counts <- data.frame(GeneSymbol=names(tmp.counts), Frequency=tmp.counts)
+						write.delim(tmp.counts, f)
+					}
+				}
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -162,3 +193,6 @@ plot.gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 	}
 	cat("\n")
 }
+# CHANGELOG
+# 2010-10-14: v1
+# 2012-02-19: added write.delim option.
