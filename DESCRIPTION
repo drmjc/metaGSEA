@@ -20,7 +20,7 @@ Description: A collection of R and bash code to simplify
     report by including the gene symbol, description and
     hyperlinks to Entrez Gene.
 Version: 1.0.6
-Date: 2011-11-17
+Date: 2012-02-20
 Depends:
     R (>= 2.8.0),
     pwbc,
