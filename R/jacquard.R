@@ -9,6 +9,7 @@
 #'   indicating 100% overlap - ie a=b
 #' @author Mark Cowley, 2009-04-06
 #' @exportMethod jacquard
+#' @importClassesFrom GSEABase GeneSet
 #' @rdname jacquard-methods
 #' @docType methods
 #' @examples
