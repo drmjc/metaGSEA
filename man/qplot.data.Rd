@@ -24,11 +24,11 @@ LimmaGP GenePattern module}
   \item{\code{pi0.estimate}}{the final pi0 estimate (from
   the qobj itself). length 1}
 
-  for example:\verbatim{ List of 4\cr $ lambda : num [1:20]
-  0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 ...\cr $ pi0 :
-  num [1:20] 1 0.975 0.961 0.942 0.92 ...\cr $ spline : num
-  [1:20] 0.987 0.97 0.953 0.936 0.92 ...\cr $ pi0.estimate:
-  num 0.793\cr }
+  for example:\samp{ List of 4 $ lambda : num [1:20] 0 0.05
+  0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 ...  $ pi0 : num
+  [1:20] 1 0.975 0.961 0.942 0.92 ...  $ spline : num
+  [1:20] 0.987 0.97 0.953 0.936 0.92 ...  $ pi0.estimate:
+  num 0.793 }
 }
 \description{
   .qplot.data This code is taken from qvalue::qplot (from
