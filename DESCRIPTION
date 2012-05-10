@@ -1,6 +1,6 @@
 Package: metaGSEA
 Maintainer: Mark Cowley <m.cowley@garvan.org.au>
-License: GPL2
+License: GPL-2
 Title: Meta-analysis of GSEA analyses, including intra- and
     inter-experiment comparisons
 Type: Package
@@ -19,21 +19,22 @@ Description: A collection of R and bash code to simplify
     pre-ranked output, and the gene tables in each GSEA
     report by including the gene symbol, description and
     hyperlinks to Entrez Gene.
-Version: 1.0.6
-Date: 2012-02-20
+Version: 1.0.7
+Date: 2012-03-19
 Depends:
     R (>= 2.8.0),
     pwbc,
     stats,
     XML
+Imports:
+    GSEABase
 Suggests:
     qvalue,
     GenePattern,
     limma,
     gplots,
     gtools,
-    MADAM,
-    GSEABase
+    MADAM
 Collate:
     'chip2description.R'
     'collapse.gct.R'
