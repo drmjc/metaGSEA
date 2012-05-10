@@ -36,9 +36,9 @@ comparisons.}
   geneset. It's very rare for \emph{all} genes within a
   geneset to be dramatically up- or down-regulated; by way
   of example, if we identify a strongly up-regulated
-  geneset, there's usually ~60\\% of the genes that are
-  up-regulated, ~30\\% that are unchanged, and the remaining
-  ~10\\% are down-regulated. The leading edge genes are
+  geneset, there's usually ~60\% of the genes that are
+  up-regulated, ~30\% that are unchanged, and the remaining
+  ~10\% are down-regulated. The leading edge genes are
   those that contribute towards the geneset getting its
   up-regulated score. It's quite possible for 2 GSEA runs
   to find the same geneset strongly up-regulated, however
