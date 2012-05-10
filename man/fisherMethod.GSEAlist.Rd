@@ -28,6 +28,11 @@
   GSEA results must have been run against the same GMT
   file.
 }
+\details{
+  MADAM is a CRAN package which needs compiling from source
+  on OSX: \samp{ biocLite(c("RankProd", "GeneMeta",
+  "impute")) install.packages("MADAM", type="source") }
+}
 \author{
   Mark Cowley, 2010-07-22
 }

@@ -5,6 +5,12 @@
 #' top table objects.
 #' The GSEA results must have been run against the same GMT file.
 #' 
+#' MADAM is a CRAN package which needs compiling from source on OSX:
+#' \samp{
+#' 	biocLite(c("RankProd", "GeneMeta", "impute"))
+#'  install.packages("MADAM", type="source")
+#' }
+#' 
 #' @param gsea.list a list of GSEA objects
 #' @param values Which statistic to use, the unadjusted P-values (\dQuote{NOM.p.val}), 
 #'    or the FDR q values (\dQuote{FDR.q.val})?
