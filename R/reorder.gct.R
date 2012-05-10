@@ -22,29 +22,32 @@ reorder.gct <- function(gct, method=c("var", "mean", "median", "max", "sum"), re
 	gct <- switch(method,
 		var={
 			x <- apply(gct[,3:(N+2)], 1, var)
-			gct[order(x, decreasing=TRUE), ]
+			gct[order(x, decreasing=!reverse), ]
 		},
 		mean={
 			x <- apply(gct[,3:(N+2)], 1, mean)
-			gct[order(x, decreasing=TRUE), ]
+			gct[order(x, decreasing=!reverse), ]
 		},
 		median={
 			x <- apply(gct[,3:(N+2)], 1, median)
-			gct[order(x, decreasing=TRUE), ]
+			gct[order(x, decreasing=!reverse), ]
 		},
 		sum={
 			x <- apply(gct[,3:(N+2)], 1, sum)
-			gct[order(x, decreasing=TRUE), ]
+			gct[order(x, decreasing=!reverse), ]
 		},
 		max={
 			x <- apply(gct[,3:(N+2)], 1, max)
-			gct[order(x, decreasing=TRUE), ]
+			gct[order(x, decreasing=!reverse), ]
 		},
 		stop("Unsupported method")
 	)
 	
 	return(gct)
 }
+# CHANGELOG
+# 2012-03-19: reverse parameter did nothing. I've made it actually work.
+
 
 #' Reorder the rows of a GCT file.
 #' 
