@@ -32,17 +32,17 @@
 #' @export
 export.gsea.gct <- function(data, description=NULL, file=NULL, chip=NULL, round=4, version="#1.2", missing="", ...) {
 	if( is.null(description) && is.null(chip) ) {
-		if(!"Description" %in% colnames(data)) {
-			description <- rep("", nrow(data))
-			# stop("You did not provide a description or chip, nor is there a column named Description in your data.\n")
-		}
-		else {
-			# data looks like its a GSEA gct object
+		if( all(c("Description", "Name") %in% colnames(data)) ) {
+			# data looks like its a gct object
 			if( anyDuplicated(data$Name) != 0 )
 				stop("Values in 'data$Name' MUST be unique as per the gct file format definition.\n")
 			rownames(data) <- data$Name
 			description <- data$Description; names(description) <- rownames(data)
 			data <- data[,3:ncol(data), drop=FALSE]
+		}
+		else {
+			description <- rep("", nrow(data))
+			# stop("You did not provide a description or chip, nor is there a column named Description in your data.\n")
 		}
 		export.gsea.gct(data, description=description, file=file, chip=NULL, round=round, version=version, missing=missing, ...)
 	}
@@ -88,7 +88,8 @@ export.gsea.gct <- function(data, description=NULL, file=NULL, chip=NULL, round=
 # - Allow single sample GCT files to work
 # - named arguments across my workspace and GenePattern modules
 # - @TODO: move the file argument to #2
-
+# 2012-03-19
+# - allow an empty description column.
 
 # 
 # export.broad.gct <- function(data, description, file, round=3, version="#1.2", missing="", ...) {
