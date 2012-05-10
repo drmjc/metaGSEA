@@ -97,14 +97,13 @@ collapse.gct <- function(gct, chip, rnk=NULL, method=c("var", "mean", "median", 
 	# (better is set according to the given 'method')
 	#
 	gct <- reorder.gct(gct, method=method, reverse=reverse)
-	if( reverse ) gct <- gct[nrow(gct):1, ]
 	chip <- chip[match(gct[,1], chip[,1]), ]
 	gct$ORDER <- 1:nrow(gct) # used to integrate the rows that do and do NOT have probe symbols.
 	
 	# split the data into those probes that do & do not have Gene Symbols
-	probes.no.sym <- chip[,2] == "NA" | chip[,2] == "---" | chip[,2] == "" | is.na(chip[,2])
-	gct.hasSymbols <- gct[!probes.no.sym, ]
-	gct.noSymbols  <- gct[probes.no.sym, ]
+	probes.no.sym   <- chip[,2] == "NA" | chip[,2] == "---" | chip[,2] == "" | is.na(chip[,2])
+	gct.hasSymbols  <- gct[!probes.no.sym, ]
+	gct.noSymbols   <- gct[probes.no.sym, ]
 	chip.hasSymbols <- chip[!probes.no.sym, ]
 	chip.noSymbols  <- chip[probes.no.sym, ]
 
@@ -116,11 +115,13 @@ collapse.gct <- function(gct, chip, rnk=NULL, method=c("var", "mean", "median", 
 					   check.names=FALSE )
 	colnames(res)[1:2] <- colnames(gct)[1:2]
 	rownames(res) <- res[,1]
+	res[,2] <- sprintf("%s (Probe:%s)", res[,2], gct.hasSymbols[m,1])
 	
 	# for the probes that DO NOT have a valid gene symbol, use the same information.
-	if( !filter && nrow(gct.noSymbols) > 0 ) {
+	if( !filter && (nrow(gct.noSymbols) > 0) ) {
 		# Reannotate the first 2 columns using the chip file
 		gct.noSymbols[,2] <- chip2description(chip=chip.noSymbols)
+		# gct.noSymbols[,2] <- sprintf("%s (Probe:%s)", gct.noSymbols[,2], gct.noSymbols[,1])
 		res <- rbind(res, gct.noSymbols)
 		res <- res[order(res$ORDER), ]
 	}
@@ -129,3 +130,5 @@ collapse.gct <- function(gct, chip, rnk=NULL, method=c("var", "mean", "median", 
 	
 	res
 }
+# CHANGELOG
+# 2012-03-19: added (Probe:xyz) into the Description column.
