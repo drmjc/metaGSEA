@@ -88,7 +88,7 @@ genepattern.HeatMapImage <- function(in.file, out.file=NULL,
 		system(cmd, intern=TRUE)
 	}
 	else if( method == "server" ) {
-		require(GenePattern)
+		require(GenePattern) || stop("required package 'GenePattern' is not installed")
 		tmp.dir <- tempdir()
 
 		HeatMapImage.result <- run.analysis(gp.connection, "urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00032:6", input.dataset=in.file, output=out.file, output.format=format, column.size=as.character(column.size), row.size=as.character(row.size), show.grid=show.grid, grid.color=grid.color, show.row.descriptions=show.row.descriptions, show.row.names=show.row.names, rows.to.highlight=rows.to.highlight, row.highlight.color=row.highlight.color, color.scheme=color.scheme, color.palette=color.palette, use.color.gradient=use.color.gradient)
