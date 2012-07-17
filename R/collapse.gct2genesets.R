@@ -1,64 +1,31 @@
-# Collapse a GCT file from 1 row per gene to 1 row per geneset.
-#
-# Details:
-#	This function collapses gene data to geneset data. 
-# NB: the gct[,1] must be the same as the ID's in the gmt file. Usually, GCT files have probe names in column 1, and GMT
-# files have gene symbols. Thus you need to collapse the GCT file to 1 row per gene symbol (see collapse.gct).
-#
-# Currently supported methods include: 
-#	mean, median which are good if you expect all genes in the pathway to be similarly changed
-#	min, max if you're looking at pathways with high or low abundance
-#	sum which is good if the gct file is an adjacency matrix (eg summing up the number of genes that are mutated in a pathway)
-#
-# Parameters:
-#	gct.file: the path to a gct file
-#	gmt.file: the path to a gmt file. untested with a gmx file
-#	method: one of mean, median, min, max, sum
-#	min.size: minimum size threshold for each geneset. default=1, ie include all genesets with >= 1 gene. GSEA default = 15
-#	max.size: maximum size threshold for each geneset. default=1e05, ie include all genesets. GSEA default = 500
-#	gct.out: the path to the output gct file. This will overwrite any previous file there.
-#
-# Value:
-#	side effect of creating a file at gct.out, with 1 row per geneset, as long as the geneset passed the size thresholds.
-#
-# Todo:
-#	add PGSEA, maxmean, maxvar as an option
-#
-# See also:
-#	collapse.gct
-#
-# Mark Cowley, 2011-02-27
-#
-
-
-##' Collapse a GCT file from 1 row per gene to 1 row per geneset.
-##' 
-##' This function collapses gene data to geneset data.
-##' NB: the gct[,1] must be the same as the ID's in the gmt file. Usually, GCT
-##' files have probe names in column 1, and GMT
-##' files have gene symbols. Thus you need to collapse the GCT file to 1 row
-##' per gene symbol (see collapse.gct).
-##' Currently supported methods include:
-##' mean, median which are good if you expect all genes in the pathway to be
-##' similarly changed
-##' min, max if you're looking at pathways with high or low abundance
-##' sum which is good if the gct file is an adjacency matrix (eg summing up the
-##' number of genes that are mutated in a pathway)
-##' 
-##' @param gct.file the path to a gct file
-##' @param gmt.file the path to a gmt file. untested with a gmx file
-##' @param method one of mean, median, min, max, sum
-##' @param min.size minimum size threshold for each geneset. default=1, ie
-##'   include all genesets with >= 1 gene. GSEA default = 15
-##' @param max.size maximum size threshold for each geneset. default=1e05, ie
-##'   include all genesets. GSEA default = 500
-##' @param gct.out the path to the output gct file. This will overwrite any
-##'   previous file there.
-##' @return side effect of creating a file at gct.out, with 1 row per geneset,
-##'   as long as the geneset passed the size thresholds.  Todo: add PGSEA,
-##'   maxmean, maxvar as an option See also: collapse.gct
-##' @author Mark Cowley, 2011-02-27
-##' @export
+#' Collapse a GCT file from 1 row per gene to 1 row per geneset.
+#' 
+#' This function collapses gene data to geneset data.
+#' NB: the gct[,1] must be the same as the ID's in the gmt file. Usually, GCT
+#' files have probe names in column 1, and GMT
+#' files have gene symbols. Thus you need to collapse the GCT file to 1 row
+#' per gene symbol (see collapse.gct).
+#' Currently supported methods include:
+#' mean, median which are good if you expect all genes in the pathway to be
+#' similarly changed
+#' min, max if you're looking at pathways with high or low abundance
+#' sum which is good if the gct file is an adjacency matrix (eg summing up the
+#' number of genes that are mutated in a pathway)
+#' 
+#' @param gct.file the path to a gct file
+#' @param gmt.file the path to a gmt file. untested with a gmx file
+#' @param method one of mean, median, min, max, sum
+#' @param min.size minimum size threshold for each geneset. default=1, ie
+#'   include all genesets with >= 1 gene. GSEA default = 15
+#' @param max.size maximum size threshold for each geneset. default=1e05, ie
+#'   include all genesets. GSEA default = 500
+#' @param gct.out the path to the output gct file. This will overwrite any
+#'   previous file there.
+#' @return side effect of creating a file at gct.out, with 1 row per geneset,
+#'   as long as the geneset passed the size thresholds.  Todo: add PGSEA,
+#'   maxmean, maxvar as an option See also: collapse.gct
+#' @author Mark Cowley, 2011-02-27
+#' @export
 collapse.gct2geneset <- function(gct.file, gmt.file, method=c("mean", "median", "min", "max", "sum"), min.size=1, max.size=1e05, gct.out=NULL) {
 	if( is.null(gct.out) ) stop("Must specify the gct.out file.\n")
 	if( !file.exists(gct.file) ) stop("gct.file does not exist.\n")

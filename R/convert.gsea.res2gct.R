@@ -1,21 +1,9 @@
-# Convert a res object to a gct object.
-#
-# Parameters:
-#	res: a res object. see import.gsea.res
-#
-# Value:
-#	a gct object.
-#
-# Mark Cowley, 2009-12-18
-#
-
-
-##' Convert a res object to a gct object.
-##' 
-##' @param res a res object. see import.gsea.res
-##' @return a gct object.
-##' @author Mark Cowley, 2009-12-18
-##' @export
+#' Convert a res object to a gct object.
+#' 
+#' @param res a res object. see import.gsea.res
+#' @return a gct object.
+#' @author Mark Cowley, 2009-12-18
+#' @export
 convert.gsea.res2gct <- function(res) {
 	idx <- grep("\\.Signal", colnames(res))
 	gct <- res[,c(2,1,idx)]

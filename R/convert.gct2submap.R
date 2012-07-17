@@ -1,70 +1,42 @@
-# Prepare data for use in SubMap.
-#
-# Converts a gct file and cls file so that:
-# - one row per gene symbol & gene symbol becomes the Name of each row, rather than the probe id
-# -- different methods of collapsing rows
-# - cls file starts from 1, rather than 0
-# - choose the most variable genes, either by a coefficient of variation threshold (eg 50)
-#   or the top N most variable genes, as defined by CV.
-#
-# Parameters:
-#	gct.file, cls.file: standard input files to be modified.
-#	chip.file: used to map probe ID's to gene symbols
-#	gct.out, cls.out: output files.
-#	collapse.mode: how to choose the value for each gene.
-#		max.avg: calculate the average for each probeset & choose the values from the probes with largest average value
-#		mean, median: for N probesets mapping to the same gene, calculate the mean or median of those N values for each sample.
-#		max.cv: calculate the CV for each probe & choose the values from the probe with highest cv
-#	cv.thresh: [optional] CV threshold to use. CV's are percentages, so 50, or 100 is a good place to start. Thresholding is done after collapsing to unique genes. This overrides topN.thresh.
-#	topN.thresh: [optional] take the top N genes when ranked by their CV's. Must leave cv.thresh=NULL. Thresholding is done after collapsing to unique genes.s
-#
-# Warning:
-#	If the cv.thresh is too strict, an error is thrown
-#	The cls file starts from '1' instead of '0' which means it may not work with other GenePattern modules!
-#
-# Value:
-#	creates a new gct & cls file. The gct file has 1 row per gene which passed the filters & has gene symbols in column 1 (the Name column). The cls file starts from '1' instead of '0' which means it may not work with other GenePattern modules!
-#
-# Mark Cowley, 2010-07-06
-
-
-##' Prepare data for use in SubMap.
-##' 
-##' Converts a gct file and cls file so that:
-##' - one row per gene symbol & gene symbol becomes the Name of each row,
-##' rather than the probe id
-##' -- different methods of collapsing rows
-##' - cls file starts from 1, rather than 0
-##' - choose the most variable genes, either by a coefficient of variation
-##' threshold (eg 50)
-##' or the top N most variable genes, as defined by CV.
-##' 
-##' @param gct.file standard input files to be modified.
-##' @param cls.file standard input files to be modified.
-##' @param chip.file used to map probe ID's to gene symbols
-##' @param gct.out output files.
-##' @param cls.out output files.
-##' @param collapse.mode how to choose the value for each gene.
-##' @param max.avg calculate the average for each probeset & choose the values
-##'   from the probes with largest average value
-##' @param mean for N probesets mapping to the same gene, calculate the mean or
-##'   median of those N values for each sample.
-##' @param median for N probesets mapping to the same gene, calculate the mean
-##'   or median of those N values for each sample.
-##' @param max.cv calculate the CV for each probe & choose the values from the
-##'   probe with highest cv
-##' @param cv.thresh [optional] CV threshold to use. CV's are percentages, so
-##'   50, or 100 is a good place to start. Thresholding is done after
-##'   collapsing to unique genes. This overrides topN.thresh.
-##' @param topN.thresh [optional] take the top N genes when ranked by their
-##'   CV's. Must leave cv.thresh=NULL. Thresholding is done after collapsing to
-##'   unique genes.s
-##' @return creates a new gct & cls file. The gct file has 1 row per gene which
-##'   passed the filters & has gene symbols in column 1 (the Name column). The
-##'   cls file starts from '1' instead of '0' which means it may not work with
-##'   other GenePattern modules!
-##' @author Mark Cowley, 2010-07-06
-##' @export
+#' Prepare data for use in SubMap.
+#' 
+#' Converts a gct file and cls file so that:\cr
+#' - one row per gene symbol & gene symbol becomes the Name of each row,
+#' rather than the probe id\cr
+#' -- different methods of collapsing rows\cr
+#' - cls file starts from 1, rather than 0\cr
+#' - choose the most variable genes, either by a coefficient of variation
+#' threshold (eg 50)\cr
+#' or the top N most variable genes, as defined by CV.\cr
+#' 
+#' @param gct.file standard input files to be modified.
+#' @param cls.file standard input files to be modified.
+#' @param chip.file used to map probe ID's to gene symbols
+#' @param gct.out output files.
+#' @param cls.out output files.
+#' @param collapse.mode how to choose the value for each gene.
+#' @param max.avg calculate the average for each probeset & choose the values
+#'   from the probes with largest average value
+#' @param mean for N probesets mapping to the same gene, calculate the mean or
+#'   median of those N values for each sample.
+#' @param median for N probesets mapping to the same gene, calculate the mean
+#'   or median of those N values for each sample.
+#' @param max.cv calculate the CV for each probe & choose the values from the
+#'   probe with highest cv
+#' @param cv.thresh [optional] CV threshold to use. CV's are percentages, so
+#'   50, or 100 is a good place to start. Thresholding is done after
+#'   collapsing to unique genes. This overrides topN.thresh.
+#' @param topN.thresh [optional] take the top N genes when ranked by their
+#'   CV's. Must leave cv.thresh=NULL. Thresholding is done after collapsing to
+#'   unique genes.
+#' 
+#' @return creates a new gct & cls file. The gct file has 1 row per gene which
+#'   passed the filters & has gene symbols in column 1 (the Name column). The
+#'   cls file starts from '1' instead of '0' which means it may not work with
+#'   other GenePattern modules!
+#' 
+#' @author Mark Cowley, 2010-07-06
+#' @export
 convert.gct2submap <- function(
 	gct.file,
 	cls.file,
