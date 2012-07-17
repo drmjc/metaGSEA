@@ -18,16 +18,27 @@ Description: A collection of R and bash code to simplify
     output on unix-alike systems, by improving the GSEA
     pre-ranked output, and the gene tables in each GSEA
     report by including the gene symbol, description and
-    hyperlinks to Entrez Gene.
-Version: 1.0.7
-Date: 2012-03-19
+    hyperlinks to Entrez Gene. This has evolved into a suite
+    of code for importing/exporting/subsetting many of the
+    GenePattern file types (GCT, CLS, CLM, CHIP, RES, ODF)
+Version: 1.1.0
+Date: 2012-07-17
 Depends:
     R (>= 2.8.0),
-    pwbc,
     stats,
+    methods,
     XML
 Imports:
-    GSEABase
+    GSEABase,
+    XML,
+    excelIO,
+    gplots,
+    methods,
+    mjcbase,
+    mjcgraphics,
+    mjcstats,
+    microarrays,
+    stringr
 Suggests:
     qvalue,
     GenePattern,
@@ -39,7 +50,6 @@ Collate:
     'chip2description.R'
     'collapse.gct.R'
     'collapse.gct2genesets.R'
-    'convert.apt2gct.R'
     'convert.gct2submap.R'
     'convert.gsea.res2gct.R'
     'dist.gsea.R'
@@ -103,9 +113,6 @@ Collate:
     'is.gsea.R'
     'is.gsea.res.R'
     'is.gsea.zip.R'
-    'is.int.R'
-    'jacquard.R'
-    'list2df.R'
     'metaGSEA-internal.R'
     'metaGSEA-package.R'
     'plclust_in_colour.R'
@@ -124,5 +131,6 @@ Collate:
     'qplot.data.R'
     'reorder.gct.R'
     'test.broad.ftp.R'
-    'unique.counts.R'
     'import.genepattern.odf.R'
+    'average.replicates.gct.R'
+    'jacquard-methods.R'
