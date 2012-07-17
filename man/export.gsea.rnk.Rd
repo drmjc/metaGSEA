@@ -3,7 +3,8 @@
 \title{Export a vector of values as a GSEA pre-ranked list.}
 \usage{
   export.gsea.rnk(values, names = NULL, file = NULL,
-    resort = TRUE, sigfigs = 4)
+    resort = TRUE, sigfigs = 4, up.class = NA,
+    down.class = NA)
 }
 \arguments{
   \item{values}{a numeric vector}
@@ -17,14 +18,30 @@
   \item{resort}{logical: re-sort the values such that they
   are decreasing? see order(, decreasing=TRUE)}
 
-  \item{sigfigs}{the number of decimal places, defaults to
-  4.}
+  \item{sigfigs}{the number of significant figures,
+  defaults to 4.}
+
+  \item{up.class}{The up-regulated genes are up in
+  \code{up.class}}
+
+  \item{down.class}{The down-regulated genes are down in
+  \code{down.class}}
 }
 \value{
   <none>, makes a file
 }
 \description{
   Export a vector of values as a GSEA pre-ranked list.
+}
+\details{
+  Specifying up-/down-regulated genes. One of the biggest
+  causes of confusion, especially when revisiting results
+  generated a long time ago, are my positive genes up in
+  class A, or class B? If you specify \code{up.class} and
+  \code{down.class}, a header is written into in the rnk
+  file. The new GseaPreRanked GenePattern module will read
+  that header & label the geneset reports with these names,
+  rather than na_pos and na_neg.
 }
 \author{
   Mark Cowley, 2008-09-08
