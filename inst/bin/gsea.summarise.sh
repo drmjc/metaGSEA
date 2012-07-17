@@ -28,6 +28,7 @@ script=`mktemp -t gsea.XXXX`.R # works on OSX (..../gsea.XXXX.zQ7Mkbq0) and SunO
 
 cat <<EOF > $script
 require(metaGSEA, quietly=TRUE, warn.conflicts=FALSE)
+require(excelIO, quietly=TRUE, warn.conflicts=FALSE)
 res <- import.gsea("$DIR")
 summary <- gsea.summarise(res)
 if( is.vector(summary) ) {

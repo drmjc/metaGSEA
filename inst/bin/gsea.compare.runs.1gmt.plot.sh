@@ -34,7 +34,7 @@ fi
 
 script=`mktemp -t gseacmp.XXXXX`.R # works on solaris and MacOSX
 cat <<EOF > $script
-require( metaGSEA )
+require(metaGSEA, quietly=TRUE, warn.conflicts=FALSE)
 NROW <- 3
 NCOL <- 4
 gseacmp <- list(import.gsea.compare.runs("$IN", 1))

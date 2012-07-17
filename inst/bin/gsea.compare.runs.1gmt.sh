@@ -66,8 +66,7 @@ touch "$OUT"
 
 script=`mktemp -t gseacmp.XXXXX`.R # works on solaris and MacOSX
 cat <<EOF > $script
-require( pwbc, quietly=TRUE )
-require( metaGSEA, quietly=TRUE )
+require(metaGSEA, quietly=TRUE, warn.conflicts=FALSE)
 dirs <- commandArgs(trailingOnly=TRUE)
 dirs <- dirs[is.dir(dirs)]
 gsea.compare.runs.1gmt(dirs, outfile="$OUT")
