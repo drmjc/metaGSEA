@@ -21,7 +21,6 @@ gene sets.}
   Motivated by the leading edge analysis of Broad's GSEA.
 }
 \examples{
-require(GSEABase)
 jacquard(letters[1:5], letters[3:5])
 jacquard(1:5, 3:5)
 }

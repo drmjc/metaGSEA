@@ -8,12 +8,12 @@
 #' @return a decimal value in [0,1] where 0 represents no overlap, and 1.0
 #'   indicating 100% overlap - ie a=b
 #' @author Mark Cowley, 2009-04-06
+#' 
 #' @exportMethod jacquard
 #' @importClassesFrom GSEABase GeneSet
 #' @rdname jacquard-methods
 #' @docType methods
 #' @examples
-#' require(GSEABase)
 #' jacquard(letters[1:5], letters[3:5])
 #' jacquard(1:5, 3:5)
 setGeneric(
@@ -54,7 +54,7 @@ setMethod(
 	}
 )
 
-# non-S4 method
+# Defunct: non-S4 method
 # jacquard <- function(a,b) {
 # 	length(intersect(a,b)) / length(union(a,b))
 # }
