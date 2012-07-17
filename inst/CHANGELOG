@@ -1,3 +1,5 @@
 1.0.1
 - added CHANGELOG
 - bugfix in roxygen @notes -> @note; @value -> @return
+1.1.0
+- major refactoring of the pwbc package, moving most utilities into mjcbase, and graphics into mjcgraphics
