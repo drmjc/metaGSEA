@@ -191,6 +191,6 @@ convert.gct2submap <- function(
 	if( file.exists(cls.file) ) {
 		cls <- import.gsea.cls(cls.file)
 		# cls
-		export.broad.cls(cls, cls.out, cont=FALSE, start.val=1)
+		export.broad.cls(cls, cls.out, continuous=FALSE, start.value=1)
 	}
 }
