@@ -1,9 +1,6 @@
 \name{plot.gsea.leadingedge.HCL.auto}
 \alias{plot.gsea.leadingedge.HCL.auto}
-\title{Automated method for doing a hierarchical clustering of genesets, based on
-each sets leading edge genes, for all gsea results in a list of gsea
-results, over a range of different best N, FDR, P, FWER thresholds, and for
-up/down genesets.}
+\title{Automated GSEA HCL}
 \usage{
   plot.gsea.leadingedge.HCL.auto(x, file = NULL, N = c(50),
     FDR = c(0.25), P = NULL, FWER = NULL, max.distance = 1)
@@ -35,8 +32,7 @@ up/down genesets.}
 }
 \value{
   makes a number of plots to a pdf file, or the current
-  plotting device See also: plot.gsea.leadingedge.HCL,
-  gsea.leadingedge.distance
+  plotting device
 }
 \description{
   Automated method for doing a hierarchical clustering of
@@ -47,5 +43,9 @@ up/down genesets.}
 }
 \author{
   Mark Cowley, 2009-09-03
+}
+\seealso{
+  \code{\link{plot.gsea.leadingedge.HCL}},
+  \code{\link{gsea.leadingedge.distance}}
 }
 

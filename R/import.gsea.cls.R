@@ -15,13 +15,12 @@
 #' @author Mark Cowley, 2009-11-26
 #' @seealso \code{\link{import.gsea.gct}} \code{\link{import.gsea.clm}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#cls}
 #' @export
+#' @importFrom mjcbase trim
 import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 	raw <- readLines(file, warn=FALSE)
 	raw <- trim(raw)
 
-	if( length(raw) <= 2 ) {
-		stop("cls file has too few rows.\n")
-	}
+	length(raw) >= 3 || stop("cls file has too few rows.\n")
 
 	if( raw[1] == "#numeric" ) {
 		raw <- raw[2:length(raw)]
@@ -46,12 +45,13 @@ import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 		tmp <- strsplit(raw[1], "[ \t]")[[1]]
 		Nsamples <- tmp[1]
 		Nclasses <- tmp[2]
+		tmp[3] == 1 || stop("import.gsea.cls only supports cls version 1 files.")
 	
 		# line 2
 		stopifnot(substr(raw[2], 1, 1) == "#")
 		raw[2] <- sub("#[ \t]*", "", raw[2])
 		classes <- strsplit(raw[2], "[ \t]")[[1]]
-		stopifnot(length(classes) == Nclasses)
+		length(classes) == Nclasses || stop( sprintf("import.gsea.cls: Expected %d classes, but found %d", Nclasses, length(classes)) )
 	
 		# line 3. 
 		tmp <- strsplit(raw[3], "[ \t]")[[1]]
@@ -59,7 +59,7 @@ import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 		if( enforce.zero.start && min(values) != 0 )
 			stop("Minimum value in cls file must be zero. Set enforce.zero.start=FALSE to override.\n")
 		if( min(values) == 0 ) values <- values + 1
-		stopifnot(length(values) == Nsamples)
+		length(values) == Nsamples || stop( sprintf("import.gsea.cls: Expected %d values, but found %d", Nsamples, length(values)) )
 		stopifnot( max(values) == Nclasses ) # NB i've added 1 already if values started at 0
 		res <- classes[values]
 		if( as.factor )
@@ -81,3 +81,5 @@ import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 }
 # CHANGELOG
 # 2010-07-06: update that allows minimum value to be 1 (for using Submap)
+# 2012-06-18: more informative error messages.
+# 

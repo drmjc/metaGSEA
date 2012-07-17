@@ -43,7 +43,7 @@
 
   \item{topN.thresh}{[optional] take the top N genes when
   ranked by their CV's. Must leave cv.thresh=NULL.
-  Thresholding is done after collapsing to unique genes.s}
+  Thresholding is done after collapsing to unique genes.}
 }
 \value{
   creates a new gct & cls file. The gct file has 1 row per
@@ -53,13 +53,13 @@
   GenePattern modules!
 }
 \description{
-  Converts a gct file and cls file so that: - one row per
-  gene symbol & gene symbol becomes the Name of each row,
-  rather than the probe id -- different methods of
-  collapsing rows - cls file starts from 1, rather than 0 -
-  choose the most variable genes, either by a coefficient
-  of variation threshold (eg 50) or the top N most variable
-  genes, as defined by CV.
+  Converts a gct file and cls file so that:\cr - one row
+  per gene symbol & gene symbol becomes the Name of each
+  row, rather than the probe id\cr -- different methods of
+  collapsing rows\cr - cls file starts from 1, rather than
+  0\cr - choose the most variable genes, either by a
+  coefficient of variation threshold (eg 50)\cr or the top
+  N most variable genes, as defined by CV.\cr
 }
 \author{
   Mark Cowley, 2010-07-06

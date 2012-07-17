@@ -1,45 +1,25 @@
-# Rename the genesets from within a GSEA object.
-#
-# Rename genesets using a prefix and suffix, such that COWLEY_UP becomes: PREFIX_COWLEY_UP_SUFFIX
-# Optionally, the rank, FDR and direction can also be included so that COWLEY_UP becomes:
-#	1: PREFIX_COWLEY_UP_SUFFIX UP (0.002)
-#
-# Parameters:
-#	x: a GSEA list, optionally with an edb. see import.gsea(..., edb=TRUE)
-#	prefix: an optional prefix (such as the treatment, eg WTvsTreatA).
-#	suffix: an optional prefix (such as the treatment, eg WTvsTreatA).
-#	fdr: add the fdr in parentheses to the end? eg " (0.001)"
-#	rank: add the rank at the start? eg "12: "
-#	direction: add UP or DOWN to the end?
-#	maxlen: the max number of characters in the geneset name (before we add rank & fdr & direction to it)
-#
-# Value:
-#	a GSEA list with modified names.
-#
-# Mark Cowley, 2009-10-14
-#
-
-
-##' Rename the genesets from within a GSEA object.
-##' 
-##' Rename genesets using a prefix and suffix, such that COWLEY_UP becomes:
-##' PREFIX_COWLEY_UP_SUFFIX
-##' Optionally, the rank, FDR and direction can also be included so that
-##' COWLEY_UP becomes:
-##' 1: PREFIX_COWLEY_UP_SUFFIX UP (0.002)
-##' 
-##' @param x a GSEA list, optionally with an edb. see import.gsea(...,
-##'   edb=TRUE)
-##' @param prefix an optional prefix (such as the treatment, eg WTvsTreatA).
-##' @param suffix an optional prefix (such as the treatment, eg WTvsTreatA).
-##' @param fdr add the fdr in parentheses to the end? eg " (0.001)"
-##' @param rank add the rank at the start? eg "12: "
-##' @param direction add UP or DOWN to the end?
-##' @param maxlen the max number of characters in the geneset name (before we
-##'   add rank & fdr & direction to it)
-##' @return a GSEA list with modified names.
-##' @author Mark Cowley, 2009-10-14
-##' @export
+#' Rename the genesets from within a GSEA object.
+#' 
+#' Rename genesets using a prefix and suffix, such that COWLEY_UP becomes:
+#' PREFIX_COWLEY_UP_SUFFIX
+#' Optionally, the rank, FDR and direction can also be included so that
+#' COWLEY_UP becomes:
+#' 1: PREFIX_COWLEY_UP_SUFFIX UP (0.002)
+#' 
+#' @param x a GSEA list, optionally with an edb. see import.gsea(...,
+#'   edb=TRUE)
+#' @param prefix an optional prefix (such as the treatment, eg WTvsTreatA).
+#' @param suffix an optional prefix (such as the treatment, eg WTvsTreatA).
+#' @param fdr add the fdr in parentheses to the end? eg " (0.001)"
+#' @param rank add the rank at the start? eg "12: "
+#' @param direction add UP or DOWN to the end?
+#' @param maxlen the max number of characters in the geneset name (before we
+#'   add rank & fdr & direction to it)
+#' 
+#' @return a GSEA list with modified names.
+#' 
+#' @author Mark Cowley, 2009-10-14
+#' @export
 gsea.rename.genesets <- function(x, prefix=NULL, suffix=NULL, fdr=FALSE, rank=FALSE, direction=FALSE, maxlen=60) {
 
 	old.names <- x$tt$NAME
@@ -57,24 +37,24 @@ gsea.rename.genesets <- function(x, prefix=NULL, suffix=NULL, fdr=FALSE, rank=FA
 }
 
 
-# Internal function used to rename geneset names, based on a prefix and suffix, and optionally, their rank, qvalue, and direction.
-#
-# Parameters:
-#	genesets: a vector of geneset names
-#	tt: a gsea top table. see import.gsea.topTable
-#	prefix: an optional prefix (such as the treatment, eg WTvsTreatA). Separated by a single space.
-#	suffix: an optional prefix (such as the treatment, eg WTvsTreatA). Separated by a single space.
-#	fdr: add the fdr in parentheses to the end? eg " (0.001)"
-#	rank: add the rank at the start? eg "12: "
-#	direction: add UP or DOWN to the end?
-#	maxlen: the max number of characters in the geneset name (before we add rank & fdr & direction to it)
-#
-# Value:
-#	a vector of geneset names, same length and order as input, something like this:
-#	  "1: HSA04512_ECM_RECEPTOR_INTERACTION (0.00952) up"
-#     "3: HSA04060_CYTOKINE_CYTOKINE_RECEPTOR_I... (0.00645) up"
-#
-# Mark Cowley, 2009-09-03
+#' Internal function used to rename geneset names, based on a prefix and suffix, and optionally, their rank, qvalue, and direction.
+#'
+#' @param genesets a vector of geneset names
+#' @param tt a gsea top table. see import.gsea.topTable
+#' @param prefix an optional prefix (such as the treatment, eg WTvsTreatA). Separated by a single space.
+#' @param suffix an optional prefix (such as the treatment, eg WTvsTreatA). Separated by a single space.
+#' @param fdr add the fdr in parentheses to the end? eg " (0.001)"
+#' @param rank add the rank at the start? eg "12: "
+#' @param direction add UP or DOWN to the end?
+#' @param maxlen the max number of characters in the geneset name (before we add rank & fdr & direction to it)
+#'
+#' 
+#' @return a \code{vector} of geneset names, same length and order as input, something like this:
+#'	"1: HSA04512_ECM_RECEPTOR_INTERACTION (0.00952) up"\cr
+#'  "3: HSA04060_CYTOKINE_CYTOKINE_RECEPTOR_I... (0.00645) up"
+#'
+#' @noRd
+#' @author Mark Cowley, 2009-09-03
 .gsea.rename.genesets <- function(genesets, tt, prefix=NULL, suffix=NULL, fdr=FALSE, rank=FALSE, direction=FALSE, maxlen=60) {
 	idx <- match(genesets, tt$NAME)
 	if( any(is.na(idx)) )
@@ -112,43 +92,25 @@ gsea.rename.genesets <- function(x, prefix=NULL, suffix=NULL, fdr=FALSE, rank=FA
 
 
 
-# Parse an edb XML object, and rename the genesets with optional prefix and suffix.
-# NB: any spaces in pre/suffix will be replaced with "_".
-# I suggest separating words with "_". untested using :, ;, -, '.'
-#
-# Parameters:
-#	edb: an XMLDocument. See import.gsea.edb(..., edb=TRUE)
-#	old.names: a vector of original geneset names. these should be found within the edb names
-#	new.names: the new names, in the same order as the old names.
-#
-# Details:
-#	This is intended to be used by gsea.rename.genesets, which should calculate old.names and new.names. Entries in edb, given that they are xml are in no strict order (although they seem to be ordered from most -ve NES to most +ve NES). Thus you need to supply the old.names is so that we can ensure the entries in edb get renamed correctly.
-#
-# Value:
-#	An mutable XMLInternalDOM (ie an XML tree much like an XMLDocument but which can be modified) which is a copy of the original edb XMLDocument.
-#
-# Mark Cowley, 2009-10-06
-#
-
-
-##' Parse an edb XML object, and rename the genesets with optional prefix and
-##' suffix.
-##' 
-##' This is intended to be used by gsea.rename.genesets, which should calculate
-##' old.names and new.names. Entries in edb, given that they are xml are in no
-##' strict order (although they seem to be ordered from most -ve NES to most
-##' +ve NES). Thus you need to supply the old.names is so that we can ensure
-##' the entries in edb get renamed correctly.
-##' 
-##' @param edb an XMLDocument. See import.gsea.edb(..., edb=TRUE)
-##' @param old.names a vector of original geneset names. these should be found
-##'   within the edb names
-##' @param new.names the new names, in the same order as the old names.
-##' @return An mutable XMLInternalDOM (ie an XML tree much like an XMLDocument
-##'   but which can be modified) which is a copy of the original edb
-##'   XMLDocument.
-##' @author Mark Cowley, 2009-10-06
-##' @export
+#' Parse an edb XML object, and rename the genesets with optional prefix and
+#' suffix.
+#' 
+#' This is intended to be used by \code{gsea.rename.genesets}, which should calculate
+#' \code{old.names} and \code{new.names}. Entries in \code{edb}, given that they are xml are in no
+#' strict order (although they seem to be ordered from most -ve NES to most
+#' +ve NES). Thus you need to supply the \code{old.names} is so that we can ensure
+#' the entries in edb get renamed correctly.
+#' 
+#' @param edb an XMLDocument. See \code{import.gsea.edb(..., edb=TRUE)}
+#' @param old.names a vector of original geneset names. these should be found
+#'   within the edb names
+#' @param new.names the new names, in the same order as the old names.
+#' @return An mutable \code{XMLInternalDOM} (ie an XML tree much like an XMLDocument
+#'   but which can be modified) which is a copy of the original edb
+#'   XMLDocument.
+#' @author Mark Cowley, 2009-10-06
+#' @export
+#' @importFrom XML xmlTree xmlAttrs xmlSize
 gsea.rename.genesets.edb <- function(edb, old.names, new.names) {
 
 	r <- xmlRoot(edb, skip=TRUE)

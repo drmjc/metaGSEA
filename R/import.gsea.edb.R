@@ -27,25 +27,30 @@
 #' }
 #' 
 #' @param x A GSEA directory.
+#' 
 #' @return The edb file in the form of an XMLDocument. See \code{\link[XML]{xmlTreeParse}},
 #'   This object appears to be immutable.
+#' 
 #' @author Mark Cowley, 2009-10-12
+#' 
+#' @export
+#' @importFrom XML xmlTreeParse
+#' 
 #' @seealso \code{\link[XML]{xmlTreeParse}}, \code{\link{import.gsea}},
 #'   \code{\link{gsea.rename.genesets.edb}}
+#' 
 #' @references 
 #' Omega hat XML: \url{http://www.omegahat.org/RSXML/} 
 #' Quick Guide to the XML package: \url{http://www.omegahat.org/RSXML/Tour.pdf}
 #' @keywords file IO
 #' @examples
-#' # not run
-#' # edbT <- import.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710")
-#' # edbM <- import.gsea.edb("MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720")
-#' # edb.merged <- merge.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710", "MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720", c("T47D_", "MCF7_"), c("", ""))
-#' # export.gsea.edb(edb.merged, "./merged")
-#' @export
+#' \dontrun{
+#' edbT <- import.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710")
+#' edbM <- import.gsea.edb("MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720")
+#' edb.merged <- merge.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710", "MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720", c("T47D_", "MCF7_"), c("", ""))
+#' export.gsea.edb(edb.merged, "./merged")
+#' }
 import.gsea.edb <- function(x) {
-	require(XML)
-
 	if( is.gsea.dir(x) ) {
 		rpt <- import.gsea.rpt(x)
 		edb.file <- rpt$edb

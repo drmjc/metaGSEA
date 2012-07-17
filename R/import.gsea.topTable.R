@@ -1,51 +1,30 @@
-# Import the tabular results from a GSEA PreRanked run - ie the GSEA top table.
-# Takes the pos and neg results, and merges them into a single table, adding a DIRECTION column.
-# Then re-sort the rows by NES (default), absolute NES, FDR, P or SIZE (largest->smallest)
-#
-# Parameters:
-#	dir: the dir that contains the index.html
-#	sort.by: which column to sort by.
-#		NES: decreasing NES score
-#		absNES: decreasing absolute NES score
-#		FDR: increasing FDR, breaking ties by largest absolute NES
-#		P: increasing nomimal P value, breaking ties by largest absolute NES
-#		SIZE: decreasing gene set size
-#
-# Value:
-#	a single data.frame with all genesets from within a collection.
-#	Unlike the raw GSEA output, this contains a DIRECTION column (up/down) and
-#	a "LEADING.EDGE.SIZE" column which is the number of genes in the leading edge
-#	+/- 1 due to rounding errors (this data comes from the 'tags' field in the
-#	LEADING.EDGE column), and a "RANK.IN.REPORT" column which shows the rank in the 
-#	original list
-#
-# Mark Cowley, 2009-04-28
-#
-
-
-##' Import the tabular results from a GSEA PreRanked run - ie the GSEA top
-##' table.
-##' 
-##' Takes the pos and neg results, and merges them into a single table, adding
-##' a DIRECTION column.
-##' Then re-sort the rows by NES (default), absolute NES, FDR, P or SIZE
-##' (largest->smallest)
-##' 
-##' @param dir the dir that contains the index.html
-##' @param sort.by which column to sort by.
-##' @param NES decreasing NES score
-##' @param absNES decreasing absolute NES score
-##' @param FDR increasing FDR, breaking ties by largest absolute NES
-##' @param P increasing nomimal P value, breaking ties by largest absolute NES
-##' @param SIZE decreasing gene set size
-##' @return a single data.frame with all genesets from within a collection.
-##'   Unlike the raw GSEA output, this contains a DIRECTION column (up/down)
-##'   and a "LEADING.EDGE.SIZE" column which is the number of genes in the
-##'   leading edge +/- 1 due to rounding errors (this data comes from the
-##'   'tags' field in the LEADING.EDGE column), and a "RANK.IN.REPORT" column
-##'   which shows the rank in the original list
-##' @author Mark Cowley, 2009-04-28
-##' @export
+#' Import the tabular results from a GSEA PreRanked run
+#' 
+#' Import the tabular results from a GSEA PreRanked run - ie the GSEA top
+#' table.
+#' 
+#' Takes the pos and neg results, and merges them into a single table, adding
+#' a DIRECTION column.
+#' Then re-sort the rows by NES (default), absolute NES, FDR, P or SIZE
+#' (largest->smallest)
+#' 
+#' @param dir the dir that contains the index.html
+#' @param sort.by which column to sort by.
+#' @param NES decreasing NES score
+#' @param absNES decreasing absolute NES score
+#' @param FDR increasing FDR, breaking ties by largest absolute NES
+#' @param P increasing nomimal P value, breaking ties by largest absolute NES
+#' @param SIZE decreasing gene set size
+#' 
+#' @return a single \code{data.frame} with all genesets from within a collection.
+#'   Unlike the raw GSEA output, this contains a \code{DIRECTION} column (up/down)
+#'   and a \code{LEADING.EDGE.SIZE} column which is the number of genes in the
+#'   leading edge +/- 1 due to rounding errors (this data comes from the
+#'   \code{tags} field in the \code{LEADING.EDGE} column), and a \code{RANK.IN.REPORT} column
+#'   which shows the rank in the original list
+#' 
+#' @author Mark Cowley, 2009-04-28
+#' @export
 import.gsea.topTable <- function(dir, sort.by=c("NES", "absNES", "FDR", "P", "SIZE")) {
 	if( !file.exists(file.path(dir, "index.html")) ) {
 		stop("Must specify the top-level dir that contains index.html.\n")
@@ -65,7 +44,7 @@ import.gsea.topTable <- function(dir, sort.by=c("NES", "absNES", "FDR", "P", "SI
 		classes <- .gsea.get.classes.index.html(file.path(dir, "index.html"))
 	}
 	patterns <- sprintf("gsea_report_for_%s.*\\.xls", classes)
-	files <- c( dir(dir, pattern=patterns[1], full=TRUE), dir(dir, pattern=patterns[2], full=TRUE) )
+	files <- c( dir(dir, pattern=patterns[1], full=TRUE), dir(dir, pattern=patterns[2], full.names=TRUE) )
 	if( !all(file.exists(files)) ) {
 		stop("Can't find the 2 top table xls files (gsea_report_for_.*.xls).\n")
 	}
@@ -161,7 +140,7 @@ gsea.topTable.sort <- function(tt, sort.by=c("NES", "absNES", "FDR", "P", "SIZE"
 
 
 # .import.gseaGSEA.topTable <- function(dir, sort.by=c("NES", "absNES", "FDR", "P", "SIZE")) {
-# 	f <- dir(dir, pattern="gsea_report_for_.*\\.xls", full=TRUE)
+# 	f <- dir(dir, pattern="gsea_report_for_.*\\.xls", full.names=TRUE)
 # 	classes <- sub("_.*", "", sub("gsea_report_for_", "", f))
 # 	
 # }
@@ -206,7 +185,7 @@ gsea.topTable.sort <- function(tt, sort.by=c("NES", "absNES", "FDR", "P", "SIZE"
 # # import.gsea.1 <- function(dir) {
 # .import.gseaPreranked.topTable.posneg <- function(dir) {
 # 	res <- list()
-# 	f <- dir(dir, pattern="gsea_report.*_pos_.*xls", full=TRUE)
+# 	f <- dir(dir, pattern="gsea_report.*_pos_.*xls", full.names=TRUE)
 # 	if( length(f) == 1 && file.exists(f) ) {
 # 		res$pos <- read.delim(f)
 # 	}
@@ -214,7 +193,7 @@ gsea.topTable.sort <- function(tt, sort.by=c("NES", "absNES", "FDR", "P", "SIZE"
 # 		res$pos <- NA
 # 	}
 # 	
-# 	f <- dir(dir, pattern="gsea_report.*_neg_.*xls", full=TRUE)
+# 	f <- dir(dir, pattern="gsea_report.*_neg_.*xls", full.names=TRUE)
 # 	if( length(f) == 1 && file.exists(f) ) {
 # 		res$neg <- read.delim(f)
 # 	}

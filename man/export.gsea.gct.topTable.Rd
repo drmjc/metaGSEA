@@ -1,8 +1,6 @@
 \name{export.gsea.gct.topTable}
 \alias{export.gsea.gct.topTable}
-\title{Export a GCT file, from a GSEA topTable plus data table.
-This is a companion function to \code{\link{export.gsea.rnk.topTable}} which makes a gct
-file which can then be used for annotating GSEA output with heatmaps.}
+\title{Export a GCT file, from a GSEA topTable plus data table}
 \usage{
   export.gsea.gct.topTable(tt, rma, chip, file,
     missing = "", verbose = TRUE, ...)
@@ -28,7 +26,6 @@ file which can then be used for annotating GSEA output with heatmaps.}
   \code{\link{export.gsea.gct}}}
 }
 \description{
-  Export a GCT file, from a GSEA topTable plus data table.
   This is a companion function to
   \code{\link{export.gsea.rnk.topTable}} which makes a gct
   file which can then be used for annotating GSEA output

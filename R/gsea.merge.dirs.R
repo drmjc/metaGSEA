@@ -45,7 +45,7 @@ gsea.merge.dirs <- function(gsea.dir1, gsea.dir2, prefix, suffix, outdir) {
 	
 	# copy the rnk file across
 	cat("Copying rnk file...")
-	rnk1 <- dir(file.path(gsea.dir1, "edb"), pattern=".*rnk", full=TRUE)
+	rnk1 <- dir(file.path(gsea.dir1, "edb"), pattern=".*rnk", full.names=TRUE)
 	file.copy(rnk1, outdir, overwrite=TRUE)
 	cat("\n")
 	
@@ -92,8 +92,9 @@ gsea.merge.dirs <- function(gsea.dir1, gsea.dir2, prefix, suffix, outdir) {
 #' @return none. merges 2 directories
 #' @author Mark Cowley, 2009-10-06
 #' @export
+#' @importFrom XML xmlRoot xmlAttrs xmlTree xmlSize
+#' @importClassesFrom XML XMLNode
 gsea.merge.edb.dirs <- function(gsea.dir1, gsea.dir2, prefix, suffix) {
-	require(XML)
 	edb1 <- import.gsea.edb(gsea.dir1)
 	edb2 <- import.gsea.edb(gsea.dir2)
 	

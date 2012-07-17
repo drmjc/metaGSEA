@@ -6,6 +6,8 @@
 #' @param rng see \code{\link[qvalue]{qplot}}
 #' @param smooth.df see \code{\link[qvalue]{qplot}}
 #' @param smooth.log.pi0 see \code{\link[qvalue]{qplot}}
+#' @param \dots unused
+#' 
 #' @return 
 #'	a named list of 4 vectors:
 #'	\item{\code{lambda}}{the lambda values (usually 0...0.9)}

@@ -15,6 +15,8 @@ LimmaGP GenePattern module}
   \item{smooth.df}{see \code{\link[qvalue]{qplot}}}
 
   \item{smooth.log.pi0}{see \code{\link[qvalue]{qplot}}}
+
+  \item{\dots}{unused}
 }
 \value{
   a named list of 4 vectors: \item{\code{lambda}}{the

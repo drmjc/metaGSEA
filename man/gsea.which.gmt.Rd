@@ -1,7 +1,6 @@
 \name{gsea.which.gmt}
 \alias{gsea.which.gmt}
-\title{What gmt file was used? This parses the gmx file name from within the rpt
-file}
+\title{What gmt file was used?}
 \usage{
   gsea.which.gmt(dir)
 }

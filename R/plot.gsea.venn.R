@@ -1,18 +1,3 @@
-# Compare the significant genesets from 2 or 3 GSEA runs using Venn diagrams
-#
-# Parameters:
-#	..., gsea.list: either 2 or 3 GSEA objects by name, or as elements of gsea.list
-#	names: a character vector of names, 1 per GSEA run
-#	main: plot title prefix, eg "Venn"
-#	N, NES, FDR, P, FWER, direction: see gsea.filter. It doesn't make sense to do a Venn diagram on all genesets, so you need to filter to find the significant ones.
-#
-# Value:
-# a 2D or 3D venn diagram
-#
-# Mark Cowley, 2010-10-15
-#
-
-
 #' Compare the significant genesets from 2 or 3 GSEA runs using Venn diagrams
 #' 
 #' @param \dots either 2 or 3 GSEA objects by name, or as elements of gsea.list
@@ -36,6 +21,7 @@
 #' @return a 2D or 3D venn diagram
 #' @author Mark Cowley, 2010-10-15
 #' @export
+#' @importFrom mjcgraphics plot.venn
 plot.gsea.venn <- function(..., gsea.list=NULL, names=NULL, main="",
 	N=NULL, NES=NULL, FDR=NULL, P=NULL, FWER=NULL, direction=c("either", "up", "down")
 	) {
@@ -55,9 +41,9 @@ plot.gsea.venn <- function(..., gsea.list=NULL, names=NULL, main="",
 	gsea.list <- lapply(gsea.list, gsea.filter, N=N, NES=NES, FDR=FDR, P=P, FWER=FWER, direction=direction)
 	genesets <- lapply(gsea.list, function(x) x$tt$NAME)
 	if( length(genesets) == 2 )
-		pwbc::plot.venn(genesets[[1]], genesets[[2]], names=names, population=pop, main=main)
+		plot.venn(genesets[[1]], genesets[[2]], names=names, population=pop, main=main)
 	else
-		pwbc::plot.venn(genesets[[1]], genesets[[2]], genesets[[3]], names=names, population=pop, main=main)
+		plot.venn(genesets[[1]], genesets[[2]], genesets[[3]], names=names, population=pop, main=main)
 }
 
 
@@ -103,7 +89,8 @@ print.gsea.venn <- function(..., gsea.list=NULL, names=NULL,
 	if( length(genesets) == 2 )
 		genesets[[3]] <- NULL
 
-	c <- gtools::combinations(length(genesets),2)
+	# c <- gtools::combinations(length(genesets),2)
+	c <- choose.pairs(length(genesets))
 	for(i in 1:nrow(c)) {
 		cat(names[ c[i,1] ], "vs", names[ c[i,2] ], "\n")
 		print(print.venn(genesets[[ c[i,1] ]], genesets[[ c[i,2] ]]))

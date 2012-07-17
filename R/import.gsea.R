@@ -92,9 +92,9 @@ import.gsea <- function(x, edb=FALSE) {
 		}
 		res
 	}
-	else if( is.dir(x) && any(is.gsea.dir(dir(x, full=TRUE))) ){
+	else if( is.dir(x) && any(is.gsea.dir(dir(x, full.names=TRUE))) ){
 		# then there must be a dir containing multiple GSEA dirs.
-		dirs <- dir(x, full=TRUE)
+		dirs <- dir(x, full.names=TRUE)
 		dirs <- dirs[is.gsea.dir(dirs)]
 		if( length(dirs) == 0 ) {
 			stop("No GSEA dirs found.\n")

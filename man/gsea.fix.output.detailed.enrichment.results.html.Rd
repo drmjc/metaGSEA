@@ -14,12 +14,15 @@
 
   \item{debug}{logical: debugging mode?}
 }
+\value{
+  none. fixes html files.
+}
 \description{
   fix the "Detailed enrichment results in html format" 2
   pages.
 }
 \author{
-  Mark Cowley @return none. fixes html files.
+  Mark Cowley
 }
 \seealso{
   \code{\link{gsea.fix.output}}

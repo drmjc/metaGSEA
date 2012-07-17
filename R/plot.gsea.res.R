@@ -1,23 +1,10 @@
-# Boxplot the intensities for an array split by the detection call (P/M/A).
-#
-# Parameters:
-#	res: a gsea res object. see import.gsea.res
-#	array: which array to plot?
-#
-# Value:
-#	a boxplot
-#
-# Mark Cowley, 2010-01-07
-#
-
-
-##' Boxplot the intensities for an array split by the detection call (P/M/A).
-##' 
-##' @param res a gsea res object. see import.gsea.res
-##' @param array which array to plot?
-##' @return a boxplot
-##' @author Mark Cowley, 2010-01-07
-##' @export
+#' Boxplot the intensities for an array split by the detection call (P/M/A).
+#' 
+#' @param res a gsea res object. see import.gsea.res
+#' @param array which array to plot?
+#' @return a boxplot
+#' @author Mark Cowley, 2010-01-07
+#' @export
 plot.gsea.res <- function(res, array=1) {
 	signal.columns <- grep("Signal$", colnames(res), value=TRUE)
 	signal <- res[,signal.columns[array]]

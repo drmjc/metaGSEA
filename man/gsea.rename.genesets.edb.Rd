@@ -6,8 +6,8 @@ suffix.}
   gsea.rename.genesets.edb(edb, old.names, new.names)
 }
 \arguments{
-  \item{edb}{an XMLDocument. See import.gsea.edb(...,
-  edb=TRUE)}
+  \item{edb}{an XMLDocument. See \code{import.gsea.edb(...,
+  edb=TRUE)}}
 
   \item{old.names}{a vector of original geneset names.
   these should be found within the edb names}
@@ -16,18 +16,19 @@ suffix.}
   old names.}
 }
 \value{
-  An mutable XMLInternalDOM (ie an XML tree much like an
-  XMLDocument but which can be modified) which is a copy of
-  the original edb XMLDocument.
+  An mutable \code{XMLInternalDOM} (ie an XML tree much
+  like an XMLDocument but which can be modified) which is a
+  copy of the original edb XMLDocument.
 }
 \description{
-  This is intended to be used by gsea.rename.genesets,
-  which should calculate old.names and new.names. Entries
-  in edb, given that they are xml are in no strict order
-  (although they seem to be ordered from most -ve NES to
-  most +ve NES). Thus you need to supply the old.names is
-  so that we can ensure the entries in edb get renamed
-  correctly.
+  This is intended to be used by
+  \code{gsea.rename.genesets}, which should calculate
+  \code{old.names} and \code{new.names}. Entries in
+  \code{edb}, given that they are xml are in no strict
+  order (although they seem to be ordered from most -ve NES
+  to most +ve NES). Thus you need to supply the
+  \code{old.names} is so that we can ensure the entries in
+  edb get renamed correctly.
 }
 \author{
   Mark Cowley, 2009-10-06

@@ -12,6 +12,7 @@
 #'   were not observed.
 #' @author Mark Cowley
 #' @export
+#' @importFrom mjcbase rowMax
 gsea.merge.tt <- function(..., keep="NES", method=c("intersect", "union")[1]) {
 	if( missing(keep) )
 		stop("Need to specify which column to keep, and it must be named. eg keep=\"NES\"\n")
@@ -52,7 +53,7 @@ gsea.merge.tt <- function(..., keep="NES", method=c("intersect", "union")[1]) {
 		res[,i+2] <- tt.list[[i]][,match(keep, colnames(tt.list[[i]]))]
 		sizes[,i+2] <- tt.list[[i]][,match("SIZE", colnames(tt.list[[i]]))]
 	}
-	res$SIZE <- pwbc::rowMax(sizes[,3:ncol(sizes)], na.rm=TRUE)
+	res$SIZE <- rowMax(sizes[,3:ncol(sizes)], na.rm=TRUE)
 	
 	res$NAME <- as.character(res$NAME)
 	

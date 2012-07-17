@@ -1,7 +1,6 @@
 \name{import.gsea.topTable}
 \alias{import.gsea.topTable}
-\title{Import the tabular results from a GSEA PreRanked run - ie the GSEA top
-table.}
+\title{Import the tabular results from a GSEA PreRanked run}
 \usage{
   import.gsea.topTable(dir,
     sort.by = c("NES", "absNES", "FDR", "P", "SIZE"))
@@ -24,16 +23,20 @@ table.}
   \item{SIZE}{decreasing gene set size}
 }
 \value{
-  a single data.frame with all genesets from within a
-  collection.  Unlike the raw GSEA output, this contains a
-  DIRECTION column (up/down) and a "LEADING.EDGE.SIZE"
-  column which is the number of genes in the leading edge
-  +/- 1 due to rounding errors (this data comes from the
-  'tags' field in the LEADING.EDGE column), and a
-  "RANK.IN.REPORT" column which shows the rank in the
-  original list
+  a single \code{data.frame} with all genesets from within
+  a collection.  Unlike the raw GSEA output, this contains
+  a \code{DIRECTION} column (up/down) and a
+  \code{LEADING.EDGE.SIZE} column which is the number of
+  genes in the leading edge +/- 1 due to rounding errors
+  (this data comes from the \code{tags} field in the
+  \code{LEADING.EDGE} column), and a \code{RANK.IN.REPORT}
+  column which shows the rank in the original list
 }
 \description{
+  Import the tabular results from a GSEA PreRanked run - ie
+  the GSEA top table.
+}
+\details{
   Takes the pos and neg results, and merges them into a
   single table, adding a DIRECTION column. Then re-sort the
   rows by NES (default), absolute NES, FDR, P or SIZE

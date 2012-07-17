@@ -9,8 +9,7 @@
 }
 \value{
   a data.frame of 0 or 1 depending on whether each gene was
-  found in each element of the GSEA list.  See also:
-  list2adjmat
+  found in each element of the GSEA list.
 }
 \description{
   From a GSEA object, extract the genes from the leading
@@ -19,5 +18,9 @@
 }
 \author{
   Mark Cowley, 2009-10-29
+}
+\seealso{
+  \code{\link[mjcbase]{list2adjmat}}
+  \code{\link{gsealist2adjmat}}
 }
 

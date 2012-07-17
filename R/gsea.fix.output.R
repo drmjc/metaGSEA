@@ -1,4 +1,5 @@
-#' Fix the output from a GSEA run.
+#' Fix the output from a GSEA run
+#' 
 #' GSEA and GseaPreRanked both produce rich HTML reports with hyperlinks to 
 #' annotation databaes, images and heatmaps. GseaPreRanked, misses out on some
 #' of the features of the GSEA reports, and both GSEA and GseaPreRanked output
@@ -53,6 +54,7 @@
 #' @return none. it just fixes gsea outputs in situ
 #' @author Mark Cowley, 2009-07-09
 #' @export
+#' @importFrom microarrays collapse.rows
 gsea.fix.output <- function(dir, genes.gct=NULL, fix.index=TRUE, fix.posneg=TRUE, fix.reports=TRUE, debug=FALSE, overwrite.heatmap.images=FALSE, verbose=FALSE) {
 	stopifnot( file.exists(dir) )
 	if( debug ) verbose <- TRUE
@@ -60,7 +62,7 @@ gsea.fix.output <- function(dir, genes.gct=NULL, fix.index=TRUE, fix.posneg=TRUE
 	if( !is.gsea.dir(dir) && grepl("html$", dir) )
 		gsea.fix.output.geneset.report(dir, genes.gct, debug=debug)
 	else if( !is.gsea.dir(dir) && is.dir(dir) ) {
-		subdirs <- dir(dir, full=TRUE)
+		subdirs <- dir(dir, full.names=TRUE)
 		if( any(is.gsea.dir(subdirs)) ) {
 			subdirs <- subdirs[is.gsea.dir(subdirs)]
 			if( verbose ) cat(sprintf("Found %d GSEA subdirs.\n", length(subdirs)))
@@ -87,10 +89,10 @@ gsea.fix.output <- function(dir, genes.gct=NULL, fix.index=TRUE, fix.posneg=TRUE
 	
 	if( fix.posneg ) {
 		# if gsea preranked was run, these 2 files will exist:
-		pos.html <- dir(dir, pattern="gsea_report_for_na_pos.*html", full=TRUE)
-		neg.html <- dir(dir, pattern="gsea_report_for_na_neg.*html", full=TRUE)
+		pos.html <- dir(dir, pattern="gsea_report_for_na_pos.*html", full.names=TRUE)
+		neg.html <- dir(dir, pattern="gsea_report_for_na_neg.*html", full.names=TRUE)
 		if( length(pos.html) == 0 || length(neg.html) == 0 ) {
-			dirs <- dir(dir, pattern="gsea_report_for_.*html", full=TRUE)
+			dirs <- dir(dir, pattern="gsea_report_for_.*html", full.names=TRUE)
 			pos.html <- dirs[1]
 			neg.html <- dirs[2]
 		}
@@ -108,7 +110,7 @@ gsea.fix.output <- function(dir, genes.gct=NULL, fix.index=TRUE, fix.posneg=TRUE
 			#
 			# make heatmaps
 			#
-			gct.files <- dir(dir, pattern=".*gct$", full=TRUE)
+			gct.files <- dir(dir, pattern=".*gct$", full.names=TRUE)
 			# gp.gct2heatmap(gct.files, fix.html=FALSE)
 			for( gct.file in gct.files ) {
 				genepattern.HeatMapImage(gct.file, method="local", format="png", overwrite=overwrite.heatmap.images)
@@ -181,9 +183,10 @@ gsea.fix.output.index.html <- function(index.html, debug=FALSE) {
 #' @param neg.html the path to the negative enrichemnt html report
 #' @param debug logical: debugging mode?
 #' @author Mark Cowley
-#' @@return none. fixes html files.
+#' @return none. fixes html files.
 #' @seealso \code{\link{gsea.fix.output}}
 #' @export
+#' @importFrom mjcbase trim
 gsea.fix.output.detailed.enrichment.results.html <- function(pos.html, neg.html, debug=FALSE) {
 
 	stopifnot( length(pos.html) == 1 && file.exists(pos.html) && grepl("html$", pos.html) )
@@ -240,6 +243,7 @@ gsea.fix.output.detailed.enrichment.results.html <- function(pos.html, neg.html,
 #' @author Mark Cowley
 #' @seealso \code{\link{gsea.fix.output}}
 #' @export
+#' @importFrom mjcbase trim
 gsea.fix.output.geneset.report <- function(htmlfile, symbol2description, addHeatMap=TRUE, debug=FALSE) {
 	# cmd <- paste("perl -pi~ -e 's|>([^<]+)</a></td><td></td><td></td>|>$1</a></td><td>$1<br><a href=\"http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&db=gene&term=${1}[sym]%20AND%209606[taxid]\">Entrez</a>, &nbsp <a href=\"http://genome-www5.stanford.edu/cgi-bin/SMD/source/sourceResult?option=Name&choice=Gene&organism=Hs&criteria=${1}\">Source</a></td><td>${1} Description</td>|g'",
 	# shQuote(htmlfile))

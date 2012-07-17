@@ -31,8 +31,8 @@
 \value{
   a GSEA list with probably fewer genesets in the top
   table, the leading edge list, and the edb object [if
-  present]. also, a "filter.settings" list is added which
-  details which settings were used
+  present]. also, a \code{filter.settings} list is added
+  which details which settings were used
 }
 \description{
   The criteria are additive.

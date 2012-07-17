@@ -1,10 +1,6 @@
 \name{gsea.fix.output}
 \alias{gsea.fix.output}
-\title{Fix the output from a GSEA run.
-GSEA and GseaPreRanked both produce rich HTML reports with hyperlinks to
-annotation databaes, images and heatmaps. GseaPreRanked, misses out on some
-of the features of the GSEA reports, and both GSEA and GseaPreRanked output
-can be improved somewhat (IMHO).}
+\title{Fix the output from a GSEA run}
 \usage{
   gsea.fix.output(dir, genes.gct = NULL, fix.index = TRUE,
     fix.posneg = TRUE, fix.reports = TRUE, debug = FALSE,
@@ -35,6 +31,13 @@ can be improved somewhat (IMHO).}
   none. it just fixes gsea outputs in situ
 }
 \description{
+  GSEA and GseaPreRanked both produce rich HTML reports
+  with hyperlinks to annotation databaes, images and
+  heatmaps. GseaPreRanked, misses out on some of the
+  features of the GSEA reports, and both GSEA and
+  GseaPreRanked output can be improved somewhat (IMHO).
+}
+\details{
   Here's a list of the fixes, all to the HTML files:\cr
   GSEA and GseaPreRanked:\cr - Within the GeneSet column,
   in the geneset reports, remove the link to Affymetrix,
@@ -46,8 +49,7 @@ can be improved somewhat (IMHO).}
   Within the geneset reports, add a gene decscription into
   the appropriate column, by searching within the chip file
   listed in the rpt file\cr
-}
-\details{
+
   GseaPreRanked only:\cr - Within \sQuote{index.html},
   instead of naming the phenotypes na_pos and na_neg, call
   them up- and down-regulated genesets\cr - within the

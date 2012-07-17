@@ -10,6 +10,9 @@
   \item{cls.file}{if NULL, the cls file will be in the same
   dir as the clm, and will have the suffix cls.}
 }
+\value{
+  invisibly return a cls file name
+}
 \description{
   Convert a clm file into a cls file.
 }

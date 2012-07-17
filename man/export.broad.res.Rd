@@ -33,7 +33,7 @@
   This requires a matrix of data (such as from RMA) and a
   matrix of calls, usually MAS5 calls of P/M/A. If you use
   Affymetrix ST arrays, you can generate DABG calls, then
-  use \code{\link[pwbc]{dabg2calls}}
+  use \code{\link[mjcaffy]{dabg2calls}}
 }
 \author{
   Mark Cowley, 2009-06-26

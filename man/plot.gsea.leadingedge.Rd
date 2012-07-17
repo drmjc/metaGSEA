@@ -10,15 +10,21 @@
   \item{main}{the main plotting title}
 }
 \value{
-  creates multiple plots.
+  none. creates multiple plots.
 }
 \description{
-  NB, it's only worth using on filtered GSEA data - see
-  gsea.filter(<>, N=50, direction="up") See also
-  plot.gsea.leadingedge.HCL, plot.gsea.leadingedge.heatmap,
-  plot.gsea.leadingedge.barplot
+  Combination GSEA Leading Edge plot.
+}
+\note{
+  it's only worth using on filtered GSEA data - see
+  \code{gsea.filter(*, N=50, direction="up")}
 }
 \author{
   Mark Cowley, 2009-10-29
+}
+\seealso{
+  \code{\link{plot.gsea.leadingedge.HCL}}
+  \code{\link{plot.gsea.leadingedge.heatmap}}
+  \code{\link{plot.gsea.leadingedge.barplot}}
 }
 

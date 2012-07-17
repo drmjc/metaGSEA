@@ -17,11 +17,15 @@ of interest.}
   is returned.
 }
 \description{
-  Scenario: you've used gsea.split to split a LARGE GSEA
-  run into ~100 smaller, related GSEA runs. From a small
-  list of genesets of interest (represented by patterns),
-  you want to know which of these smaller GSEA runs contain
-  your genesets of interest.
+  From a list of GSEA's, find the elements that contain
+  particular genesets of interest.
+}
+\section{Scenario}{
+  You've used \code{\link{gsea.split}} to split a LARGE
+  GSEA run into ~100 smaller, related GSEA runs. From a
+  small list of genesets of interest (represented by
+  patterns), you want to know which of these smaller GSEA
+  runs contain your genesets of interest.
 }
 \author{
   Mark Cowley, 2009-10-16

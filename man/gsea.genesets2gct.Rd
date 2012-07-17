@@ -23,13 +23,17 @@ gmt's.}
   created in the dir ("best") which are usually the top 20
   or 50.}
 }
+\value{
+  Undocumented return value
+}
 \description{
   By default, the leading edge genes are identified by the
-  'leading.edge' slot from running import.gsea(); this then
-  creates an edb/leading_edge.gmt file. From a gct.file at
-  the unique genesymbol level (see gsea.gct.probes2genes),
-  the relevant rows are retrieved, keeping the same order
-  as the genes in the leading edge itself.
+  \code{leading.edge} slot from running
+  \code{import.gsea()}; this then creates an
+  edb/leading_edge.gmt file. From a gct.file at the unique
+  genesymbol level (see gsea.gct.probes2genes), the
+  relevant rows are retrieved, keeping the same order as
+  the genes in the leading edge itself.
 }
 \author{
   Mark Cowley, 2009-07-27

@@ -15,22 +15,16 @@
 #' @return nothing. generates a plot.
 #' @author Mark Cowley, 2009-10-29
 #' @export
+#' @importFrom gplots heatmap.2
 plot.gsea.leadingedge.heatmap <- function(x, main="Geneset similarity", gridcolour="lightgrey") {
 	tmp <- dist.gsea(x$leading.edge)
 	tmp <- as.matrix(tmp)
 	tmp <- 1-tmp
 	tmp[upper.tri(tmp, diag=FALSE)] <- 0
-	# upperTriangle(tmp) <- 0 # remove dependency on gdata for such a simple function
 
-	# image.table(tmp, col=colour.step("white", "green", steps=21), zlim=c(0,1), grid.col="white", ylabels=colnames(tmp), xlabels=colnames(tmp), legend=FALSE, xlab="", ylab="", main="", xlabels.pos="top", ylabels.pos="right")
-
-	require(gplots)
-
-	# pdf(file.pdf, 12, 12)
 	heatmap.2(tmp, Rowv=FALSE, Colv=FALSE, dendrogram="none", scale="none", col=colour.step("white", "green", steps=21), trace="none", margins=c(25, 25), density.info="histogram", keysize=0.9, 
 	rowsep=1:nrow(tmp), colsep=1:ncol(tmp), sepwidth=c(0.005,0.005), sepcolor=gridcolour,
 	main=main)
-	# dev.off()
 }
 # CHANGELOG
 # 2011-10-10

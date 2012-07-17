@@ -15,7 +15,7 @@
 #' values = the setting.
 import.gsea.rpt <- function(x) {
 	if( is.gsea.dir(x) ) {
-		f <- dir(x, pattern=".*\\.rpt$", full=TRUE)
+		f <- dir(x, pattern=".*\\.rpt$", full.names=TRUE)
 		return( import.gsea.rpt(f) )
 	}
 	else if( is.file(x) ) {
@@ -103,9 +103,9 @@ import.gsea.rpt <- function(x) {
 		# collect some extra info that may be useful for merging and exporting GSEA runs.
 		#
 		edb.dir <- file.path(path, "edb")
-		edb <- dir(edb.dir, pattern="edb$", full=TRUE)
-		collapsed_rnk <- dir(edb.dir, pattern="rnk$", full=TRUE)
-		gmt <- dir(edb.dir, pattern="gmt$", full=TRUE)
+		edb <- dir(edb.dir, pattern="edb$", full.names=TRUE)
+		collapsed_rnk <- dir(edb.dir, pattern="rnk$", full.names=TRUE)
+		gmt <- dir(edb.dir, pattern="gmt$", full.names=TRUE)
 
 		extras <- unlist(list(edb=edb, collapsed_rnk=collapsed_rnk, gmt=gmt))
 		rpt <- c(rpt, extras)

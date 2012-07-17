@@ -40,11 +40,12 @@ the GSEA tool (such as the GSEA Leading Edge tool) in the future.}
   "_MJC") n <- xmlNode("DTG", attrs=a) r[[1]] <- n }
 }
 \examples{
-# not run
-# edbT <- import.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710")
-# edbM <- import.gsea.edb("MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720")
-# edb.merged <- merge.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710", "MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720", c("T47D_", "MCF7_"), c("", ""))
-# export.gsea.edb(edb.merged, "./merged")
+\dontrun{
+edbT <- import.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710")
+edbM <- import.gsea.edb("MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720")
+edb.merged <- merge.gsea.edb("T47D_TreatedVsUntreated/c2_all.GseaPreranked.1236217933710", "MCF7_TreatedVsUntreated/c2_all.GseaPreranked.1236217933720", c("T47D_", "MCF7_"), c("", ""))
+export.gsea.edb(edb.merged, "./merged")
+}
 }
 \author{
   Mark Cowley, 2009-10-12

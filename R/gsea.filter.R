@@ -1,44 +1,26 @@
-# Take a GSEA list, and filter out genesets that fail various criteria.
-# The criteria are additive.
-#
-# Parameters:
-#	x: a gsea list
-#	N: keep the top 'N' genesets, eg 50
-#	NES: keep the genesets with |NES| > |NES threshold|.
-#	FDR, P, FWER: keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val < threshold
-#	direction: "up", "down", or NULL or "either"
-#	genesets: a vector of geneset ID's such that only these genesets will be retained.
-#
-# Value:
-#	a GSEA list with probably fewer genesets in the top table, the leading edge list, and the edb object [if present].
-#	also, a "filter.settings" list is added which details which settings were used
-#
-# Mark Cowley, 2009-09-03
-# 2010-11-11: remove the =NULL and is.null check with calls to missing()
-# 2010-11-16: reverse the =NULL change
-
-
-##' Take a GSEA list, and filter out genesets that fail various criteria.
-##' 
-##' The criteria are additive.
-##' 
-##' @param x a gsea list
-##' @param N keep the top 'N' genesets, eg 50
-##' @param NES keep the genesets with |NES| > |NES threshold|.
-##' @param FDR keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val <
-##'   threshold
-##' @param P keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val <
-##'   threshold
-##' @param FWER keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val <
-##'   threshold
-##' @param direction "up", "down", or NULL or "either"
-##' @param genesets a vector of geneset ID's such that only these genesets will
-##'   be retained.
-##' @return a GSEA list with probably fewer genesets in the top table, the
-##'   leading edge list, and the edb object [if present]. also, a
-##'   "filter.settings" list is added which details which settings were used
-##' @author Mark Cowley, 2009-09-03
-##' @export
+#' Take a GSEA list, and filter out genesets that fail various criteria.
+#' 
+#' The criteria are additive.
+#' 
+#' @param x a gsea list
+#' @param N keep the top 'N' genesets, eg 50
+#' @param NES keep the genesets with |NES| > |NES threshold|.
+#' @param FDR keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val <
+#'   threshold
+#' @param P keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val <
+#'   threshold
+#' @param FWER keep the genesets with NOM.p.val, FDR.q.val or FWER.p.val <
+#'   threshold
+#' @param direction "up", "down", or NULL or "either"
+#' @param genesets a vector of geneset ID's such that only these genesets will
+#'   be retained.
+#' 
+#' @return a GSEA list with probably fewer genesets in the top table, the
+#'   leading edge list, and the edb object [if present]. also, a
+#'   \code{filter.settings} list is added which details which settings were used
+#' 
+#' @author Mark Cowley, 2009-09-03
+#' @export
 gsea.filter <- function(x, N=NULL, NES=NULL, FDR=NULL, P=NULL, FWER=NULL, direction=NULL, genesets=NULL) {
 	stopifnot(is.gsea(x))
 	
@@ -113,34 +95,21 @@ subset.gsea <- function(x, subset, ...) {
 	return(res)
 }
 
-# Filter a GSEA edb file, restricting the entries to restricted set of genesets.
-#
-# Parameters:
-#	x: a gsea list (not just the edb file)
-#	genesets: a vector of geneset names. Minimal error checking done, so make sure they exist in your edb file!
-#
-# Value:
-#	a gsea list with the edb object restricted to only those that were specified by \code{genesets}
-#
-# Mark Cowley, 2009-10-13
-# 2009-10-16: speed improvement by only iterating through relevant genesets.
-#
-
-
-##' Filter a GSEA edb file, restricting the entries to restricted set of
-##' genesets.
-##' 
-##' @param x a gsea list (not just the edb file)
-##' @param genesets a vector of geneset names. Minimal error checking done, so
-##'   make sure they exist in your edb file!
-##' @return a gsea list with the edb object restricted to only those that were
-##'   specified by \code{genesets}
-##' @author Mark Cowley, 2009-10-13
-##' @export
+#' Filter a GSEA edb file, restricting the entries to restricted set of
+#' genesets.
+#' 
+#' @param x a gsea list (not just the edb file)
+#' @param genesets a vector of geneset names. Minimal error checking done, so
+#'   make sure they exist in your edb file!
+#' @return a gsea list with the edb object restricted to only those that were
+#'   specified by \code{genesets}
+#' @author Mark Cowley, 2009-10-13
+#' @export
+#' @importFrom XML xmlRoot xmlAttrs xmlTree
+#' @importClassesFrom XML XMLNode
 gsea.filter.edb <- function(x, genesets) {
 	stopifnot( "edb" %in% names(x) )
 	
-	require(XML)
 	root <- xmlRoot(x$edb, skip=TRUE)
 
 	edb.names <- .edb.names(x$edb)

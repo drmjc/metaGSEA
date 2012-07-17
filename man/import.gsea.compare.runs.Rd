@@ -18,11 +18,12 @@
   Import the output produced by gsea.compare.runs.sh
 }
 \examples{
-# not run
-# gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls")
-# gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", c("c2_all"))
-# gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", c("c2_all", "c5_bp"))
-# gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", grep("all", .GSEA.GMT.CATEGORIES, value=TRUE))
+\dontrun{
+gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls")
+gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", c("c2_all"))
+gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", c("c2_all", "c5_bp"))
+gseacmp <- import.gsea.compare.runs("GSEA/gsea.compare.runs.xls", grep("all", .GSEA.GMT.CATEGORIES, value=TRUE))
+}
 }
 \author{
   Mark Cowley, 2009-03-23

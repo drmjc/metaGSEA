@@ -1,7 +1,6 @@
 \name{gsea.summarise}
 \alias{gsea.summarise}
-\title{Summarise a single GSEA result, or list of results in terms of how many
-genesets are changed.}
+\title{Summarise GSEA results}
 \usage{
   gsea.summarise(x)
 }
@@ -10,9 +9,9 @@ genesets are changed.}
   objects.}
 }
 \value{
-  a vector or data.frame of number of gene sets passing
-  various statistical thresholds See also:
-  gsea.compare.runs.plot.sh
+  a \code{vector} or \code{data.frame} of number of gene
+  sets passing various statistical thresholds See also:
+  \code{\link{gsea.compare.runs.plot.sh}}
 }
 \description{
   Summarise a single GSEA result, or list of results in

@@ -1,27 +1,13 @@
-# Summarise a single GSEA result, or list of results in terms of how many genesets are changed.
-#
-# Parameters:
-#	x: either a GSEA object, or a list of GSEA objects.
-#
-# Value:
-#	a vector or data.frame of number of gene sets passing various statistical thresholds
-#
-# See also: 
-#	gsea.compare.runs.plot.sh
-#
-# Mark Cowley, 2009-03-23
-# 2009-12-09: major updates to how the up/down are handled.
-#
-
-
-##' Summarise a single GSEA result, or list of results in terms of how many
-##' genesets are changed.
-##' 
-##' @param x either a GSEA object, or a list of GSEA objects.
-##' @return a vector or data.frame of number of gene sets passing various
-##'   statistical thresholds See also: gsea.compare.runs.plot.sh
-##' @author Mark Cowley, 2009-03-23
-##' @export
+#' Summarise GSEA results
+#' 
+#' Summarise a single GSEA result, or list of results in terms of how many
+#' genesets are changed.
+#' 
+#' @param x either a GSEA object, or a list of GSEA objects.
+#' @return a \code{vector} or \code{data.frame} of number of gene sets passing various
+#'   statistical thresholds See also: \code{\link{gsea.compare.runs.plot.sh}}
+#' @author Mark Cowley, 2009-03-23
+#' @export
 gsea.summarise <- function(x) {
 	if( is.list(x) && ! "tt" %in% names(x) ) {
 		res <- lapply(x, gsea.summarise)

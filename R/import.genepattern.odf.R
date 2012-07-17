@@ -9,6 +9,7 @@
 #' @return a \code{data.frame} representation of the ODF file.
 #' @author Mark Cowley, 2011-11-22
 #' @export
+#' @importFrom stringr str_replace
 #' @examples
 #' \dontrun{
 #' f <- "yellow_exp_LeanConvsObCon.odf"
@@ -16,8 +17,6 @@
 #' head(a)
 #' }
 import.genepattern.odf <- function(f) {
-	require(stringr) || stop("required package 'stringr' is not installed")
-	
 	header <- readLines(f, 100)
 	grepl("ODF 1.0", header[1]) || stop("Doesn't look like an ODF 1.0 file")
 	any(grepl("HeaderLines", header)) || stop("HeaderLines not found in ODF header")

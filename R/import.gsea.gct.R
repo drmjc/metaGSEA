@@ -19,7 +19,7 @@ import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 	header <- readLines(f,2)[2]
 	header <- strsplit(header,"\t")[[1]]
 	NROW <- as.numeric(header[1]); NCOL <- as.numeric(header[2])
-	res <- read.delim(f, skip=2, check.names=check.names, stringsAsFactors=FALSE, quote="")
+	res <- read.delim(f, skip=2, check.names=check.names, stringsAsFactors=FALSE, quote="", nrows=floor(NROW*1.1))
 	colnames(res)[1:2] <- c("Name", "Description")
 	if( max(table(res$Name)) > 1 ) {
 		stop("Names in column 1 of your gct file must be unique.\n")
@@ -54,3 +54,5 @@ import.gsea.gct <- function(f, clm.file=NULL, check.names=FALSE) {
 # 2011-09-09: turned quote="" in the read.delim to allow comments with " in them (as per the ftp://ftp.broadinstitute.org/pub/genepattern/datasets/all_aml/all_aml_test.gct file)
 # 2012-01-24:
 # - helpful message printed if samples in CLM not found in GCT.
+# 2012-06-18:
+# - give read.delim a hint as to how many rows there are.

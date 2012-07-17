@@ -12,6 +12,7 @@
 #'   2n+2 columns in total. If \code{calls=TRUE}, ncol=2+N, if \code{calls=FALSE}, ncol=2+2N
 #' @author Mark Cowley, 2009-07-27
 #' @export
+#' @importFrom mjcbase trim
 import.gsea.res <- function(f, calls=TRUE) {
 	header <- trim(readLines(f,3))
 	nrow <- as.numeric(header[3])

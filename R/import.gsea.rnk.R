@@ -1,28 +1,20 @@
-# Import a rnk file used for running GSEA PreRanked.
-# Either specify the full path to a rnk file, or from a GSEA PreRanked
-# run, provide the path to the top-level directory that contains the index.html.
-# NB, this imports the collapsed rnk file.
-# 
-# Parameters:
-#	x: the path to either a rnk file, or the dir that contains index.html
-#
-# Mark Cowley, 2009-04-28
-#
-
-
-##' Import a rnk file used for running GSEA PreRanked.
-##' 
-##' Either specify the full path to a rnk file, or from a GSEA PreRanked
-##' run, provide the path to the top-level directory that contains the
-##' index.html.
-##' NB, this imports the collapsed rnk file.
-##' 
-##' @param x the path to either a rnk file, or the dir that contains index.html
-##' @author Mark Cowley, 2009-04-28
-##' @export
+#' Import a rnk file used for running GSEA PreRanked.
+#' 
+#' Either specify the full path to a rnk file, or from a GSEA PreRanked
+#' run, provide the path to the top-level directory that contains the
+#' index.html.
+#' 
+#' @note this imports the collapsed rnk file.
+#' 
+#' @param x the path to either a rnk file, or the dir that contains index.html
+#' 
+#' @return a named numeric vector of values
+#' 
+#' @author Mark Cowley, 2009-04-28
+#' @export
 import.gsea.rnk <- function(x) {
 	if( is.gsea.dir(x) ) {
-		# f <- dir(file.path(x, "edb"), pattern=".*rnk$", full=TRUE)
+		# f <- dir(file.path(x, "edb"), pattern=".*rnk$", full.names=TRUE)
 		# stopifnot( file.exists(f) )
 		rpt <- import.gsea.rpt(x)
 		f <- rpt$collapsed_rnk

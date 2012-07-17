@@ -8,11 +8,16 @@
   \item{x}{the path to either a rnk file, or the dir that
   contains index.html}
 }
+\value{
+  a named numeric vector of values
+}
 \description{
   Either specify the full path to a rnk file, or from a
   GSEA PreRanked run, provide the path to the top-level
-  directory that contains the index.html. NB, this imports
-  the collapsed rnk file.
+  directory that contains the index.html.
+}
+\note{
+  this imports the collapsed rnk file.
 }
 \author{
   Mark Cowley, 2009-04-28

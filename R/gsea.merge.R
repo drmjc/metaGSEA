@@ -58,28 +58,16 @@ gsea.merge <- function(gsea1, gsea2, prefix=NULL, suffix=NULL, warn=TRUE) {
 
 
 
-# Merge two GSEA edb objects.
-#
-# Parameters:
-#	edb1, edb2: two edb XML objects. They should already have been renamed to make the genesets unique. See gsea.rename.genesets
-#
-# Value:
-#	an edb XML object with as many elements as the two input edb's combined.
-#
-# Mark Cowley, 2009-10-14
-#
-
-
-##' Merge two GSEA edb objects.
-##' 
-##' @param edb1 two edb XML objects. They should already have been renamed to
-##'   make the genesets unique. See gsea.rename.genesets
-##' @param edb2 two edb XML objects. They should already have been renamed to
-##'   make the genesets unique. See gsea.rename.genesets
-##' @return an edb XML object with as many elements as the two input edb's
-##'   combined.
-##' @author Mark Cowley, 2009-10-14
-##' @export
+#' Merge two GSEA edb objects.
+#' 
+#' @param edb1 two edb XML objects. They should already have been renamed to
+#'   make the genesets unique. See gsea.rename.genesets
+#' @param edb2 two edb XML objects. They should already have been renamed to
+#'   make the genesets unique. See gsea.rename.genesets
+#' @return an edb XML object with as many elements as the two input edb's
+#'   combined.
+#' @author Mark Cowley, 2009-10-14
+#' @export
 gsea.merge.edb <- function(edb1, edb2) {
 	r1 <- xmlRoot(edb1, skip=TRUE)
 	r2 <- xmlRoot(edb2, skip=TRUE)
@@ -99,6 +87,3 @@ gsea.merge.edb <- function(edb1, edb2) {
 	
 	res
 }
-
-
-
