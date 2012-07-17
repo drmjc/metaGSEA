@@ -1,0 +1,31 @@
+\name{average.replicates.gct}
+\alias{average.replicates.gct}
+\title{Average replicate columns from within a gct file
+Average replicates in a gct file, based on the
+classes in \code{classes}}
+\usage{
+  average.replicates.gct(gct.file, classes)
+}
+\arguments{
+  \item{gct.file}{the path to a gct file.}
+
+  \item{classes}{a character or factor: the sample classes,
+  1 per column in x, with as many levels as there are
+  unique samples}
+}
+\value{
+  A data.frame from importing the gct file, and then
+  restricting the data.
+}
+\description{
+  Average replicate columns from within a gct file Average
+  replicates in a gct file, based on the classes in
+  \code{classes}
+}
+\section{TODO}{
+  when I have a GCT file, make this use the S4 method
+}
+\author{
+  Mark Cowley, 2011-09-01
+}
+
