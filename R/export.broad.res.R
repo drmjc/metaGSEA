@@ -3,7 +3,7 @@
 #' This requires a matrix of data (such as from RMA) and a matrix of calls,
 #' usually MAS5 calls
 #' of P/M/A. If you use Affymetrix ST arrays, you can generate DABG calls,
-#' then use \code{\link[pwbc]{dabg2calls}}
+#' then use \code{\link[mjcaffy]{dabg2calls}}
 #' 
 #' @param data matrix of expression levels. If this is log base 2, then it
 #'   will be unlog2ged. If you use any other log base, then unlog2 it yourself
@@ -65,4 +65,29 @@ export.broad.res <- function(data, calls, description=NULL, file, missing="", un
 	writeLines(c(line1,line2,line3), OUT)
 	write.delim(res, OUT, row.names=FALSE, col.names=FALSE, na=missing)
 	close(OUT)
+}
+
+#' merge expression and calls together
+#' 
+#' @param exp a \code{matrix}-like object of expression levels
+#' @param calls a \code{matrix}-like object of detection calls (P/M/A)
+#' @param file the output filename
+#' @return none.
+#' @author Mark Cowley
+#' @export
+affy.pivot.table <- function(exp, calls, file=NULL) {
+	if( !is.matrix.like(exp) ) exp <- exprs(exp)
+	if( !is.matrix.like(calls) ) calls <- exprs(calls)
+	exp <- round(exp,4)
+	
+    res <- interleave.columns(exp, calls)
+    colnames(res) <- sub(".CEL", "", colnames(res))
+    tmp2 <- rep(c("_Signal", "_Detection"), ncol(exp))
+    colnames(res) <- paste(colnames(res), tmp2, sep="")
+
+    if( !is.null(file) ) {
+		write.delim(res, file, row.names=TRUE)
+	}
+
+    invisible(res)
 }
