@@ -22,6 +22,8 @@
 #'   leadingedge.tree.gtr: used in conjunction with the cdt file.
 #' @author Mark Cowley, 2009-10-29
 #' @export
+#' @importFrom mjcbase ucounts
+#' @importFrom excelIO write.xls
 export.gsea.leadingedge.analysis <- function(x, dir, prefix=NULL, sep="-") {
 	if( is.null(prefix) ) {
 		prefix <- ""

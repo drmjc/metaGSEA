@@ -30,7 +30,8 @@
 #' @return nothing. writes an ODF file.
 #' @export
 #' @author Mark Cowley, 2011-07-19
-#'
+#' @importFrom mjcstats qvalue2
+#' @importFrom microarrays calc.best.probe.topTable
 export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 	gct.file, cls.file, description, collapse=FALSE, probe2gene=NULL) {
 
@@ -42,8 +43,6 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 		cat("you must supple a probe2gene table if settings collapse=TRUE.\n")
 	}
 	
-	require(qvalue)
-
 	tt <- topTable(fit2, coef=coef, number=nrow(fit2), adjust.method="none")
 	tt <- tt[order(abs(tt$t), decreasing=TRUE), ]
 	if( all(abs(tt$t)<0.000001) )
@@ -64,7 +63,7 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 	tt$"FDR(BH)"[idx] <-  as.double(p.adjust(tt$"Feature P"[idx], "BH", n=nrow(tt)))
 	tt$Bonferroni[idx] <- as.double(p.adjust(tt$"Feature P"[idx], "bonferroni", n=nrow(tt)))
 
-	q <- qvalue2(tt$"Feature P"[idx], lambda=seq(0,0.95,0.05)) # defined in pwbc, as a safer alternative to qvalue
+	q <- qvalue2(tt$"Feature P"[idx], lambda=seq(0,0.95,0.05)) # defined in mjcstats, as a safer alternative to qvalue::qvalue
 	qdata <- .qplot.data(q, rng = c(0, 0.1), smooth.df = 3, smooth.log.pi0 = FALSE)
 		
 	tt$"Q Value"[idx] <-  as.double(q$qvalues)
@@ -238,7 +237,6 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 # 2011-11-03: try to improve on class0, class1 labels when using each-vs-rest in GenePattern.
 # - for 3 groups, the contrasts look like this: [[c(1,-0.5,-0.5), c(-0.5,1,-0.5), c(-0.5,-0.5,1)]]
 # ... ie always a '1' and the rest are all negative and identical.
-# 
 
 # export.gsea.odf.topTable <- function(tt, fit, coef,
 # 	file,

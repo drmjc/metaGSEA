@@ -1,4 +1,5 @@
-#' Export a GCT file, from a GSEA topTable plus data table. 
+#' Export a GCT file, from a GSEA topTable plus data table
+#' 
 #' This is a companion function to \code{\link{export.gsea.rnk.topTable}} which makes a gct
 #' file which can then be used for annotating GSEA output with heatmaps.
 #' 
@@ -15,6 +16,7 @@
 #' @seealso \code{\link{export.gsea.gct}}
 #' @author Mark Cowley, 2009-08-13
 #' @export
+#' @importFrom microarrays collapse.topTable
 export.gsea.gct.topTable <- function(tt, rma, chip, file, missing="", verbose=TRUE, ...) {
 	if( !is.data.frame(chip) && is.character(chip) && file.exists(chip) )
 		chip <- import.gsea.chip(chip)

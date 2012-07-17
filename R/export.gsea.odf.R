@@ -21,8 +21,8 @@
 #' @author Mark Cowley, 2009-11-30
 #' @seealso \code{\link{export.gsea.odf.lmFit}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#odf}
 #' @export
+#' @importFrom mjcbase trim
 export.gsea.odf <- function(data, file, header.lines=NULL, colclasses=NULL) {
-	
 	
 	######################################
 	# Header Lines checking
@@ -73,7 +73,7 @@ export.gsea.odf <- function(data, file, header.lines=NULL, colclasses=NULL) {
 		# R calls doubles and integers within a data.frame just "numeric"...
 		# do an integer test on the numerics.
 		#
-		row1 <- pwbc::trim(as.character(unlist(data[1,])))
+		row1 <- trim(as.character(unlist(data[1,])))
 		if( any(is.int(row1)) ) { # ignore columns that aren't int's in the very first row.
 			idx <- which(types== "double" & is.int(data[1,]))
 			if( length(idx) > 0 ) {
