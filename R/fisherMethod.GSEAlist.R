@@ -20,7 +20,7 @@
 #' @author Mark Cowley, 2010-07-22
 #' @export
 fisherMethod.GSEAlist <- function(gsea.list, values=c("NOM.p.val", "FDR.q.val"), direction=c("either", "same")) {
-	require(MADAM)
+	require(MADAM) || stop("required package 'MADAM' is not installed")
 	
 	stopifnot(is.gsea.list(gsea.list))
 	
