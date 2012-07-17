@@ -36,6 +36,7 @@
 #' @seealso \code{\link[limma]{topTable}}
 #' @author Mark Cowley, 8/2/08
 #' @export
+#' @importFrom microarrays calc.best.probe.topTable
 export.gsea.rnk.topTable <- function(tt, file, values=c("t", "logFC", "P.Value"), probe2gene=NULL, convert2symbol=FALSE, verbose=TRUE) {
 
 	# limit the top table to the best probe, then replace that best probe name with

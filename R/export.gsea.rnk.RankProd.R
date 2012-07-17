@@ -12,6 +12,7 @@
 #' @return write out a rnk file, and invisibly return the rp score.
 #' @author Mark Cowley, 2009-01-09
 #' @export
+#' @importFrom microarrays RankProd.signed.score
 export.gsea.rnk.RankProd <- function(rp, names=NULL, file, method=c("inv.log", "inverse")) {
 	rp <- rp$RPs
 	if( is.null(names) ) {
