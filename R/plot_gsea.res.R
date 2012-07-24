@@ -5,7 +5,7 @@
 #' @return a boxplot
 #' @author Mark Cowley, 2010-01-07
 #' @export
-plot.gsea.res <- function(res, array=1) {
+plot_gsea.res <- function(res, array=1) {
 	signal.columns <- grep("Signal$", colnames(res), value=TRUE)
 	signal <- res[,signal.columns[array]]
 	log <- ""

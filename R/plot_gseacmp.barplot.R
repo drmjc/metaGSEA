@@ -23,7 +23,7 @@
 #'   bar. Defaults to pvalue.stars.
 #' @author Mark Cowley, 2009-03-23
 #' @export
-plot.gseacmp.barplot <- function(x, fdr.thresh=0.05, do.par=TRUE, sub="", max.label.length=13, col="lightblue", las=2, nrow=3, ncol=4, legend.pos="none", label.bars=c("stars", "FDR", "none"), label.fun=pvalue.stars) {
+plot_gseacmp.barplot <- function(x, fdr.thresh=0.05, do.par=TRUE, sub="", max.label.length=13, col="lightblue", las=2, nrow=3, ncol=4, legend.pos="none", label.bars=c("stars", "FDR", "none"), label.fun=pvalue.stars) {
 	if( do.par ) {
 		opar=par(no.readonly=TRUE)
 		on.exit(par(opar))
@@ -95,4 +95,4 @@ plot.gseacmp.barplot <- function(x, fdr.thresh=0.05, do.par=TRUE, sub="", max.la
 	}
 }
 # CHANGELOG
-# 2010-10-26: name changed from plot.gseacmp.barplot
+# 2010-10-26: name changed from plot_gseacmp.barplot

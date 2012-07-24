@@ -1,8 +1,8 @@
-\name{plot.gsea.leadingedge.HCL}
-\alias{plot.gsea.leadingedge.HCL}
+\name{plot_gsea.leadingedge.HCL}
+\alias{plot_gsea.leadingedge.HCL}
 \title{GSEA Leading Edge HCL plot.}
 \usage{
-  plot.gsea.leadingedge.HCL(x, N = NULL, NES = NULL,
+  plot_gsea.leadingedge.HCL(x, N = NULL, NES = NULL,
     FDR = NULL, P = NULL, FWER = NULL,
     direction = c("either", "up", "down"),
     main = "Leading edge similarities", xlab = "",
@@ -99,7 +99,7 @@
   Mark Cowley, 2009-04-06
 }
 \seealso{
-  \code{\link{plot.gsea.leadingedge.HCL}}
+  \code{\link{plot_gsea.leadingedge.HCL}}
   \code{\link{plclust.gsea}}
   \code{\link{gsea.leadingedge.distance}}
 }

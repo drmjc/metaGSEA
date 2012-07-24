@@ -1,11 +1,11 @@
-\name{plot.gsea.venn.auto}
-\alias{plot.gsea.venn.auto}
+\name{plot_gsea.venn.auto}
+\alias{plot_gsea.venn.auto}
 \title{Plot a Venn diagram of overlaps between genesets from >= 2 GSEA runs across
 a range of thresholds.
 By default, this will plot 4 venn diagrams: top 50 up, top 50 down, FDR<0.25 up,
 FDR<0.25 down}
 \usage{
-  plot.gsea.venn.auto(..., gsea.list = NULL, names = NULL,
+  plot_gsea.venn.auto(..., gsea.list = NULL, names = NULL,
     file = NULL, main = "", N = c(50), FDR = c(0.25),
     P = NULL, FWER = NULL)
 }

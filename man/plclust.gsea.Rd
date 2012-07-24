@@ -1,8 +1,14 @@
 \name{plclust.gsea}
 \alias{plclust.gsea}
+\alias{plot_gsea.hclust}
 \title{Plot an hclust object, that has been made from GSEA genesets.}
 \usage{
   plclust.gsea(hc, main = "Leading edge similarities",
+    xlab = "", sub = NULL,
+    yaxis = c("similarity", "distance"), lab.col = "black",
+    hang = 0.03, cex = NULL, cex.main = 1, ...)
+
+  plot_gsea.hclust(hc, main = "Leading edge similarities",
     xlab = "", sub = NULL,
     yaxis = c("similarity", "distance"), lab.col = "black",
     hang = 0.03, cex = NULL, cex.main = 1, ...)

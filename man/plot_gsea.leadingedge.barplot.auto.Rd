@@ -1,8 +1,8 @@
-\name{plot.gsea.leadingedge.barplot.auto}
-\alias{plot.gsea.leadingedge.barplot.auto}
+\name{plot_gsea.leadingedge.barplot.auto}
+\alias{plot_gsea.leadingedge.barplot.auto}
 \title{Function to automatically plot barplot's of filtered GSEA data.}
 \usage{
-  plot.gsea.leadingedge.barplot.auto(x, file = NULL,
+  plot_gsea.leadingedge.barplot.auto(x, file = NULL,
     N = c(50), FDR = c(0.25), P = NULL, FWER = NULL,
     min.count = 2, horiz = FALSE, col = "blue",
     cex.names = 0.6, write.delim = FALSE, ...)
@@ -36,7 +36,7 @@
   gene names. see \code{\link{plot}}}
 
   \item{\dots}{arguments passed to
-  \code{\link{plot.gsea.leadingedge.barplot}}}
+  \code{\link{plot_gsea.leadingedge.barplot}}}
 
   \item{write.delim}{logical: if \code{TRUE}, then write
   the data plotted as a tab delimited txt file, named

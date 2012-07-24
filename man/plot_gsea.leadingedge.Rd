@@ -1,8 +1,8 @@
-\name{plot.gsea.leadingedge}
-\alias{plot.gsea.leadingedge}
+\name{plot_gsea.leadingedge}
+\alias{plot_gsea.leadingedge}
 \title{Combination GSEA Leading Edge plot.}
 \usage{
-  plot.gsea.leadingedge(x, main)
+  plot_gsea.leadingedge(x, main)
 }
 \arguments{
   \item{x}{a GSEA list}
@@ -23,8 +23,9 @@
   Mark Cowley, 2009-10-29
 }
 \seealso{
-  \code{\link{plot.gsea.leadingedge.HCL}}
-  \code{\link{plot.gsea.leadingedge.heatmap}}
-  \code{\link{plot.gsea.leadingedge.barplot}}
+  \code{\link{gsea.filter}}
+  \code{\link{plot_gsea.leadingedge.HCL}}
+  \code{\link{plot_gsea.leadingedge.heatmap}}
+  \code{\link{plot_gsea.leadingedge.barplot}}
 }
 

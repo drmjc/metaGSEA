@@ -16,7 +16,7 @@
 #' @author Mark Cowley, 2009-10-29
 #' @export
 #' @importFrom gplots heatmap.2
-plot.gsea.leadingedge.heatmap <- function(x, main="Geneset similarity", gridcolour="lightgrey") {
+plot_gsea.leadingedge.heatmap <- function(x, main="Geneset similarity", gridcolour="lightgrey") {
 	tmp <- dist.gsea(x$leading.edge)
 	tmp <- as.matrix(tmp)
 	tmp <- 1-tmp
@@ -45,7 +45,7 @@ plot.gsea.leadingedge.heatmap <- function(x, main="Geneset similarity", gridcolo
 #' @return nothing. creates a pdf file.
 #' @author Mark Cowley, 2010-10-14
 #' @export
-plot.gsea.leadingedge.heatmap.auto <- function(x, file=NULL, 
+plot_gsea.leadingedge.heatmap.auto <- function(x, file=NULL, 
 	N=c(50), FDR=c(0.25), P=NULL, FWER=NULL, pdf.width=12, pdf.height=12) {
 
 	if( "leading.edge" %in% names(x) )
@@ -70,7 +70,7 @@ plot.gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				tmp.main <- paste(main, " - ", direction, " - topN=", n, sep="")
 				tmp <- gsea.filter(x[[collection]], N=n, direction=direction)
 				if( length(tmp$leading.edge) >0 )
-					plot.gsea.leadingedge.heatmap(tmp, main=tmp.main)
+					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -81,7 +81,7 @@ plot.gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				tmp.main <- paste(main, " - ", direction, " - FDR<", fdr, sep="")
 				tmp <- gsea.filter(x[[collection]], FDR=fdr, direction=direction)
 				if( length(tmp$leading.edge) >0 )
-					plot.gsea.leadingedge.heatmap(tmp, main=tmp.main)
+					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -92,7 +92,7 @@ plot.gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				tmp.main <- paste(main, " - ", direction, " - P<", p, sep="")
 				tmp <- gsea.filter(x[[collection]], P=p, direction=direction)
 				if( length(tmp$leading.edge) >0 )
-					plot.gsea.leadingedge.heatmap(tmp, main=tmp.main)
+					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
@@ -103,7 +103,7 @@ plot.gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				tmp.main <- paste(main, " - ", direction, " - FWER<", fwer, sep="")
 				tmp <- gsea.filter(x[[collection]], FWER=fwer, direction=direction)
 				if( length(tmp$leading.edge) >0 )
-					plot.gsea.leadingedge.heatmap(tmp, main=tmp.main)
+					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
 					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}

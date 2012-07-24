@@ -1,8 +1,8 @@
-\name{plot.gsea.leadingedge.HCL.auto}
-\alias{plot.gsea.leadingedge.HCL.auto}
+\name{plot_gsea.leadingedge.HCL.auto}
+\alias{plot_gsea.leadingedge.HCL.auto}
 \title{Automated GSEA HCL}
 \usage{
-  plot.gsea.leadingedge.HCL.auto(x, file = NULL, N = c(50),
+  plot_gsea.leadingedge.HCL.auto(x, file = NULL, N = c(50),
     FDR = c(0.25), P = NULL, FWER = NULL, max.distance = 1)
 }
 \arguments{
@@ -45,7 +45,7 @@
   Mark Cowley, 2009-09-03
 }
 \seealso{
-  \code{\link{plot.gsea.leadingedge.HCL}},
+  \code{\link{plot_gsea.leadingedge.HCL}},
   \code{\link{gsea.leadingedge.distance}}
 }
 

@@ -21,8 +21,8 @@
 #' @return a 2D or 3D venn diagram
 #' @author Mark Cowley, 2010-10-15
 #' @export
-#' @importFrom mjcgraphics plot.venn
-plot.gsea.venn <- function(..., gsea.list=NULL, names=NULL, main="",
+#' 
+plot_gsea.venn <- function(..., gsea.list=NULL, names=NULL, main="",
 	N=NULL, NES=NULL, FDR=NULL, P=NULL, FWER=NULL, direction=c("either", "up", "down")
 	) {
 	if( is.null(gsea.list) )
@@ -119,7 +119,7 @@ print.gsea.venn <- function(..., gsea.list=NULL, names=NULL,
 #' @return none. prints a venn diagram
 #' @author Mark Cowley
 #' @export
-plot.gsea.venn.auto <- function(..., gsea.list=NULL, names=NULL, file=NULL, main="",
+plot_gsea.venn.auto <- function(..., gsea.list=NULL, names=NULL, file=NULL, main="",
 	N=c(50), FDR=c(0.25), P=NULL, FWER=NULL ) {
 
 	if( !is.null(file) ) {
@@ -134,28 +134,28 @@ plot.gsea.venn.auto <- function(..., gsea.list=NULL, names=NULL, file=NULL, main
 	for(n in N) { # skips the loop if N is NULL
 		for(direction in c("up", "down")) {
 			tmp.main <- paste(main, " - ", direction, " - N=", n, sep="")
-			plot.gsea.venn(gsea.list=gsea.list, names=names, N=n, direction=direction, main=tmp.main)
+			plot_gsea.venn(gsea.list=gsea.list, names=names, N=n, direction=direction, main=tmp.main)
 		}
 	}
 	# FDR
 	for(fdr in FDR) {
 		for(direction in c("up", "down")) {
 			tmp.main <- paste(main, " - ", direction, " - FDR<", fdr, sep="")
-			plot.gsea.venn(gsea.list=gsea.list, names=names, FDR=fdr, direction=direction, main=tmp.main)
+			plot_gsea.venn(gsea.list=gsea.list, names=names, FDR=fdr, direction=direction, main=tmp.main)
 		}
 	}
 	# P
 	for(p in P) {
 		for(direction in c("up", "down")) {
 			tmp.main <- paste(main, " - ", direction, " - P<", p, sep="")
-			plot.gsea.venn(gsea.list=gsea.list, names=names, P=p, direction=direction, main=tmp.main)
+			plot_gsea.venn(gsea.list=gsea.list, names=names, P=p, direction=direction, main=tmp.main)
 		}
 	}
 	# FWER
 	for(fwer in FWER) {
 		for(direction in c("up", "down")) {
 			tmp.main <- paste(main, " - ", direction, " - FWER<", fwer, sep="")
-			plot.gsea.venn(gsea.list=gsea.list, names=names, FWER=fwer, direction=direction, main=tmp.main)
+			plot_gsea.venn(gsea.list=gsea.list, names=names, FWER=fwer, direction=direction, main=tmp.main)
 		}
 	}
 }

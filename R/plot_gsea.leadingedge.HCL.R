@@ -59,9 +59,9 @@
 #' @param hclust.method the hierarchical clustering method. see \code{\link{hclust}}
 #' @return invisibly returns the hclust object.
 #' @author Mark Cowley, 2009-04-06
-#' @seealso \code{\link{plot.gsea.leadingedge.HCL}} \code{\link{plclust.gsea}} \code{\link{gsea.leadingedge.distance}}
+#' @seealso \code{\link{plot_gsea.leadingedge.HCL}} \code{\link{plclust.gsea}} \code{\link{gsea.leadingedge.distance}}
 #' @export
-plot.gsea.leadingedge.HCL <- function(x,
+plot_gsea.leadingedge.HCL <- function(x,
 	N=NULL, NES=NULL, FDR=NULL, P=NULL, FWER=NULL, direction=c("either", "up", "down"),
 	main="Leading edge similarities", xlab="", 
 	yaxis=c("similarity", "distance"),
@@ -149,7 +149,7 @@ plot.gsea.leadingedge.HCL <- function(x,
 
 
 #' Take a GSEA object and calculate an HCL between the leading edge genes.
-#' Don't worry about the fancy geneset renaming that plot.gsea.leadingedge.HCL
+#' Don't worry about the fancy geneset renaming that plot_gsea.leadingedge.HCL
 #' gives you.
 #' 
 #' @param x a GSEA object
@@ -159,9 +159,9 @@ plot.gsea.leadingedge.HCL <- function(x,
 #' @param \dots further arguments passed to \code{\link{plclust.gsea}}
 #' @return none. creates an HCL dendrogram plot
 #' @author Mark Cowley, 2009-09-01
-#' @seealso \code{\link{plot.gsea.leadingedge.HCL}} \code{\link{plclust.gsea}} \code{\link{gsea.leadingedge.distance}}
+#' @seealso \code{\link{plot_gsea.leadingedge.HCL}} \code{\link{plclust.gsea}} \code{\link{gsea.leadingedge.distance}}
 #' @export
-plot.gsea.leadingedge.HCL.simple <- function(x,
+plot_gsea.leadingedge.HCL.simple <- function(x,
 	main="Leading edge similarities", xlab="", hclust.method="complete", ...) {
 	stopifnot(is.gsea(x))
 	d <- gsea.leadingedge.distance(x$leading.edge)
@@ -181,10 +181,10 @@ plot.gsea.leadingedge.HCL.simple <- function(x,
 #' @param hclust.method the hierarchical clustering method. see \code{\link{hclust}}
 #' @param h numeric scalar or vector with heights where the tree should be
 #'   cut. (see cutree)
-#' @param \dots see \code{\link{plot.gsea.leadingedge.HCL.simple}}
+#' @param \dots see \code{\link{plot_gsea.leadingedge.HCL.simple}}
 #' @author Mark Cowley, 2009-09-01
 #' @export
-plot.gsea.leadingedge.HCL.1clusterPerPage <- function(x,
+plot_gsea.leadingedge.HCL.1clusterPerPage <- function(x,
 	main="Leading edge similarities", xlab="", hclust.method="complete", h=0.99, ...) {
 	stopifnot(is.gsea(x))
 	d <- gsea.leadingedge.distance(x$leading.edge)
@@ -198,7 +198,7 @@ plot.gsea.leadingedge.HCL.1clusterPerPage <- function(x,
 		}
 		else {
 			tmp <- subset.gsea(x, ct==i)
-			plot.gsea.leadingedge.HCL.simple(tmp, main=paste(main, "-", "Cluster", i), xlab=xlab, hclust.method=hclust.method, ...)
+			plot_gsea.leadingedge.HCL.simple(tmp, main=paste(main, "-", "Cluster", i), xlab=xlab, hclust.method=hclust.method, ...)
 		}
 	}
 }

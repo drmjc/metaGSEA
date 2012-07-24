@@ -15,6 +15,7 @@
 #' @seealso \code{\link{plclust}}
 #' @author Mark Cowley, 2009-09-04
 #' @export
+#' @rdname plclust.gsea
 plclust.gsea <- function(hc, main="Leading edge similarities", xlab="", sub=NULL, yaxis=c("similarity", "distance"), lab.col="black", hang=0.03, cex=NULL, cex.main=1, ...) {
 	
 	yaxis <- yaxis[1]
@@ -50,24 +51,6 @@ plclust.gsea <- function(hc, main="Leading edge similarities", xlab="", sub=NULL
 	}
 }
 
-#' Plot an hclust object, that has been made from GSEA genesets.
-#' This is a convenience wrapper around \code{\link{plclust.gsea}}
-#' 
-#' @param hc an object of class \code{hclust}
-#' @param main see \code{\link{par}}
-#' @param xlab see \code{\link{par}}
-#' @param sub see \code{\link{par}}
-#' @param yaxis what type of yaxis scale do you want? \dQuote{similarity}, or \dQuote{distance}?
-#' @param lab.col argument to change the colour of the text labels. (not yet
-#'   implemented)
-#' @param hang see \code{\link{plclust}} default=0.03
-#' @param cex see \code{\link{par}}. default=NULL
-#' @param cex.main see \code{\link{par}}. default=1
-#' @param \dots arguments passed to \code{\link{plclust}}'
-#' @return none. creates a plot
-#' @seealso \code{\link{plclust}}
-#' @author Mark Cowley, 2009-09-04
 #' @export
-plot.hclust.gsea <- function(hc, main="Leading edge similarities", xlab="", sub=NULL, yaxis=c("similarity", "distance"), lab.col="black", hang=0.03, cex=NULL, cex.main=1,  ...) {
-	plclust.gsea(hc=hc, main=main, xlab=xlab, sub=sub, yaxis=yaxis, lab.col=lab.col, hang=hang, cex=cex, cex.main=cex.main, ...)
-}
+#' @rdname plclust.gsea
+plot_gsea.hclust <- plclust.gsea

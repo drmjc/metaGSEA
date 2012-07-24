@@ -1,8 +1,8 @@
-\name{plot.gsea.leadingedge.heatmap}
-\alias{plot.gsea.leadingedge.heatmap}
+\name{plot_gsea.leadingedge.heatmap}
+\alias{plot_gsea.leadingedge.heatmap}
 \title{Generate a heatmap of genesets from a GSEA run}
 \usage{
-  plot.gsea.leadingedge.heatmap(x,
+  plot_gsea.leadingedge.heatmap(x,
     main = "Geneset similarity", gridcolour = "lightgrey")
 }
 \arguments{

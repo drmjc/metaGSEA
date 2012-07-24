@@ -1,9 +1,9 @@
-\name{plot.gsea.leadingedge.barplot}
-\alias{plot.gsea.leadingedge.barplot}
+\name{plot_gsea.leadingedge.barplot}
+\alias{plot_gsea.leadingedge.barplot}
 \title{GSEA Leading Edge analysis: Barplot of number of genesets each gene occured
 in.}
 \usage{
-  plot.gsea.leadingedge.barplot(x, min.count = 0,
+  plot_gsea.leadingedge.barplot(x, min.count = 0,
     xlab = "", ylab = "Number Of Gene Sets",
     main = "Leading Edge Barplot", horiz = FALSE,
     col = "blue", cex.names = 0.6, ...)

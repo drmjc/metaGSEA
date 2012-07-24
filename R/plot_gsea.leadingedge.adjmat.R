@@ -13,7 +13,7 @@
 #' @author Mark Cowley, 2009-10-29
 #' @export
 #' @importFrom gplots heatmap.2
-plot.gsea.leadingedge.adjmat <- function(x, main="Leading Edge Adjacency Matrix", cluster=TRUE) {
+plot_gsea.leadingedge.adjmat <- function(x, main="Leading Edge Adjacency Matrix", cluster=TRUE) {
 	adjmat <- gsea2adjmat(x)
 	adjmat <- as.matrix(adjmat)
 	adjmat <- t(adjmat)

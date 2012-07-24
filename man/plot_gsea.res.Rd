@@ -1,8 +1,8 @@
-\name{plot.gsea.res}
-\alias{plot.gsea.res}
+\name{plot_gsea.res}
+\alias{plot_gsea.res}
 \title{Boxplot the intensities for an array split by the detection call (P/M/A).}
 \usage{
-  plot.gsea.res(res, array = 1)
+  plot_gsea.res(res, array = 1)
 }
 \arguments{
   \item{res}{a gsea res object. see import.gsea.res}

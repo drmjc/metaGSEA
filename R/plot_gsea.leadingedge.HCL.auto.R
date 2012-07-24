@@ -22,11 +22,11 @@
 #' @return makes a number of plots to a pdf file, or the current plotting
 #'   device 
 #' 
-#' @seealso \code{\link{plot.gsea.leadingedge.HCL}}, \code{\link{gsea.leadingedge.distance}}
+#' @seealso \code{\link{plot_gsea.leadingedge.HCL}}, \code{\link{gsea.leadingedge.distance}}
 #' 
 #' @author Mark Cowley, 2009-09-03
 #' @export
-plot.gsea.leadingedge.HCL.auto <- function(x, file=NULL, 
+plot_gsea.leadingedge.HCL.auto <- function(x, file=NULL, 
 	N=c(50), FDR=c(0.25), P=NULL, FWER=NULL, 
 	max.distance=1.0) {
 
@@ -49,25 +49,25 @@ plot.gsea.leadingedge.HCL.auto <- function(x, file=NULL,
 		# N
 		for(n in N) { # skips the loop if N is NULL
 			for(direction in c("up", "down")) {
-				plot.gsea.leadingedge.HCL(x[[collection]], N=n, direction=direction, main=main, max.distance=max.distance)
+				plot_gsea.leadingedge.HCL(x[[collection]], N=n, direction=direction, main=main, max.distance=max.distance)
 			}
 		}
 		# FDR
 		for(fdr in FDR) {
 			for(direction in c("up", "down")) {
-				plot.gsea.leadingedge.HCL(x[[collection]], FDR=fdr, direction=direction, main=main, max.distance=max.distance)
+				plot_gsea.leadingedge.HCL(x[[collection]], FDR=fdr, direction=direction, main=main, max.distance=max.distance)
 			}
 		}
 		# P
 		for(p in P) {
 			for(direction in c("up", "down")) {
-				plot.gsea.leadingedge.HCL(x[[collection]], P=p, direction=direction, main=main, max.distance=max.distance)
+				plot_gsea.leadingedge.HCL(x[[collection]], P=p, direction=direction, main=main, max.distance=max.distance)
 			}
 		}
 		# FWER
 		for(fwer in FWER) {
 			for(direction in c("up", "down")) {
-				plot.gsea.leadingedge.HCL(x[[collection]], FWER=fwer, direction=direction, main=main, max.distance=max.distance)
+				plot_gsea.leadingedge.HCL(x[[collection]], FWER=fwer, direction=direction, main=main, max.distance=max.distance)
 			}
 		}
 	}

@@ -1,8 +1,8 @@
-\name{plot.gsea.leadingedge.adjmat}
-\alias{plot.gsea.leadingedge.adjmat}
+\name{plot_gsea.leadingedge.adjmat}
+\alias{plot_gsea.leadingedge.adjmat}
 \title{Generate a binary adjacency matrix image (like a heatmap with 2 colours).}
 \usage{
-  plot.gsea.leadingedge.adjmat(x,
+  plot_gsea.leadingedge.adjmat(x,
     main = "Leading Edge Adjacency Matrix", cluster = TRUE)
 }
 \arguments{

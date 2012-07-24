@@ -1,9 +1,9 @@
-\name{plot.gseacmp.barplot}
-\alias{plot.gseacmp.barplot}
+\name{plot_gseacmp.barplot}
+\alias{plot_gseacmp.barplot}
 \title{Taking a gseacmp object (see gsea.compare.runs.1gmt), create barplots of
 the NES scores for each geneset}
 \usage{
-  plot.gseacmp.barplot(x, fdr.thresh = 0.05, do.par = TRUE,
+  plot_gseacmp.barplot(x, fdr.thresh = 0.05, do.par = TRUE,
     sub = "", max.label.length = 13, col = "lightblue",
     las = 2, nrow = 3, ncol = 4, legend.pos = "none",
     label.bars = c("stars", "FDR", "none"),

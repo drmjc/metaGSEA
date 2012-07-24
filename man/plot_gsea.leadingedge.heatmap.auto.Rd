@@ -1,9 +1,9 @@
-\name{plot.gsea.leadingedge.heatmap.auto}
-\alias{plot.gsea.leadingedge.heatmap.auto}
+\name{plot_gsea.leadingedge.heatmap.auto}
+\alias{plot_gsea.leadingedge.heatmap.auto}
 \title{Generate a heatmap of genesets from a GSEA run, across a number of standard thresholds
 The default settings will generate 4 heatmaps, of the up/down, top 50, and FDR<0.25 genesets.}
 \usage{
-  plot.gsea.leadingedge.heatmap.auto(x, file = NULL,
+  plot_gsea.leadingedge.heatmap.auto(x, file = NULL,
     N = c(50), FDR = c(0.25), P = NULL, FWER = NULL,
     pdf.width = 12, pdf.height = 12)
 }

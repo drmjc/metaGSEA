@@ -1,10 +1,10 @@
-\name{plot.gsea.statistic.histograms}
-\alias{plot.gsea.statistic.histograms}
+\name{plot_gsea.statistic.histograms}
+\alias{plot_gsea.statistic.histograms}
 \title{plot a panel of gsea histograms
 From a GSEA object, plot a histogram of the nominal p values,
 FDR q values, or FWER p values.}
 \usage{
-  plot.gsea.statistic.histograms(x, main = "",
+  plot_gsea.statistic.histograms(x, main = "",
     which = c("p", "q", "FWER"))
 }
 \arguments{

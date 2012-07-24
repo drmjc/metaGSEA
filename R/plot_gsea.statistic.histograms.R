@@ -10,7 +10,7 @@
 #' @return none. creates a panel of histograms.
 #' @author Mark Cowley, 2011-10-20
 #' @export
-plot.gsea.statistic.histograms <- function(x, main="", which=c("p", "q", "FWER")) {
+plot_gsea.statistic.histograms <- function(x, main="", which=c("p", "q", "FWER")) {
 	!missing(x) && is.gsea(x) || stop("x must be a gsea object")
 	which <- match.arg(which, c("p", "q", "FWER"), several.ok=TRUE)
 	
