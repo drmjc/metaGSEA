@@ -5,7 +5,7 @@
 #' @return none. creates a rpt file
 #' @author Mark Cowley, 2009-12-11
 #' @export
-#' @importFrom mjcbase list2df
+#' 
 export.gsea.rpt <- function(rpt, f) {
 	if( ! "producer_class" %in% names(rpt) )
 		stop("argument does not look like a gsea rpt object.\n")
