@@ -11,7 +11,6 @@
 #' @return a data.frame of \dQuote{geneset}, \dQuote{size}, \dQuote{NES}, \dQuote{FDR}, \dQuote{NES}, \dQuote{FDR}, \dots
 #' @author Mark Cowley, 2009-12-16
 #' @export
-#' @importFrom excelIO write.xls
 gsea.compare.runs.1gmt <- function(dirs, gsealist, outfile, method=c("intersect", "union")[1]) {
 	if( !missing(gsealist) ) {
 		gsea <- gsealist
