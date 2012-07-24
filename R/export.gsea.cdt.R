@@ -6,8 +6,8 @@
 #' leading edge genesets. You can view these files using the
 #' \code{HierarchicalClusteringViewer} tool in \code{GenePattern}.
 #' 
-#' The order of the tree should be identical to \code{\link{plot.gsea.leadingedge.HCL}}, so
-#' you could compare a static pdf image (from \code{\link{plot.gsea.leadingedge.HCL}}), or
+#' The order of the tree should be identical to \code{\link{plot_gsea.leadingedge.HCL}}, so
+#' you could compare a static pdf image (from \code{\link{plot_gsea.leadingedge.HCL}}), or
 #' interrogate a dynamically updating image using the \code{GenePattern} tool.
 #' 
 #' @param x a gsea object (not the leading.edge)
@@ -18,7 +18,7 @@
 #' @param \dots Unprocessed arguments for export.gsea.gtr.
 #' @param rename logical: rename the genesets to at most 40 characters? see \code{\link{gsea.rename.genesets}}
 #' @author Mark Cowley, 2009-10-12
-#' @seealso \code{\link{plot.gsea.leadingedge.HCL}}
+#' @seealso \code{\link{plot_gsea.leadingedge.HCL}}
 #' @references Stanford File formats:
 #'   \url{http://smd.stanford.edu/help/formats.shtml} 
 #' GenePattern file formats:

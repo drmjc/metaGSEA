@@ -34,9 +34,9 @@
 }
 \details{
   The order of the tree should be identical to
-  \code{\link{plot.gsea.leadingedge.HCL}}, so you could
+  \code{\link{plot_gsea.leadingedge.HCL}}, so you could
   compare a static pdf image (from
-  \code{\link{plot.gsea.leadingedge.HCL}}), or interrogate
+  \code{\link{plot_gsea.leadingedge.HCL}}), or interrogate
   a dynamically updating image using the \code{GenePattern}
   tool.
 }
@@ -50,7 +50,7 @@
   \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html}
 }
 \seealso{
-  \code{\link{plot.gsea.leadingedge.HCL}}
+  \code{\link{plot_gsea.leadingedge.HCL}}
 }
 \keyword{file}
 \keyword{IO}
