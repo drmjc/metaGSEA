@@ -2,7 +2,7 @@
 #'  Must provide the path to the top-level directory that contains the \dQuote{index.html}
 #' 
 #' @param dir the top level dir that contains the index.html file
-#' @param plot logical: leading edge HCL's on top 50 and FDR<0.05 genesets? see \code{\link{plot.gsea.leadingedge.HCL}}
+#' @param plot logical: leading edge HCL's on top 50 and FDR<0.05 genesets? see \code{\link{plot_gsea.leadingedge.HCL}}
 #' @return a named list where each element is a vector of gene symbols that
 #'   were contained within the leading edge subset for that category. The list
 #'   names are the gene set names
@@ -44,10 +44,10 @@ import.gsea.leadingedge <- function(dir, plot=FALSE) {
 		MAIN <- gsea.which.gmt(dir)
 		f <- file.path(dir, "LeadingEdge.HCL.pdf")
 		pdf.A4(f)
-		plot.gsea.leadingedge.HCL(gmt, tt, N=100, main=MAIN)
-		plot.gsea.leadingedge.HCL(gmt, tt, FDR=0.05, main=MAIN)
-		# plot.gsea.leadingedge.HCL(gmt, tt$pos, FDR=0.1, main=MAIN)
-		# plot.gsea.leadingedge.HCL(gmt, tt$pos, FDR=0.25, main=MAIN)
+		plot_gsea.leadingedge.HCL(gmt, tt, N=100, main=MAIN)
+		plot_gsea.leadingedge.HCL(gmt, tt, FDR=0.05, main=MAIN)
+		# plot_gsea.leadingedge.HCL(gmt, tt$pos, FDR=0.1, main=MAIN)
+		# plot_gsea.leadingedge.HCL(gmt, tt$pos, FDR=0.25, main=MAIN)
 		dev.off()
 	}
 	

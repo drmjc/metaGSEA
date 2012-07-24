@@ -11,7 +11,7 @@
 
   \item{plot}{logical: leading edge HCL's on top 50 and
   FDR<0.05 genesets? see
-  \code{\link{plot.gsea.leadingedge.HCL}}}
+  \code{\link{plot_gsea.leadingedge.HCL}}}
 }
 \value{
   a named list where each element is a vector of gene
