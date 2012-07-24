@@ -36,8 +36,9 @@ the GSEA tool (such as the GSEA Leading Edge tool) in the future.}
   doc <- xmlTreeParse(edb.file) r <- xmlRoot(doc);
   xmlAttrs(r); xmlSize(r); xmlSize(r[[1]])
   str(xmlAttrs(r[[1]])) xmlAttrs(r[[1]])[3] # modify the
-  attributes... a <- xmlAttrs(r[[1]]) a[3] <- p(a[3],
-  "_MJC") n <- xmlNode("DTG", attrs=a) r[[1]] <- n }
+  attributes... a <- xmlAttrs(r[[1]]) a[3] <- paste(a[3],
+  "_MJC", sep="") n <- xmlNode("DTG", attrs=a) r[[1]] <- n
+  }
 }
 \examples{
 \dontrun{

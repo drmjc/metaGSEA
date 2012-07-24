@@ -22,7 +22,7 @@
 #' str(xmlAttrs(r[[1]]))
 #' xmlAttrs(r[[1]])[3]
 #' # modify the attributes... 
-#' a <- xmlAttrs(r[[1]]) a[3] <- p(a[3], "_MJC")
+#' a <- xmlAttrs(r[[1]]) a[3] <- paste(a[3], "_MJC", sep="")
 #' n <- xmlNode("DTG", attrs=a) r[[1]] <- n 
 #' }
 #' 
