@@ -22,8 +22,6 @@
 #'   leadingedge.tree.gtr: used in conjunction with the cdt file.
 #' @author Mark Cowley, 2009-10-29
 #' @export
-#' @importFrom mjcbase ucounts
-#' @importFrom excelIO write.xls
 export.gsea.leadingedge.analysis <- function(x, dir, prefix=NULL, sep="-") {
 	if( is.null(prefix) ) {
 		prefix <- ""
@@ -33,7 +31,7 @@ export.gsea.leadingedge.analysis <- function(x, dir, prefix=NULL, sep="-") {
 	# export the plots
 	f <- file.path(dir, paste(prefix, "leadingedge.plots.pdf", sep=sep))
 	pdf(f, 12, 12)
-	plot.gsea.leadingedge(x, main=prefix)
+	plot_gsea.leadingedge(x, main=prefix)
 	dev.off()
 	
 	# export a list of non-unique genesymbols (for GO analysis)
