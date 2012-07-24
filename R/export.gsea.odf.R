@@ -21,7 +21,7 @@
 #' @author Mark Cowley, 2009-11-30
 #' @seealso \code{\link{export.gsea.odf.lmFit}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#odf}
 #' @export
-#' @importFrom mjcbase trim
+#' 
 export.gsea.odf <- function(data, file, header.lines=NULL, colclasses=NULL) {
 	
 	######################################
