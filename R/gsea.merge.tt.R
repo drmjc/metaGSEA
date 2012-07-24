@@ -12,7 +12,7 @@
 #'   were not observed.
 #' @author Mark Cowley
 #' @export
-#' @importFrom mjcbase rowMax
+#' 
 gsea.merge.tt <- function(..., keep="NES", method=c("intersect", "union")[1]) {
 	if( missing(keep) )
 		stop("Need to specify which column to keep, and it must be named. eg keep=\"NES\"\n")
