@@ -212,7 +212,7 @@ gsea.topTable.sort <- function(tt, sort.by=c("NES", "absNES", "FDR", "P", "SIZE"
 # 		tags <- res[[i]]$LEADING.EDGE
 # 		tags <- sub("%.*", "", tags)
 # 		tags <- sub("tags=", "", tags)
-# 		# tags <- str.right(str.left(res[[i]]$LEADING.EDGE, 7), 2)
+# 		# tags <- str_right(str_left(res[[i]]$LEADING.EDGE, 7), 2)
 # 		tags <- as.numeric(tags) / 100
 # 		res[[i]]$LEADING.EDGE.SIZE <- round(res[[i]]$SIZE * tags)
 # 		################
