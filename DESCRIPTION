@@ -5,6 +5,7 @@ Title: Meta-analysis of GSEA analyses, including intra- and
     inter-experiment comparisons
 Type: Package
 LazyLoad: yes
+OS_type: unix
 Author: Mark Cowley
 Description: A collection of R and bash code to simplify
     the down-stream analysis of GSEA results. Efficient
@@ -22,30 +23,28 @@ Description: A collection of R and bash code to simplify
     of code for importing/exporting/subsetting many of the
     GenePattern file types (GCT, CLS, CLM, CHIP, RES, ODF)
 Version: 1.1.0
-Date: 2012-07-17
+Date: 2012-07-24
 Depends:
-    R (>= 2.8.0),
-    stats,
-    methods,
-    XML
+    R (>= 2.12.0),
+    excelIO,
+    mjcbase,
+    mjcgraphics
 Imports:
     GSEABase,
     XML,
-    excelIO,
     gplots,
     methods,
-    mjcbase,
-    mjcgraphics,
-    mjcstats,
     microarrays,
+    mjcstats,
     stringr
 Suggests:
-    qvalue,
+    microarrays,
     GenePattern,
     limma,
     gplots,
     gtools,
-    MADAM
+    MADAM,
+    R.matlab
 Collate:
     'chip2description.R'
     'collapse.gct.R'
@@ -117,20 +116,21 @@ Collate:
     'metaGSEA-package.R'
     'plclust_in_colour.R'
     'plclust.gsea.R'
-    'plot.CAT.GSEA.R'
-    'plot.gsea.leadingedge.adjmat.R'
-    'plot.gsea.leadingedge.barplot.R'
-    'plot.gsea.leadingedge.HCL.auto.R'
-    'plot.gsea.leadingedge.HCL.R'
-    'plot.gsea.leadingedge.heatmap.R'
-    'plot.gsea.leadingedge.R'
-    'plot.gsea.res.R'
-    'plot.gsea.statistic.histograms.R'
-    'plot.gsea.venn.R'
-    'plot.gseacmp.barplot.R'
+    'plot_gsea.leadingedge.adjmat.R'
+    'plot_gsea.leadingedge.barplot.R'
+    'plot_gsea.leadingedge.HCL.auto.R'
+    'plot_gsea.leadingedge.HCL.R'
+    'plot_gsea.leadingedge.heatmap.R'
+    'plot_gsea.leadingedge.R'
+    'plot_gsea.res.R'
+    'plot_gsea.statistic.histograms.R'
+    'plot_gsea.venn.R'
+    'plot_gseacmp.barplot.R'
     'qplot.data.R'
     'reorder.gct.R'
     'test.broad.ftp.R'
     'import.genepattern.odf.R'
     'average.replicates.gct.R'
     'jacquard-methods.R'
+    'genepattern2spd.R'
+    'catplot.GSEA.R'
