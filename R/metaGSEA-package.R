@@ -53,20 +53,20 @@
 #' up/down-regulated geneset summaries, namely geneset name, and all the statistics.
 #' 
 #' If you have just 1 GSEA result, besides filtering it, you can assess the similarity between
-#' genesets using \code{\link{plot.gsea.leadingedge}}, which compares genesets using the leading
-#' edge genes, and creates a \code{\link[=plot.gsea.leadingedge.HCL]{Heirarchical clustering dendrogram}}, 
-#' \code{\link[=plot.gsea.leadingedge.heatmap]{heatmap}}, \code{\link[=plot.gsea.leadingedge.barplot]{barplot}}, 
-#' and \code{\link[=plot.gsea.leadingedge.adjmat]{adjacency matrix}}.
+#' genesets using \code{\link{plot_gsea.leadingedge}}, which compares genesets using the leading
+#' edge genes, and creates a \code{\link[=plot_gsea.leadingedge.HCL]{Heirarchical clustering dendrogram}}, 
+#' \code{\link[=plot_gsea.leadingedge.heatmap]{heatmap}}, \code{\link[=plot_gsea.leadingedge.barplot]{barplot}}, 
+#' and \code{\link[=plot_gsea.leadingedge.adjmat]{adjacency matrix}}.
 #' 
 #' If you have multiple GSEA results compared to the \emph{same} GMT file (ie the geneset names will
 #' overlap), then you can compare results using \code{\link{gsea.compare.runs.1gmt}}, then filter
 #' those results via \code{\link{gsea.compare.runs.filter}}, and plot the [dis]similarities via:
-#' \code{\link{plot.gsea.venn}}, \code{\link{plot.gseacmp.barplot}}, \code{\link[=plot.CAT.GSEA]{CAT plots}},
-#' and by a \code{\link[=plot.gsea.leadingedge.HCL]{combined HCL plot}}.
+#' \code{\link{plot_gsea.venn}}, \code{\link{plot_gseacmp.barplot}}, \code{\link[=catplot.GSEA]{CAT plots}},
+#' and by a \code{\link[=plot_gsea.leadingedge.HCL]{combined HCL plot}}.
 #' 
 #' If you have multiple GSEA resuls vs \emph{different} GMT files (ie the geneset names will mostly
 #' not match), then in addition to performing the analyses described above on each individual result,
-#' we find a multi-panel \code{\link[=plot.CAT.GSEA]{CAT plot}} to be quite useful.
+#' we find a multi-panel \code{\link[=catplot.GSEA]{CAT plot}} to be quite useful.
 #' 
 #' EnrichmentMap\cr
 #' The \code{EnrichmentMap} plugin for \code{Cytoscape} lets you load GSEA results. it then generates
@@ -92,6 +92,4 @@
 #'
 #' @import methods
 #' @import microarrays
-#' @import mjcbase
-#' @import mjcgraphics
 NULL
