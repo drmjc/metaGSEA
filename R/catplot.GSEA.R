@@ -21,7 +21,7 @@
 #'   runs; \dQuote{all-pairs} plots all pairwise comparisons of genesets.
 #' @author Mark Cowley, 2008-12-08 (edited date)
 #' @export
-plot.CAT.GSEA <- function(..., gsea.list=NULL, labels=LETTERS, legend.pos="bottomright", proportion=FALSE, FDRthresh=1.01, main="", method=c("1-vs-all", "all-pairs")) {
+catplot.GSEA <- function(..., gsea.list=NULL, labels=LETTERS, legend.pos="bottomright", proportion=FALSE, FDRthresh=1.01, main="", method=c("1-vs-all", "all-pairs")) {
 	# parse the ..., which could be a N objects, or a list of gsea.lists.
 	if( is.null(gsea.list) )
 		gsea.list <- list(...)
@@ -62,7 +62,7 @@ plot.CAT.GSEA <- function(..., gsea.list=NULL, labels=LETTERS, legend.pos="botto
 	for(i in 1:nrow(combinations)) {
 		lhs <- combinations[i,1]
 		rhs <- combinations[i,2]
-		plot.CAT.GSEA.2way(gsea.list[[lhs]], gsea.list[[rhs]], 
+		catplot.GSEA.2way(gsea.list[[lhs]], gsea.list[[rhs]], 
 			add=!(lhs==1&rhs==2), col=colours[i], proportion=proportion, 
 			FDRthresh=FDRthresh, main=main)
 	}
@@ -88,7 +88,7 @@ is.gsea.list <- function(x) {
 
 
 
-# plot.CAT.GSEA.2way <- function(x, y, col=1, proportion=FALSE, add=FALSE, GSEAsets=NULL, FDRthresh=1.01, main="") {
+# catplot.GSEA.2way <- function(x, y, col=1, proportion=FALSE, add=FALSE, GSEAsets=NULL, FDRthresh=1.01, main="") {
 # 
 # 	if( is.data.frame(x) && is.data.frame(y) ) {
 # 		x <- list(x)
@@ -117,7 +117,7 @@ is.gsea.list <- function(x) {
 # 		y.is.signif <- y$DIRECTION == direction & y$FDR < FDRthresh
 # 
 # 		if(add) par(mfg=c(ifelse(direction=="up", 1, 2), plot.column))
-# 		plot.CAT(x$NAME, y$NAME, 
+# 		catplot(x$NAME, y$NAME, 
 # 			main=main,
 # 			proportion=proportion, col=col, add=add, 
 # 			xTrue=x.is.signif, yTrue=y.is.signif, 
@@ -139,7 +139,7 @@ is.gsea.list <- function(x) {
 
 #' Plot a CAT plot upon 2 GSEA objects.
 #' 
-#' This is a helper function, you should probably consider using \code{\link{plot.CAT.GSEA}}.
+#' This is a helper function, you should probably consider using \code{\link{catplot.GSEA}}.
 #'
 #' @param x a GSEA object
 #' @param y a GSEA object
@@ -156,7 +156,7 @@ is.gsea.list <- function(x) {
 #' @export
 #' @author Mark Cowley, 2011-07-19
 #'
-plot.CAT.GSEA.2way <- function(x, y, col=1, proportion=FALSE, add=FALSE, FDRthresh=1.01, main="") {
+catplot.GSEA.2way <- function(x, y, col=1, proportion=FALSE, add=FALSE, FDRthresh=1.01, main="") {
 	## Function is optimised to work with a list of GSEA objects. IF x and y are just GSEA objects, then make them lists, and give them an appropriate name.
 	if( is.gsea(x) && is.gsea(y) ) {
 		x.gmx <- basename(x$rpt$gmx)
@@ -199,7 +199,7 @@ plot.CAT.GSEA.2way <- function(x, y, col=1, proportion=FALSE, add=FALSE, FDRthre
 		y.is.signif <- y$DIRECTION == direction & y$FDR < FDRthresh
 
 		if(add) par(mfg=c(ifelse(direction=="up", 1, 2), plot.column))
-		plot.CAT(x$NAME, y$NAME, 
+		catplot(x$NAME, y$NAME, 
 			main=main,
 			proportion=proportion, col=col, add=add, 
 			xTrue=x.is.signif, yTrue=y.is.signif, 
@@ -247,11 +247,11 @@ plot.CAT.GSEA.2way <- function(x, y, col=1, proportion=FALSE, add=FALSE, FDRthre
 #'   (default), the number of genesets is plotted.
 #' @param pch the print character. see \code{\link{par}}
 #' @param legend.pos the legend position. see \code{\link{legend}}
-#' @seealso \code{\link{plot.CAT.vs.random}}, \code{\link{plot.CAT.GSEA}}
+#' @seealso \code{\link{catplot.vs.random}}, \code{\link{catplot.GSEA}}
 #' @author Mark Cowley
 #' @export
-plot.CAT.GSEA.random <- function(..., labels=LETTERS, B=100, sizes=NULL, sizes.random=sizes, random.col="grey", ylim=c(0,1), proportion=TRUE, pch=1, legend.pos="bottomright") {
-	warning("untested since updating plot.CAT.GSEA.2way.vs.random. MJC 2010-10-27\n")
+catplot.GSEA.random <- function(..., labels=LETTERS, B=100, sizes=NULL, sizes.random=sizes, random.col="grey", ylim=c(0,1), proportion=TRUE, pch=1, legend.pos="bottomright") {
+	warning("untested since updating catplot.GSEA.2way.vs.random. MJC 2010-10-27\n")
 	gsea.list <- list(...)
 
 	if( length(gsea.list)==1 && is.list(gsea.list[[1]]) && !is.gsea.list(gsea.list[[1]]) && is.gsea.list(gsea.list[[1]][[1]]) && length(gsea.list[[1]]) >= 2 )
@@ -259,7 +259,7 @@ plot.CAT.GSEA.random <- function(..., labels=LETTERS, B=100, sizes=NULL, sizes.r
 		gsea.list <- gsea.list[[1]]
 
 	for(i in 2:length(gsea.list)) {
-		plot.CAT.GSEA.2way.vs.random(gsea.list[[1]], gsea.list[[i]], add=i>2,col=i-1, proportion=proportion, B=B, sizes=sizes, sizes.random=sizes.random, random.col=random.col, pch=pch)
+		catplot.GSEA.2way.vs.random(gsea.list[[1]], gsea.list[[i]], add=i>2,col=i-1, proportion=proportion, B=B, sizes=sizes, sizes.random=sizes.random, random.col=random.col, pch=pch)
 	}
 
 	if( !is.null(labels) ) {
@@ -272,7 +272,7 @@ plot.CAT.GSEA.random <- function(..., labels=LETTERS, B=100, sizes=NULL, sizes.r
 
 #' Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.
 #' 
-#' You should probably use \code{\link{plot.CAT.GSEA.random}} instead
+#' You should probably use \code{\link{catplot.GSEA.random}} instead
 #' 
 #' @param x a GSEA object
 #' @param y a GSEA object
@@ -289,10 +289,10 @@ plot.CAT.GSEA.random <- function(..., labels=LETTERS, B=100, sizes=NULL, sizes.r
 #'     into? see mfg setting in \code{\link{par}}
 #' @param pch the print character. see \code{\link{par}}
 #' @param main the plot title
-#' @seealso \code{\link{plot.CAT.vs.random}}, \code{\link{plot.CAT.GSEA}}
+#' @seealso \code{\link{catplot.vs.random}}, \code{\link{catplot.GSEA}}
 #' @author Mark Cowley
 #' @export
-plot.CAT.GSEA.2way.vs.random <- function(x, y, B=100, sizes=NULL, sizes.random=sizes, random.col="lightgrey", col=1, proportion=FALSE, add=FALSE, plot.column=1, pch=1, main="") {
+catplot.GSEA.2way.vs.random <- function(x, y, B=100, sizes=NULL, sizes.random=sizes, random.col="lightgrey", col=1, proportion=FALSE, add=FALSE, plot.column=1, pch=1, main="") {
 
 	stopifnot( is.gsea(x), is.gsea(y) )
 	
@@ -304,7 +304,7 @@ plot.CAT.GSEA.2way.vs.random <- function(x, y, B=100, sizes=NULL, sizes.random=s
 		sizes.random <- sizes
 
 	if(add) par(mfg=c(1, plot.column))
-	plot.CAT.vs.random(x$tt$NAME, y$tt$NAME, 
+	catplot.vs.random(x$tt$NAME, y$tt$NAME, 
 		B=B, sizes=sizes, sizes.random=sizes.random,
 		main="CAT plot overlap in up-regulated genesets",
 		random.col=random.col, proportion=proportion, col=col, add=add, pch=pch
@@ -312,7 +312,7 @@ plot.CAT.GSEA.2way.vs.random <- function(x, y, B=100, sizes=NULL, sizes.random=s
 	if(!add) grid()
 
 	if(add) par(mfg=c(2, plot.column))
-	plot.CAT.vs.random(rev(x$tt$NAME), rev(y$tt$NAME), 
+	catplot.vs.random(rev(x$tt$NAME), rev(y$tt$NAME), 
 		B=B, sizes=sizes, sizes.random=sizes.random,
 		main="CAT plot overlap in down-regulated genesets",
 		random.col=random.col, proportion=proportion, col=col, add=add, pch=pch

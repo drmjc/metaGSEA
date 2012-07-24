@@ -1,8 +1,8 @@
-\name{plot.CAT.GSEA.2way.vs.random}
-\alias{plot.CAT.GSEA.2way.vs.random}
+\name{catplot.GSEA.2way.vs.random}
+\alias{catplot.GSEA.2way.vs.random}
 \title{Compare 2 GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
 \usage{
-  plot.CAT.GSEA.2way.vs.random(x, y, B = 100, sizes = NULL,
+  catplot.GSEA.2way.vs.random(x, y, B = 100, sizes = NULL,
     sizes.random = sizes, random.col = "lightgrey",
     col = 1, proportion = FALSE, add = FALSE,
     plot.column = 1, pch = 1, main = "")
@@ -43,14 +43,14 @@
   \item{main}{the plot title}
 }
 \description{
-  You should probably use
-  \code{\link{plot.CAT.GSEA.random}} instead
+  You should probably use \code{\link{catplot.GSEA.random}}
+  instead
 }
 \author{
   Mark Cowley
 }
 \seealso{
-  \code{\link{plot.CAT.vs.random}},
-  \code{\link{plot.CAT.GSEA}}
+  \code{\link{catplot.vs.random}},
+  \code{\link{catplot.GSEA}}
 }
 

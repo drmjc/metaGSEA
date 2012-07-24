@@ -1,8 +1,8 @@
-\name{plot.CAT.GSEA.random}
-\alias{plot.CAT.GSEA.random}
+\name{catplot.GSEA.random}
+\alias{catplot.GSEA.random}
 \title{Compare multiple GSEA runs via CAT plots & estimate the expected overlap due to random chance.}
 \usage{
-  plot.CAT.GSEA.random(..., labels = LETTERS, B = 100,
+  catplot.GSEA.random(..., labels = LETTERS, B = 100,
     sizes = NULL, sizes.random = sizes,
     random.col = "grey", ylim = c(0, 1), proportion = TRUE,
     pch = 1, legend.pos = "bottomright")
@@ -60,7 +60,7 @@
   Mark Cowley
 }
 \seealso{
-  \code{\link{plot.CAT.vs.random}},
-  \code{\link{plot.CAT.GSEA}}
+  \code{\link{catplot.vs.random}},
+  \code{\link{catplot.GSEA}}
 }
 

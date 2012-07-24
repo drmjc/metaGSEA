@@ -1,8 +1,8 @@
-\name{plot.CAT.GSEA.2way}
-\alias{plot.CAT.GSEA.2way}
+\name{catplot.GSEA.2way}
+\alias{catplot.GSEA.2way}
 \title{Plot a CAT plot upon 2 GSEA objects.}
 \usage{
-  plot.CAT.GSEA.2way(x, y, col = 1, proportion = FALSE,
+  catplot.GSEA.2way(x, y, col = 1, proportion = FALSE,
     add = FALSE, FDRthresh = 1.01, main = "")
 }
 \arguments{
@@ -33,7 +33,7 @@
 }
 \description{
   This is a helper function, you should probably consider
-  using \code{\link{plot.CAT.GSEA}}.
+  using \code{\link{catplot.GSEA}}.
 }
 \author{
   Mark Cowley, 2011-07-19

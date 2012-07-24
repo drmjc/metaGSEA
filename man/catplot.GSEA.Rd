@@ -1,8 +1,8 @@
-\name{plot.CAT.GSEA}
-\alias{plot.CAT.GSEA}
+\name{catplot.GSEA}
+\alias{catplot.GSEA}
 \title{Function to generate CAT plots for >= 2 GSEA comparisons}
 \usage{
-  plot.CAT.GSEA(..., gsea.list = NULL, labels = LETTERS,
+  catplot.GSEA(..., gsea.list = NULL, labels = LETTERS,
     legend.pos = "bottomright", proportion = FALSE,
     FDRthresh = 1.01, main = "",
     method = c("1-vs-all", "all-pairs"))
