@@ -15,7 +15,7 @@
 #' @author Mark Cowley, 2009-11-26
 #' @seealso \code{\link{import.gsea.gct}} \code{\link{import.gsea.clm}} \url{http://www.broadinstitute.org/cancer/software/genepattern/tutorial/gp_fileformats.html#cls}
 #' @export
-#' @importFrom mjcbase trim
+#' 
 import.gsea.cls <- function(file, as.factor=TRUE, enforce.zero.start=TRUE) {
 	raw <- readLines(file, warn=FALSE)
 	raw <- trim(raw)
