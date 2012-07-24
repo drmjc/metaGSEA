@@ -11,7 +11,7 @@
 \value{
   a \code{vector} or \code{data.frame} of number of gene
   sets passing various statistical thresholds See also:
-  \code{\link{gsea.compare.runs.plot.sh}}
+  \code{/path/to/metaGSEA/bin/gsea.compare.runs.plot.sh}
 }
 \description{
   Summarise a single GSEA result, or list of results in

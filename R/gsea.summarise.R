@@ -5,7 +5,7 @@
 #' 
 #' @param x either a GSEA object, or a list of GSEA objects.
 #' @return a \code{vector} or \code{data.frame} of number of gene sets passing various
-#'   statistical thresholds See also: \code{\link{gsea.compare.runs.plot.sh}}
+#'   statistical thresholds See also: \code{/path/to/metaGSEA/bin/gsea.compare.runs.plot.sh}
 #' @author Mark Cowley, 2009-03-23
 #' @export
 gsea.summarise <- function(x) {
