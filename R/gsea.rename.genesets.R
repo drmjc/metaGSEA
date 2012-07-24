@@ -64,7 +64,7 @@ gsea.rename.genesets <- function(x, prefix=NULL, suffix=NULL, fdr=FALSE, rank=FA
 	
 	if( any(nchar(tt$NAME) > maxlen) ) {
 		idx <- nchar(tt$NAME) > maxlen
-		tt$NAME[idx] <- paste(str.left(tt$NAME[idx], maxlen-3), "...", sep="")
+		tt$NAME[idx] <- paste(str_left(tt$NAME[idx], maxlen-3), "...", sep="")
 	}
 	
 	# V1: not flexible enough.
@@ -110,7 +110,7 @@ gsea.rename.genesets <- function(x, prefix=NULL, suffix=NULL, fdr=FALSE, rank=FA
 #'   XMLDocument.
 #' @author Mark Cowley, 2009-10-06
 #' @export
-#' @importFrom XML xmlTree xmlAttrs xmlSize
+#' @importFrom XML xmlTree xmlAttrs xmlSize xmlApply
 gsea.rename.genesets.edb <- function(edb, old.names, new.names) {
 
 	r <- xmlRoot(edb, skip=TRUE)
@@ -147,9 +147,12 @@ gsea.rename.genesets.edb <- function(edb, old.names, new.names) {
 }
 
 
-# Private function to get the edb GENESET names from within an edb object.
-#
-#
+#' Private function to get the edb GENESET names from within an edb object.
+#'
+#' @param edb the path to an edb file
+#' @return the edb names
+#' @noRd
+#' @importFrom XML xmlRoot xmlApply xmlAttrs
 .edb.names <- function(edb) {
 	r <- xmlRoot(edb, skip=TRUE)
 
