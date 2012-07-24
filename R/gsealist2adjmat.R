@@ -11,7 +11,7 @@
 #' @seealso \code{\link[mjcbase]{list2adjmat}} \code{\link{gsea2adjmat}}
 #' @author Mark Cowley, 2009-10-29
 #' @export
-#' @importFrom mjcbase list2adjmat
+#' 
 gsealist2adjmat <- function(x) {
 	x <- sapply(x, "[", "leading.edge")
 	names(x) <- sub(".leading.edge", "", names(x))
