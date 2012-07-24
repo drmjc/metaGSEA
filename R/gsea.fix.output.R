@@ -14,14 +14,12 @@
 #' 	      just the top N that had individual reports made\cr
 #' 	- Within the geneset reports, add a gene decscription into the appropriate column, by searching
 #' 	      within the chip file listed in the rpt file\cr
-#' 
-#' 
 #' GseaPreRanked only:\cr
 #' 	- Within \sQuote{index.html}, instead of naming the phenotypes na_pos and na_neg, call 
 #' them up- and down-regulated genesets\cr
 #' 	- within the individual geneset reports, add a heatmap (if a GCT file is provided)\cr
 #'
-#' Control over which elements are fixed:\cr
+#' @section Control over which elements are fixed:
 #' \code{fix.posneg}: fix the 2 html files that summarise the stats for the
 #'   up/down regulated genesets. This only makes sense for
 #'   GseaPreRanked output, but no harm in leaving it \code{TRUE} for gsea output.\cr
@@ -38,10 +36,11 @@
 #' If you ran GseaPreRanked, then you don't get any
 #'   heatmaps. Specifying a gct file via the \code{genes.gct} parameter will
 #'  make heatmaps for each of the individual geneset reports. 
-#' NB: the gct file should have one row per
-#'   gene symbol only, and the row name should be the gene symbol, NOT the probesetID
+#' NB: since GSEA results are at the gene-set leve, the gct file must also be at the gene-symbol level,
+#' ie, it should have one row per gene symbol, the row names should be gene symbols, NOT the probesetID.
+#' This means you'll need to collapse your probe-level GCT file to gene-level. see \code{\link{collapse.gct}}.
 #' TODO: allow a probe-level gct file which matches the probe-level rnk file & which 
-#' is generally easier to obtain a priori.
+#' is generally easier to obtain a priori. This would be easier with a GCT, ProbeLevelGCT, GeneLevelGCT objects.
 #' 
 #' @param dir see details
 #' @param genes.gct The path to a GCT file. see details.
@@ -54,7 +53,7 @@
 #' @return none. it just fixes gsea outputs in situ
 #' @author Mark Cowley, 2009-07-09
 #' @export
-#' @importFrom microarrays collapse.rows
+#' 
 gsea.fix.output <- function(dir, genes.gct=NULL, fix.index=TRUE, fix.posneg=TRUE, fix.reports=TRUE, debug=FALSE, overwrite.heatmap.images=FALSE, verbose=FALSE) {
 	stopifnot( file.exists(dir) )
 	if( debug ) verbose <- TRUE
@@ -186,7 +185,7 @@ gsea.fix.output.index.html <- function(index.html, debug=FALSE) {
 #' @return none. fixes html files.
 #' @seealso \code{\link{gsea.fix.output}}
 #' @export
-#' @importFrom mjcbase trim
+#' 
 gsea.fix.output.detailed.enrichment.results.html <- function(pos.html, neg.html, debug=FALSE) {
 
 	stopifnot( length(pos.html) == 1 && file.exists(pos.html) && grepl("html$", pos.html) )
@@ -243,7 +242,7 @@ gsea.fix.output.detailed.enrichment.results.html <- function(pos.html, neg.html,
 #' @author Mark Cowley
 #' @seealso \code{\link{gsea.fix.output}}
 #' @export
-#' @importFrom mjcbase trim
+#' 
 gsea.fix.output.geneset.report <- function(htmlfile, symbol2description, addHeatMap=TRUE, debug=FALSE) {
 	# cmd <- paste("perl -pi~ -e 's|>([^<]+)</a></td><td></td><td></td>|>$1</a></td><td>$1<br><a href=\"http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&db=gene&term=${1}[sym]%20AND%209606[taxid]\">Entrez</a>, &nbsp <a href=\"http://genome-www5.stanford.edu/cgi-bin/SMD/source/sourceResult?option=Name&choice=Gene&organism=Hs&criteria=${1}\">Source</a></td><td>${1} Description</td>|g'",
 	# shQuote(htmlfile))
