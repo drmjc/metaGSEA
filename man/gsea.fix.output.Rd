@@ -48,15 +48,13 @@
   just the top N that had individual reports made\cr -
   Within the geneset reports, add a gene decscription into
   the appropriate column, by searching within the chip file
-  listed in the rpt file\cr
-
-  GseaPreRanked only:\cr - Within \sQuote{index.html},
-  instead of naming the phenotypes na_pos and na_neg, call
-  them up- and down-regulated genesets\cr - within the
-  individual geneset reports, add a heatmap (if a GCT file
-  is provided)\cr
-
-  Control over which elements are fixed:\cr
+  listed in the rpt file\cr GseaPreRanked only:\cr - Within
+  \sQuote{index.html}, instead of naming the phenotypes
+  na_pos and na_neg, call them up- and down-regulated
+  genesets\cr - within the individual geneset reports, add
+  a heatmap (if a GCT file is provided)\cr
+}
+\section{Control over which elements are fixed}{
   \code{fix.posneg}: fix the 2 html files that summarise
   the stats for the up/down regulated genesets. This only
   makes sense for GseaPreRanked output, but no harm in
@@ -79,11 +77,16 @@
   If you ran GseaPreRanked, then you don't get any
   heatmaps. Specifying a gct file via the \code{genes.gct}
   parameter will make heatmaps for each of the individual
-  geneset reports. NB: the gct file should have one row per
-  gene symbol only, and the row name should be the gene
-  symbol, NOT the probesetID TODO: allow a probe-level gct
+  geneset reports. NB: since GSEA results are at the
+  gene-set leve, the gct file must also be at the
+  gene-symbol level, ie, it should have one row per gene
+  symbol, the row names should be gene symbols, NOT the
+  probesetID. This means you'll need to collapse your
+  probe-level GCT file to gene-level. see
+  \code{\link{collapse.gct}}. TODO: allow a probe-level gct
   file which matches the probe-level rnk file & which is
-  generally easier to obtain a priori.
+  generally easier to obtain a priori. This would be easier
+  with a GCT, ProbeLevelGCT, GeneLevelGCT objects.
 }
 \author{
   Mark Cowley, 2009-07-09
