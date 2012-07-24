@@ -39,8 +39,8 @@ for( i in 1:length(gseacmp) ) {
 	if( nrow(tmp) == 0 )
 		next
 	else
-		# plot.gseacmp.barplot(tmp, NULL, 0.05, do.par=TRUE, sub=names(gseacmp)[i])
-		plot.gseacmp.barplot(tmp, fdr.thresh=0.05, do.par=TRUE, sub=names(gseacmp)[i])
+		# plot_gseacmp.barplot(tmp, NULL, 0.05, do.par=TRUE, sub=names(gseacmp)[i])
+		plot_gseacmp.barplot(tmp, fdr.thresh=0.05, do.par=TRUE, sub=names(gseacmp)[i])
 }
 dev.off()
 EOF

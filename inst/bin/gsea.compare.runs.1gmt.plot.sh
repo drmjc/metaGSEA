@@ -3,7 +3,7 @@
 # generate a PDF plot of all NES scores with FDR < 5%
 #
 # This uses the default settings provided in the gsea.utils.R file,
-# specifically, the plot.gseacmp.barplot function
+# specifically, the plot_gseacmp.barplot function
 #
 # Mark Cowley, 2009-03-23
 #
@@ -47,8 +47,8 @@ for( i in 1:length(gseacmp) ) {
 	if( nrow(tmp) == 0 )
 		next
 	else
-		# plot.gseacmp.barplot(tmp, rows=NULL, fdr.thresh=0.05, do.par=TRUE, sub=names(gseacmp)[i])
-		plot.gseacmp.barplot(tmp, fdr.thresh=0.05, do.par=TRUE, sub=names(gseacmp)[i])
+		# plot_gseacmp.barplot(tmp, rows=NULL, fdr.thresh=0.05, do.par=TRUE, sub=names(gseacmp)[i])
+		plot_gseacmp.barplot(tmp, fdr.thresh=0.05, do.par=TRUE, sub=names(gseacmp)[i])
 }
 dev.off()
 }) # end try
