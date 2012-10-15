@@ -82,10 +82,7 @@ import.gsea.rpt <- function(x) {
 		}
 
 		# the outdir may be on the computation server. this should become the dir where the results are now.
-		if( !file.exists(rpt$out) )
-			rpt$out <- path
-		else
-			rpt$out <- path.expand(rpt$out)
+		rpt$out <- path
 
 		# the file is the index.html file which should be where the results are now.
 		if( !file.exists(rpt$file) )
@@ -115,3 +112,5 @@ import.gsea.rpt <- function(x) {
 	}
 	else( stop("Must specify either the rpt file itself, or the dir containing index.html.\n") )
 }
+# CHANGELOG
+# 2012-10-15: fixed a v nasty bug; now I override rpt$out EVERY time to update the dir where the data is currently
