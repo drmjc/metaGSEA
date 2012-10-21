@@ -74,8 +74,8 @@ export.broad.res <- function(data, calls, description=NULL, file, missing="", un
 #' @param file the output filename
 #' @return none.
 #' @author Mark Cowley
-#' @export
 #' @importFrom Biobase exprs
+#' @noRd
 affy.pivot.table <- function(exp, calls, file=NULL) {
 	if( !is.matrix.like(exp) ) exp <- exprs(exp)
 	if( !is.matrix.like(calls) ) calls <- exprs(calls)
