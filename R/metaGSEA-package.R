@@ -90,6 +90,4 @@
 #' @references \url{http://www.broadinstitute.org/gsea}
 #' @keywords package
 #'
-#' @import methods
-#' @import microarrays
 NULL
