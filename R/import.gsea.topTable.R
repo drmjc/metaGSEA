@@ -72,6 +72,14 @@ import.gsea.topTable <- function(dir, sort.by=c("NES", "absNES", "FDR", "P", "SI
 	
 }
 
+#' sort a GSEA topTable
+#'
+#' @param tt a GSEA topTable
+#' @param sort.by one of c("NES", "absNES", "FDR", "P", "SIZE"), controlling how to sort the
+#'  top table.
+#' @return a sorted GSEA topTable
+#' @author Mark Cowley, 2012-10-12
+#' @export
 gsea.topTable.sort <- function(tt, sort.by=c("NES", "absNES", "FDR", "P", "SIZE")) {
 	sort.by <- sort.by[1]
 	if( sort.by == "NES" )
