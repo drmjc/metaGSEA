@@ -38,7 +38,7 @@ plot_gsea.leadingedge.barplot <- function(x, min.count=0,
 	}
 	
 	if( length(counts) == 0 ) {
-		plot.blank(main=main, box=TRUE, message="**** too few genes pass filters ****")
+		plot_blank(main=main, box=TRUE, message="**** too few genes pass filters ****")
 	}
 	else {
 		opar <- par(no.readonly=TRUE)
@@ -136,7 +136,7 @@ plot_gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 					}
 				}
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 		# FDR
@@ -153,7 +153,7 @@ plot_gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 					}
 				}
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 		# P
@@ -170,7 +170,7 @@ plot_gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 					}
 				}
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 		# FWER
@@ -187,7 +187,7 @@ plot_gsea.leadingedge.barplot.auto <- function(x, file=NULL,
 					}
 				}
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 	}

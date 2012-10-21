@@ -72,7 +72,7 @@ plot_gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				if( length(tmp$leading.edge) >0 )
 					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 		# FDR
@@ -83,7 +83,7 @@ plot_gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				if( length(tmp$leading.edge) >0 )
 					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 		# P
@@ -94,7 +94,7 @@ plot_gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				if( length(tmp$leading.edge) >0 )
 					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 		# FWER
@@ -105,7 +105,7 @@ plot_gsea.leadingedge.heatmap.auto <- function(x, file=NULL,
 				if( length(tmp$leading.edge) >0 )
 					plot_gsea.leadingedge.heatmap(tmp, main=tmp.main)
 				else
-					plot.blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
+					plot_blank(main=tmp.main, box=TRUE, message="**** too few genesets pass thresholds ****")
 			}
 		}
 	}

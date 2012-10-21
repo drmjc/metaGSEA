@@ -111,7 +111,7 @@ plot_gsea.leadingedge.HCL <- function(x,
 	# make sure there's enough genesets to do an HCL on...
 	#
 	if( length(genesets) <= 2 ) {
-		plot.blank(main=main, sub=sub, box=TRUE, message="**** too few genesets pass thresholds ****")
+		plot_blank(main=main, sub=sub, box=TRUE, message="**** too few genesets pass thresholds ****")
 		return(FALSE)
 	}
 
@@ -193,7 +193,7 @@ plot_gsea.leadingedge.HCL.1clusterPerPage <- function(x,
 	
 	for(i in sort(unique(ct))) {
 		if( sum(ct==i) <= 3 ) {
-			# plot.blank(main=paste("too few genesets in cluster", i))
+			# plot_blank(main=paste("too few genesets in cluster", i))
 			next
 		}
 		else {
