@@ -30,7 +30,7 @@
 #' @return nothing. writes an ODF file.
 #' @export
 #' @author Mark Cowley, 2011-07-19
-#' @importFrom mjcstats qvalue2
+#' @importFrom mjcstats qvalue2 is.infinite.data.frame
 #' @importFrom microarrays calc.best.probe.topTable
 export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 	gct.file, cls.file, description, collapse=FALSE, probe2gene=NULL) {
@@ -131,8 +131,28 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 		if( any(is.na(errors)) ) { # this can happen if there was a 1vs1 analysis for instance.
 			errors[is.na(errors)] <- 0
 		}
-		tt$"class0 Std"  <- errors[o, class0]
-		tt$"class1 Std" <- rep(0, nrow(tt))
+		tt$"class0 Std" <- rep(0, nrow(tt))
+		tt$"class1 Std"  <- errors[o, class0]
+	}
+	else if( all(fit2$contrasts[, coef] %in% c(0,-1)) ) {
+		# then there was no comparison of classes -- probably because the model matrix was a unity vector of -1's, and thus the contrast matrix is the same value as the coefficient (ie no comparison of 2 classes was made.)
+		class0 <- "Baseline"
+		class1 <- rownames(fit2$contrasts)[which(fit2$contrasts[, coef] == -1)]
+		
+		if( ! all(c(class1) %in% colnames(fit1$coefficients)) )
+			stop("The names of the coefficients do not match the names of the contrasts.\n")
+
+		o <- match(tt$ID, fit2$genes[,1])
+		tt$"class0 Mean" <- rep(0, nrow(tt))
+		tt$"class1 Mean" <- fit1$coefficients[o, class1]
+
+		errors <- fit1$stdev.unscaled * sqrt(fit2$s2.post)
+		
+		if( any(is.na(errors)) ) { # this can happen if there was a 1vs1 analysis for instance.
+			errors[is.na(errors)] <- 0
+		}
+		tt$"class0 Std" <- rep(0, nrow(tt))
+		tt$"class1 Std"  <- errors[o, class1]
 	}
 	else if( all(fit2$contrasts[, coef] %in% c(-1,0,1)) ) {
 		class0 <- rownames(fit2$contrasts)[which(fit2$contrasts[, coef] == 1)]
@@ -218,8 +238,8 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 	)
 	
 	# are any values Infinite?
-	idx <- is.infinite(res)
-	if( sum(idx) > 0 ) {
+	idx <- as.matrix(is.infinite(res))
+	if( sum(idx, na.rm=TRUE) > 0 ) {
 		cat("Warning, infinite values were created. Did you use unlogged data with Limma?\n")
 		res[idx] <- 2^31
 	}
@@ -237,7 +257,10 @@ export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 # 2011-11-03: try to improve on class0, class1 labels when using each-vs-rest in GenePattern.
 # - for 3 groups, the contrasts look like this: [[c(1,-0.5,-0.5), c(-0.5,1,-0.5), c(-0.5,-0.5,1)]]
 # ... ie always a '1' and the rest are all negative and identical.
+# 2012-10-20: added check for if coefficients are all %in% c(0,-1)
 
+
+# 
 # export.gsea.odf.topTable <- function(tt, fit, coef,
 # 	file,
 # 	gct.file, cls.file, chip.file, 
