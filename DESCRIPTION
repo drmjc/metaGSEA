@@ -22,29 +22,29 @@ Description: A collection of R and bash code to simplify
     hyperlinks to Entrez Gene. This has evolved into a suite
     of code for importing/exporting/subsetting many of the
     GenePattern file types (GCT, CLS, CLM, CHIP, RES, ODF)
-Version: 1.1.1
-Date: 2012-07-24
+Version: 1.1.2
+Date: 2012-10-21
 Depends:
     R (>= 2.12.0),
     excelIO,
     mjcbase,
-    mjcgraphics
+    mjcgraphics,
+    methods
 Imports:
+    Biobase,
     GSEABase,
     XML,
     gplots,
-    methods,
     microarrays,
     mjcstats,
     stringr
 Suggests:
-    microarrays,
     GenePattern,
     limma,
     gplots,
     gtools,
-    MADAM,
-    R.matlab
+    R.matlab,
+    qvalue
 Collate:
     'chip2description.R'
     'collapse.gct.R'
@@ -65,10 +65,8 @@ Collate:
     'export.gsea.odf.R'
     'export.gsea.R'
     'export.gsea.rnk.R'
-    'export.gsea.rnk.RankProd.R'
     'export.gsea.rnk.topTable.R'
     'export.gsea.rpt.R'
-    'fisherMethod.GSEAlist.R'
     'genepattern.HeatMapImage.R'
     'gsea.combine.R'
     'gsea.compare.runs.filter.R'
