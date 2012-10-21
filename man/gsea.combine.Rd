@@ -30,6 +30,10 @@
   result size manageble, and since filtering on this
   combined list may fail.
 }
+\section{TODO}{
+  delete the gsea.runs param; users can just use
+  \code{call("gsea.combine", my.gsea.list)}
+}
 \author{
   Mark Cowley, 2010-08-16
 }

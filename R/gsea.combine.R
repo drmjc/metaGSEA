@@ -9,6 +9,9 @@
 #' size manageble, and since filtering on this combined 
 #' list may fail.
 #' 
+#' @section TODO:
+#'  delete the gsea.runs param; users can just use \code{call("gsea.combine", my.gsea.list)}
+#'
 #' @param \dots at least 2 individual GSEA objects, or
 #' @param gsea.runs a list of GSEA objects. This overrides \dots
 #' @param verbose logical.
@@ -21,7 +24,7 @@
 #' @export
 gsea.combine <- function(..., gsea.runs, verbose=TRUE) {
 	if( missing(gsea.runs) )
-		gsea.runs <- as.list(...)
+		gsea.runs <- list(...)
 
 	if( length(gsea.runs) < 2 ) {
 		stop("You must combine more than one GSEA run together. If you already have a list of GSEA runs, specify the gsea.runs arg, otherwise, provide each individual GSEA object.\n")
@@ -40,3 +43,5 @@ gsea.combine <- function(..., gsea.runs, verbose=TRUE) {
 	
 	res
 }
+# CHANGELOG
+# 2012-10-20: changed 'as.list(...)' to 'list(...)'
