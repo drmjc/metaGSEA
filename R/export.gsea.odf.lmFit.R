@@ -30,7 +30,6 @@
 #' @return nothing. writes an ODF file.
 #' @export
 #' @author Mark Cowley, 2011-07-19
-#' @importFrom mjcstats qvalue2 is.infinite.data.frame
 #' @importFrom microarrays calc.best.probe.topTable
 export.gsea.odf.lmFit <- function(fit1, fit2, coef=1, file,
 	gct.file, cls.file, description, collapse=FALSE, probe2gene=NULL) {
