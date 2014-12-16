@@ -74,7 +74,7 @@ genepattern.HeatMapImage <- function(in.file, out.file=NULL,
 
 	
 	if( method == "local" ) {
-		jar <- file.path(.path.package('metaGSEA'), 'bin', 'heatmapimage-o.jar')
+		jar <- file.path(path.package('metaGSEA'), 'bin', 'heatmapimage-o.jar')
 		stopifnot( file.exists(jar) )
 
 		# tmp.in <- mktemp()

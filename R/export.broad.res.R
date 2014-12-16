@@ -22,7 +22,7 @@
 #' @export
 export.broad.res <- function(data, calls, description=NULL, file, missing="", unlog2=TRUE) {
 	if( is.null(description) ) {
-		description <- rownames(data)
+		description <- rep("", nrow(data))
 		names(description) <- rownames(data) # this avoids the warning in next section
 	}
 
@@ -66,19 +66,19 @@ export.broad.res <- function(data, calls, description=NULL, file, missing="", un
 	write.delim(res, OUT, row.names=FALSE, col.names=FALSE, na=missing)
 	close(OUT)
 }
+# CHANGELOG:
+# 2013-01-17: default description is now ""
 
 #' merge expression and calls together
 #' 
 #' @param exp a \code{matrix}-like object of expression levels
 #' @param calls a \code{matrix}-like object of detection calls (P/M/A)
-#' @param file the output filename
 #' @return none.
 #' @author Mark Cowley
-#' @importFrom Biobase exprs
-#' @noRd
-affy.pivot.table <- function(exp, calls, file=NULL) {
-	if( !is.matrix.like(exp) ) exp <- exprs(exp)
-	if( !is.matrix.like(calls) ) calls <- exprs(calls)
+#' @export
+affy.pivot.table <- function(exp, calls) {
+	# if( !is.matrix.like(exp) ) exp <- exprs(exp)
+	# if( !is.matrix.like(calls) ) calls <- exprs(calls)
 	exp <- round(exp,4)
 	
     res <- interleave.columns(exp, calls)
@@ -86,9 +86,9 @@ affy.pivot.table <- function(exp, calls, file=NULL) {
     tmp2 <- rep(c("_Signal", "_Detection"), ncol(exp))
     colnames(res) <- paste(colnames(res), tmp2, sep="")
 
-    if( !is.null(file) ) {
-		write.delim(res, file, row.names=TRUE)
-	}
-
     invisible(res)
 }
+# CHANGELOG:
+# 2013-01-16: 
+# - dropped calls to exprs
+# - dropped file argument

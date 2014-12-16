@@ -11,6 +11,7 @@
 #' @return a data.frame of \dQuote{geneset}, \dQuote{size}, \dQuote{NES}, \dQuote{FDR}, \dQuote{NES}, \dQuote{FDR}, \dots
 #' @author Mark Cowley, 2009-12-16
 #' @export
+#' @importFrom mjcbase collate
 gsea.compare.runs.1gmt <- function(dirs, gsealist, outfile, method=c("intersect", "union")[1]) {
 	if( !missing(gsealist) ) {
 		gsea <- gsealist
@@ -37,7 +38,7 @@ gsea.compare.runs.1gmt <- function(dirs, gsealist, outfile, method=c("intersect"
 	colnames(NES)[3:ncol(NES)] <- paste("NES.", colnames(NES)[3:ncol(NES)], sep="")
 	colnames(FDR)[3:ncol(FDR)] <- paste("FDR.", colnames(FDR)[3:ncol(FDR)], sep="")
 
-	res <- collate.data.frame(NES, FDR)
+	res <- collate(NES, FDR)
 	res <- res[,-c(2,4)]
 
 	# reorder the rows by decreasing average NES
