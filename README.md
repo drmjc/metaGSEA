@@ -43,6 +43,7 @@ Installation
     install_github("mjcgraphics", "drmjc")
     install_github("microarrays", "drmjc")
     install_github("mjcstats", "drmjc")
+    install_github("mjcstats", "genomics")
 
 Usage
 =====
